@@ -14,6 +14,9 @@ public class Controls : MonoBehaviour {
 	public float acceleration;
 	public float friction;
 
+	//You probably want to move all this somewhere else.
+	//Would be nice if acceleration & friction were
+	//set according to the type.
 	public CharType Type;
 
 	Rigidbody rigidbody;
