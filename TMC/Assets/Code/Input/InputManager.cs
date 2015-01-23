@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine;
 
-public class InputManager
+public class InputManager : MonoBehaviour
 {
 	int nOfPlayers = 4;
 
@@ -12,7 +13,7 @@ public class InputManager
 	 * if it's meant to be controlling physics.
 	 * 
 	 */
-	private void FixedUpdate()
+	void FixedUpdate()
 	{
 		for(int p = 0; p < nOfPlayers; p++)
 		{
@@ -39,7 +40,7 @@ public class InputManager
 		{
 			//perform action
 			int readablePlayerNumber = joyNumber + 1;
-			//Debug.Log("Player " + readablePlayerNumber + " is tilting the left stick horizontally by " + GetAxisValue(joyNumber, AxesMapping.LEFT_X_AXIS));
+			Debug.Log("Player " + readablePlayerNumber + " is tilting the left stick horizontally by " + GetAxisValue(joyNumber, AxesMapping.LEFT_X_AXIS));
 		}
 
 		//Example of how to retrieve a button
