@@ -7,4 +7,9 @@ public static class _GameObjectE {
         var c = gameObject.AddComponent<DeactivateAfter>();
         c.TimeToDeactivate = time;
     }
+
+    public static void DestroyAfter(this GameObject gameObject, float time) {
+        var c = gameObject.AddComponent<DestroyAfter>();
+        c.TimeToDestroy = time;
+    }
 }

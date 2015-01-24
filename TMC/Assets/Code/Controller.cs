@@ -27,6 +27,7 @@ public class Controller : JournalObject {
 
     public float BeamChargeTime = 1f;
     private float beamChargeTimer = 0f;
+    public float BeamStayTime = 1f;
 
     public int Order = 0;
 
@@ -80,13 +81,17 @@ public class Controller : JournalObject {
 
                             break;
                         case CharacterType.Mage:
-                            var beam = Instantiate( Globals._.PREFAB_BEAM, transform.position, Globals._.PREFAB_BEAM.transform.rotation ) as GameObject;
-                            
-                            beam.GetComponent<AttackInfo>().Owner = this.gameObject;
-                
+                            beam = Instantiate( Globals._.PREFAB_BEAM, transform.position, Globals._.PREFAB_BEAM.transform.rotation ) as GameObject;
                             beam.transform.rotation = transform.rotation;
+                            beam.transform.Rotate( Vector3.right, -90 );
+                            beam.AddComponent<AttackInfo>().Owner = this.gameObject;
 
-                            beam.transform.position += -transform.up * beam.transform.localScale.y / 2;                            
+                            beam.transform.position += -transform.up * beam.transform.localScale.y / 2;
+                            Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Beam );
+                            beam.transform.localScale = new Vector3( 5, 25, 50 );
+                            iTween.ScaleTo( beam, new Vector3( 12.5f, 25, 50 ), 0.2f );
+                            beam.DestroyAfter( BeamStayTime );                        
+                            beam.transform.position = new Vector3( beam.transform.position.x, beam.transform.position.y, -0.15f );
 
                             Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Beam );
 
@@ -178,10 +183,15 @@ public class Controller : JournalObject {
                     case CharacterType.Mage:
                         beam = Instantiate( Globals._.PREFAB_BEAM, transform.position, Globals._.PREFAB_BEAM.transform.rotation ) as GameObject;
                         beam.transform.rotation = transform.rotation;
-                        beam.GetComponent<AttackInfo>().Owner = this.gameObject;
+                        beam.transform.Rotate( Vector3.right, -90 );
+                        beam.AddComponent<AttackInfo>().Owner = this.gameObject;
 
                         beam.transform.position += -transform.up * beam.transform.localScale.y / 2;
                         Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Beam );
+                        beam.transform.position = new Vector3( beam.transform.position.x, beam.transform.position.y, -0.15f );
+                        beam.transform.localScale = new Vector3( 5 , 25, 50 );
+                        iTween.ScaleTo( beam, new Vector3( 12.5f, 25, 50 ), 0.2f );
+                        beam.DestroyAfter( BeamStayTime );
 
                         beam.SetActive(false);
 
