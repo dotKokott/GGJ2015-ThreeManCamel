@@ -1,0 +1,256 @@
+fileFormatVersion: 2
+guid: 0245b18607b114274ad97f497cf046d2
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: baseCircle
+    100002: baseCircle1
+    100004: baseCircle2
+    100006: baseCircle3
+    100008: baseCorner
+    100010: baseCorner 1
+    100012: baseCorner 2
+    100014: baseCorner 3
+    100016: basePath
+    100018: basePath1
+    100020: basePath2
+    100022: basePath3
+    100024: basePath4
+    100026: basePath5
+    100028: baseWall_1
+    100030: baseWall_1 1
+    100032: baseWall_1 2
+    100034: baseWall_1 3
+    100036: baseWall_2
+    100038: baseWall_2 1
+    100040: baseWall_2 2
+    100042: baseWall_2 3
+    100044: circle
+    100046: corner1
+    100048: corner1 1
+    100050: corner2
+    100052: corner3
+    100054: corner4
+    100056: corner5
+    100058: corner6
+    100060: corner7
+    100062: corner_walls
+    100064: corners
+    100066: //RootNode
+    100068: gate
+    100070: gateBase
+    100072: gateBase1
+    100074: gateBase2
+    100076: gateBase3
+    100078: path
+    100080: pizza
+    100082: polySurface1
+    100084: polySurface2
+    100086: polySurface3
+    100088: polySurface4
+    400000: baseCircle
+    400002: baseCircle1
+    400004: baseCircle2
+    400006: baseCircle3
+    400008: baseCorner
+    400010: baseCorner 1
+    400012: baseCorner 2
+    400014: baseCorner 3
+    400016: basePath
+    400018: basePath1
+    400020: basePath2
+    400022: basePath3
+    400024: basePath4
+    400026: basePath5
+    400028: baseWall_1
+    400030: baseWall_1 1
+    400032: baseWall_1 2
+    400034: baseWall_1 3
+    400036: baseWall_2
+    400038: baseWall_2 1
+    400040: baseWall_2 2
+    400042: baseWall_2 3
+    400044: circle
+    400046: corner1
+    400048: corner1 1
+    400050: corner2
+    400052: corner3
+    400054: corner4
+    400056: corner5
+    400058: corner6
+    400060: corner7
+    400062: corner_walls
+    400064: corners
+    400066: //RootNode
+    400068: gate
+    400070: gateBase
+    400072: gateBase1
+    400074: gateBase2
+    400076: gateBase3
+    400078: path
+    400080: pizza
+    400082: polySurface1
+    400084: polySurface2
+    400086: polySurface3
+    400088: polySurface4
+    2300000: baseCircle
+    2300002: baseCircle1
+    2300004: baseCircle2
+    2300006: baseCircle3
+    2300008: baseCorner
+    2300010: baseCorner 1
+    2300012: baseCorner 2
+    2300014: baseCorner 3
+    2300016: basePath
+    2300018: basePath1
+    2300020: basePath2
+    2300022: basePath3
+    2300024: basePath4
+    2300026: basePath5
+    2300028: baseWall_1
+    2300030: baseWall_1 1
+    2300032: baseWall_1 2
+    2300034: baseWall_1 3
+    2300036: baseWall_2
+    2300038: baseWall_2 1
+    2300040: baseWall_2 2
+    2300042: baseWall_2 3
+    2300044: corner1 1
+    2300046: corner5
+    2300048: corner6
+    2300050: corner7
+    2300052: gateBase
+    2300054: gateBase1
+    2300056: gateBase2
+    2300058: gateBase3
+    2300060: polySurface1
+    2300062: polySurface2
+    2300064: polySurface3
+    2300066: polySurface4
+    3300000: baseCircle
+    3300002: baseCircle1
+    3300004: baseCircle2
+    3300006: baseCircle3
+    3300008: baseCorner
+    3300010: baseCorner 1
+    3300012: baseCorner 2
+    3300014: baseCorner 3
+    3300016: basePath
+    3300018: basePath1
+    3300020: basePath2
+    3300022: basePath3
+    3300024: basePath4
+    3300026: basePath5
+    3300028: baseWall_1
+    3300030: baseWall_1 1
+    3300032: baseWall_1 2
+    3300034: baseWall_1 3
+    3300036: baseWall_2
+    3300038: baseWall_2 1
+    3300040: baseWall_2 2
+    3300042: baseWall_2 3
+    3300044: corner1 1
+    3300046: corner5
+    3300048: corner6
+    3300050: corner7
+    3300052: gateBase
+    3300054: gateBase1
+    3300056: gateBase2
+    3300058: gateBase3
+    3300060: polySurface1
+    3300062: polySurface2
+    3300064: polySurface3
+    3300066: polySurface4
+    4300000: gateBase
+    4300002: gateBase1
+    4300004: gateBase2
+    4300006: gateBase3
+    4300008: baseCircle
+    4300010: baseCircle1
+    4300012: baseCircle2
+    4300014: baseCircle3
+    4300016: basePath
+    4300018: basePath1
+    4300020: basePath2
+    4300022: basePath3
+    4300024: basePath4
+    4300026: basePath5
+    4300028: polySurface1
+    4300030: polySurface2
+    4300032: polySurface3
+    4300034: polySurface4
+    4300036: baseCorner
+    4300038: baseWall_1
+    4300040: baseWall_2
+    4300042: baseCorner
+    4300044: baseWall_1
+    4300046: baseWall_2
+    4300048: baseCorner
+    4300050: baseWall_1
+    4300052: baseWall_2
+    4300054: baseCorner
+    4300056: baseWall_1
+    4300058: baseWall_2
+    4300060: corner1
+    4300062: corner5
+    4300064: corner6
+    4300066: corner7
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    pivotNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
