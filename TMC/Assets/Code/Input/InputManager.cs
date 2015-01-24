@@ -40,6 +40,7 @@ public class InputManager : MonoBehaviour
 		{
 			//perform action
 			int readablePlayerNumber = joyNumber + 1;
+
 			Debug.Log("Player " + readablePlayerNumber + " is tilting the left stick horizontally by " + GetAxisValue(joyNumber, AxesMapping.LEFT_X_AXIS));
 		}
 
