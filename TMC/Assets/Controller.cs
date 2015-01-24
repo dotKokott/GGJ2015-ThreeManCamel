@@ -104,6 +104,8 @@ public class Controller : JournalObject {
         if (other.gameObject == beam) return;
 
         if (other.gameObject.tag == "Attack") {
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(Globals._.SOUND_Explosion);
+            
             Destroy(this.gameObject);
         }
     }
