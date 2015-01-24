@@ -28,10 +28,7 @@ public class Journal : MonoBehaviour {
         public Vector3 Position;
         public Quaternion Rotation;
         public bool IsAlive;
-
-        public bool PrimaryAttack;
-        public bool SecondaryAttack;
-        public bool ThirdiraryAttack;
+        public bool Attacked;
     }
 
     [HideInInspector]
@@ -41,6 +38,9 @@ public class Journal : MonoBehaviour {
     private int frameIndex = 0;
 
     private JournalObject jObject;
+
+    public event EventHandler OnStartRecording;
+    public event EventHandler OnStartPlaying;
 
     public event EventHandler OnPlayFinished;
     public event EventHandler OnRewindFinished;
@@ -62,9 +62,10 @@ public class Journal : MonoBehaviour {
             f.Position = jObject.transform.position;
             f.Rotation = jObject.transform.rotation;
             f.IsAlive = jObject.IsAlive;
-            f.PrimaryAttack = InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_A );
-            f.SecondaryAttack = InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_X );
-            f.ThirdiraryAttack = InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_B );
+            f.Attacked = jObject.Attacked;
+            if ( f.Attacked ) {
+                jObject.Attacked = false;
+            }
 
             frames.Add( f );
         } else if ( Mode == JournalMode.Playing ) {
@@ -121,6 +122,10 @@ public class Journal : MonoBehaviour {
     public void Record( bool clear = true ) {
         Mode = JournalMode.Recording;
         frames = new List<Frame>();
+
+        if ( OnStartRecording != null ) {
+            OnStartRecording.Invoke( this, new EventArgs() );
+        }
     }
 
     public void Play( bool reversed = false ) {
@@ -129,8 +134,13 @@ public class Journal : MonoBehaviour {
                 "time", Timeline.TTime / 2,
                 "onupdate", "reverseUpdate", "easetype", iTween.EaseType.easeInOutExpo ) );
         }
+
         Mode = reversed ? JournalMode.Reversing : JournalMode.Playing;
         frameIndex = reversed ? frames.Count - 1 : 0;
+
+        if ( OnStartPlaying != null ) {
+            OnStartPlaying.Invoke( this, new EventArgs() );
+        }
     }
 
     private void reverseUpdate( float v ) {

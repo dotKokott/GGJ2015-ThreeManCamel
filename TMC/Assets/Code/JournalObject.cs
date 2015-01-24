@@ -6,6 +6,8 @@ public class JournalObject : MonoBehaviour {
 
     protected Renderer renderer;
 
+    public bool Attacked = false;
+
     private bool isAlive = true;
     public bool IsAlive {
         get {

@@ -46,11 +46,11 @@ public class Boss : MonoBehaviour {
     IEnumerator Routine() {
         yield return new WaitForSeconds(2f);
 
-        Globals._.BOSS_Beams.SetActive(true);
+        //Globals._.BOSS_Beams.SetActive(true);
 
         yield return new WaitForSeconds(1f);
 
-        Globals._.BOSS_Beams.SetActive(false);
+        //Globals._.BOSS_Beams.SetActive(false);
 
         yield return new WaitForSeconds(1f);
 
