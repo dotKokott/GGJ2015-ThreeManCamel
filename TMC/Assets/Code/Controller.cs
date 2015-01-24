@@ -44,7 +44,7 @@ public class Controller : JournalObject {
 
             attackLimit = originalAttackLimit;
             if (attackLimit > 0) {
-                if ( e.Frame.PrimaryAttack ) {
+                if ( e.Frame.Attacked ) {
                     Debug.Log("Firing a");
 
                     switch (Type) {
@@ -121,7 +121,8 @@ public class Controller : JournalObject {
             }              
 
             if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_A )) {
-                Debug.Log("SHOOOT");
+                Attacked = true;
+
                 switch (Type) {
                     case CharacterType.Tank:
                         var smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
@@ -155,16 +156,6 @@ public class Controller : JournalObject {
 
 
                 attackLimit--;
-            }
-
-            if (InputManager.GetButtonDown(0, ButtonMapping.BUTTON_X)) {
-                //fireball = Instantiate( Globals._.PREFAB_FIREBALL, transform.position, Globals._.PREFAB_FIREBALL.transform.rotation ) as GameObject;
-                //var fire = fireball.GetComponent<Fireball>();
-                //fireball.GetComponent<AttackInfo>().Owner = this.gameObject;
-
-                //fire.Direction = direction;
-                //Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Fireball );
-                //attackLimit--;
             }
         }
     }

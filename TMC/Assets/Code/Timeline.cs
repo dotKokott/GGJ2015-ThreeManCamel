@@ -17,13 +17,11 @@ public class Timeline : MonoBehaviour {
     private GameObject tlBar;
     private bool isRewinding;
 
-    void Awake() {
-        TTime = TurnTime;
-        MSTime = MarkerSpawnTime;
-    }
-
     // Use this for initialization
     void Start() {
+        Globals._.TIME_MARKER_SPAWN = MarkerSpawnTime;
+        Globals._.TIME_TURN = TurnTime;
+
         tlStart = GameObject.Find( "TL_Start" );
         tlEnd = GameObject.Find( "TL_End" );
         tlBar = GameObject.Find( "TL_Bar" );
@@ -34,7 +32,6 @@ public class Timeline : MonoBehaviour {
         foreach ( var item in players ) {
             item.GetComponent<Journal>().OnRewindFinished += J_OnRewindFinished;
         }
-
     }
 
     // Update is called once per frame
@@ -46,16 +43,10 @@ public class Timeline : MonoBehaviour {
 
 
     IEnumerator RecordObject() {
-        //var go = GameObject.FindGameObjectsWithTag( "TimelineMarker" );
-        //foreach ( var item in go ) {
-        //    Destroy( item );
-        //}
-
         tlBar.transform.position = tlStart.transform.position;
 
         iTween.MoveTo( tlBar.gameObject, iTween.Hash( "position", tlEnd.transform.position, "time", TurnTime, "easetype", iTween.EaseType.linear ) );
         isRewinding = false;
-        //StartCoroutine( PutMarker() );
 
         var p = players[index];
         var j = p.GetComponent<Journal>();
