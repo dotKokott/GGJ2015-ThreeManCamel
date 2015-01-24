@@ -4,6 +4,7 @@ using System.Collections;
 public class Timeline : MonoBehaviour {
 
     private GameObject[] players;
+    private GameObject boss;
     private int index = 0;
 
     public float TurnTime = 7f;
@@ -26,10 +27,12 @@ public class Timeline : MonoBehaviour {
         
         tlBar.transform.position = tlStart.transform.position;
 
+        //SUPER DIRTY
         var _players = GameObject.FindGameObjectsWithTag( "Player" );
         players = GameObject.FindGameObjectsWithTag("Player");
-        //SUPER DIRTY
 
+        boss = GameObject.Find("Boss");
+        boss.GetComponent<Journal>().OnRewindFinished += Boss_OnRewindFinished;
 
         foreach (var item in _players) {
             var order = item.GetComponent<Controller>().Order;
@@ -44,37 +47,58 @@ public class Timeline : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if ( Input.GetKeyDown( KeyCode.O ) || InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_Y ) ) {
-            StartCoroutine( RecordObject() );
+            StartCoroutine( RecordBoss() );
         }
     }
 
+    private void MoveTimelineForward() {
+        tlBar.transform.position = tlStart.transform.position;
+        iTween.MoveTo(tlBar, iTween.Hash("position", tlEnd.transform.position, "time", TurnTime, "easetype", iTween.EaseType.linear));
+    }
+
+    private void MoveTimelineBack() {
+        iTween.Stop(tlBar);
+        iTween.MoveTo(tlBar, iTween.Hash("position", tlStart.transform.position, "time", TurnTime / 2, "easetype", iTween.EaseType.easeInOutExpo));
+    }
+
+    IEnumerator RecordBoss() {
+        MoveTimelineForward();
+        var j = boss.GetComponent<Journal>();
+
+        isRewinding = false;
+        StartCoroutine(PutMarker());
+
+        var music = GameObject.Find("Music").GetComponent<AudioSource>();
+        music.clip = Globals._.MUSIC_Boss;
+        music.Play();
+
+        j.Record();
+        yield return new WaitForSeconds(TurnTime);
+
+        isRewinding = true;
+        music.clip = Globals._.MUSIC_Reverse;
+        music.Play();
+        j.Play(true);
+        MoveTimelineBack();
+    }
 
     IEnumerator RecordObject() {
-        tlBar.transform.position = tlStart.transform.position;
-
-        iTween.MoveTo( tlBar, iTween.Hash( "position", tlEnd.transform.position, "time", TurnTime, "easetype", iTween.EaseType.linear ) );
+        MoveTimelineForward();
 
         var p = players[index];
         var j = p.GetComponent<Journal>();
 
         var music = GameObject.Find( "Music" ).GetComponent<AudioSource>();
         music.clip = Globals._.MUSIC_SinglePlay;
-        if ( p.name == "Boss" ) {
-            music.clip = Globals._.MUSIC_Boss;
-        }
         music.Play();
 
         j.Record();
-
         yield return new WaitForSeconds( TurnTime );
-
-        j.Play( true );
-
-        iTween.Stop(tlBar);
-        iTween.MoveTo( tlBar, iTween.Hash( "position", tlStart.transform.position, "time", TurnTime / 2, "easetype", iTween.EaseType.easeInOutExpo ) );
 
         music.clip = Globals._.MUSIC_Reverse;
         music.Play();
+        j.Play(true);
+        MoveTimelineBack();
     }
 
     IEnumerator PutMarker() {
@@ -87,6 +111,10 @@ public class Timeline : MonoBehaviour {
 
             StartCoroutine( PutMarker() );
         }
+    }
+
+    void Boss_OnRewindFinished(object sender, System.EventArgs e) {
+        StartCoroutine(RecordObject());
     }
 
     private void J_OnRewindFinished( object sender, System.EventArgs e ) {
@@ -103,6 +131,8 @@ public class Timeline : MonoBehaviour {
                 var j = item.GetComponent<Journal>();
                 j.Play();
             }
+
+            boss.GetComponent<Journal>().Play();
 
             index = 0;
         }

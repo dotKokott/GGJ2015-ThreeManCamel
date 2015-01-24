@@ -13,7 +13,9 @@ public enum AttackType {
     BeamDown,
     BeamLeft,
     BeamRight,
-    AreaOfEffect
+    AreaOfEffect,
+    RotatingBeams,
+    SingleRotatingBeam
 }
 
 [Serializable]
@@ -31,6 +33,8 @@ public class BossController : JournalObject {
     public float BeamTime = 1;
 
     private int index = 0;
+
+    public int Health = 5;
 
     // Use this for initialization
     void Start() {
@@ -117,9 +121,40 @@ public class BossController : JournalObject {
                 var smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
                 smash.GetComponent<AttackInfo>().Owner = this.gameObject;
                 break;
+            case AttackType.RotatingBeams:
+                Globals._.BOSS_BeamUp.SetActive(true);
+                Globals._.BOSS_BeamDown.SetActive(true);
+                Globals._.BOSS_BeamLeft.SetActive(true);
+                Globals._.BOSS_BeamRight.SetActive(true);
+
+                StartCoroutine(rotateBeams());
+
+                break;
+            case AttackType.SingleRotatingBeam:
+                Globals._.BOSS_BeamUp.SetActive(true);
+                StartCoroutine(rotateBeams());               
+
+                break;
             default:
                 break;
         }
+    }
+
+    private IEnumerator rotateBeams() {
+        yield return new WaitForSeconds(1f);
+
+        var beams = GameObject.Find("Beams");
+        var rotator = beams.GetComponent<RotateBeams>();
+        rotator.Rotate = true;
+
+        yield return new WaitForSeconds(6f);
+
+        rotator.Reset();
+
+        Globals._.BOSS_BeamUp.SetActive(false);
+        Globals._.BOSS_BeamDown.SetActive(false);
+        Globals._.BOSS_BeamLeft.SetActive(false);
+        Globals._.BOSS_BeamRight.SetActive(false);
     }
 
     private IEnumerator PrepAttack( BossAttack attack ) {
@@ -127,6 +162,23 @@ public class BossController : JournalObject {
         // Omg, we're still GGJ'ing. It didn't work with just saying "Attacked = true"...
         GetComponent<JournalObject>().Attacked = true;
         DoAttack( attack );
+    }
+
+    void OnTriggerEnter(Collider other) {
+        Debug.Log("Boss hit");
+
+        var comp = other.GetComponent<AttackInfo>();
+        if (comp == null || comp.Owner == this.gameObject) return;
+
+        if (Journal.Mode == Journal.JournalMode.Recording || Journal.Mode == Journal.JournalMode.Idling) return;
+
+        if (other.gameObject.tag == "Attack") {
+            if (--Health <= 0) {
+                Instantiate(Globals._.PREFAB_EXPLOSION, transform.position, Quaternion.identity);
+                Camera.main.GetComponent<AudioSource>().PlayOneShot(Globals._.SOUND_Explosion);
+                Destroy(gameObject);
+            }
+        }
     }
 
 }
