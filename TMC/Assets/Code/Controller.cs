@@ -25,6 +25,9 @@ public class Controller : JournalObject {
     public float StrikeCooldown = 1f;
     private float strikeTimer;
 
+    public float BeamChargeTime = 1f;
+    private float beamChargeTimer = 0f;
+
     void Start() {
         strikeTimer = StrikeCooldown;
 
@@ -71,11 +74,13 @@ public class Controller : JournalObject {
                             break;
                         case CharacterType.Mage:
                             var beam = Instantiate( Globals._.PREFAB_BEAM, transform.position, Globals._.PREFAB_BEAM.transform.rotation ) as GameObject;
+                            
                             beam.GetComponent<AttackInfo>().Owner = this.gameObject;
                 
                             beam.transform.rotation = transform.rotation;
 
-                            beam.transform.position += -transform.up * beam.transform.localScale.y / 2;
+                            beam.transform.position += -transform.up * beam.transform.localScale.y / 2;                            
+
                             Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Beam );
 
                             break;
@@ -94,20 +99,29 @@ public class Controller : JournalObject {
         if ( Journal.Mode == Journal.JournalMode.Recording ) {
             if ( !IsAlive ) return;
 
-            if ( beam != null ) return;
-
             strikeTimer += Time.deltaTime;
+
+            if (beam != null) {
+                if (!beam.activeInHierarchy) {
+                    beamChargeTimer += Time.deltaTime;                    
+
+                    if (beamChargeTimer >= BeamChargeTime) {
+                        beam.SetActive(true);
+
+                        beamChargeTimer = 0;
+                    }
+                }
+
+                return;
+            }
 
             var v = -InputManager.GetAxisValue(0, AxesMapping.LEFT_Y_AXIS);
             var h = InputManager.GetAxisValue(0, AxesMapping.LEFT_X_AXIS);
             //var h = Input.GetAxis( "Horizontal" );
             //var v = Input.GetAxis( "Vertical" );
 
-            //var vel = new Vector3( h * 5, -v * 5 ) * Time.deltaTime;
             velocity.x += acceleration * Time.deltaTime * h - velocity.x * friction * Time.deltaTime;
-            //velocity.x += acceleration * Time.deltaTime * InputManager.GetAxisValue(0, AxesMapping.LEFT_X_AXIS) - velocity.x * friction * Time.deltaTime;
-            velocity.y += acceleration * Time.deltaTime * v - velocity.y * friction * Time.deltaTime;
-            //velocity.y += acceleration * Time.deltaTime * -InputManager.GetAxisValue(0, AxesMapping.LEFT_Y_AXIS) - velocity.y * friction * Time.deltaTime;
+            velocity.y += acceleration * Time.deltaTime * v - velocity.y * friction * Time.deltaTime;            
 
             Vector3 vel = velocity;
 
@@ -160,6 +174,8 @@ public class Controller : JournalObject {
 
                         beam.transform.position += -transform.up * beam.transform.localScale.y / 2;
                         Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Beam );
+
+                        beam.SetActive(false);
 
                         attackLimit--;
 
