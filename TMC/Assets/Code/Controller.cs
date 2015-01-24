@@ -107,7 +107,7 @@ public class Controller : JournalObject {
 
            //GetComponent<Rigidbody>().MovePosition(transform.position + velocity);
 
-            transform.position += vel;
+           transform.position += vel;
 
             var dir = vel.normalized;
 

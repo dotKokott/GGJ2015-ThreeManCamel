@@ -26,13 +26,13 @@ public class Boss : MonoBehaviour {
 
     public void StartRoutine() {
         StartCoroutine(Routine());
-        iTween.MoveTo(tlBar.gameObject, iTween.Hash("position", tlEnd.transform.position, "time", Timeline.TTime, "easetype", iTween.EaseType.linear));
+        iTween.MoveTo(tlBar.gameObject, iTween.Hash("position", tlEnd.transform.position, "time", Globals._.TIME_TURN, "easetype", iTween.EaseType.linear));
         StartCoroutine(PutMarker());
     }
     private bool isDone = false;
 
     IEnumerator PutMarker() {
-        yield return new WaitForSeconds(Timeline.MSTime);
+        yield return new WaitForSeconds(Globals._.TIME_MARKER_SPAWN);
 
         if (!isDone) {
             var g = Instantiate(tlBarPrefab, tlBar.transform.position, tlBar.transform.rotation) as GameObject;

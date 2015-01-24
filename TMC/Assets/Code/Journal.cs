@@ -123,6 +123,18 @@ public class Journal : MonoBehaviour {
         Mode = JournalMode.Recording;
         frames = new List<Frame>();
 
+        var f = new Frame();
+
+        f.Position = jObject.transform.position;
+        f.Rotation = jObject.transform.rotation;
+        f.IsAlive = jObject.IsAlive;
+        f.Attacked = jObject.Attacked;
+        if (f.Attacked) {
+            jObject.Attacked = false;
+        }
+
+        frames.Add(f);
+
         if ( OnStartRecording != null ) {
             OnStartRecording.Invoke( this, new EventArgs() );
         }
@@ -131,7 +143,7 @@ public class Journal : MonoBehaviour {
     public void Play( bool reversed = false ) {
         if ( reversed ) {
             iTween.ValueTo( gameObject, iTween.Hash( "from", frames.Count - 1, "to", -1,
-                "time", Timeline.TTime / 2,
+                "time", Globals._.TIME_TURN / 2,
                 "onupdate", "reverseUpdate", "easetype", iTween.EaseType.easeInOutExpo ) );
         }
 

@@ -6,8 +6,6 @@ public class Timeline : MonoBehaviour {
     private GameObject[] players;
     private int index = 0;
 
-    public static float TTime = 0;
-    public static float MSTime = 0;
     public float TurnTime = 7f;
     public float MarkerSpawnTime = 2f;
 
@@ -45,8 +43,7 @@ public class Timeline : MonoBehaviour {
     IEnumerator RecordObject() {
         tlBar.transform.position = tlStart.transform.position;
 
-        iTween.MoveTo( tlBar.gameObject, iTween.Hash( "position", tlEnd.transform.position, "time", TurnTime, "easetype", iTween.EaseType.linear ) );
-        isRewinding = false;
+        iTween.MoveTo( tlBar, iTween.Hash( "position", tlEnd.transform.position, "time", TurnTime, "easetype", iTween.EaseType.linear ) );
 
         var p = players[index];
         var j = p.GetComponent<Journal>();
@@ -61,16 +58,14 @@ public class Timeline : MonoBehaviour {
         j.Record();
 
         yield return new WaitForSeconds( TurnTime );
-        j.Idle();
 
-        isRewinding = true;
         j.Play( true );
-        iTween.MoveTo( tlBar.gameObject, iTween.Hash( "position", tlStart.transform.position, "time", TurnTime / 2, "easetype", iTween.EaseType.easeInOutExpo ) );
+
+        iTween.Stop(tlBar);
+        iTween.MoveTo( tlBar, iTween.Hash( "position", tlStart.transform.position, "time", TurnTime / 2, "easetype", iTween.EaseType.easeInOutExpo ) );
 
         music.clip = Globals._.MUSIC_Reverse;
         music.Play();
-
-        j.Play( true );
     }
 
     IEnumerator PutMarker() {
@@ -85,7 +80,8 @@ public class Timeline : MonoBehaviour {
         }
     }
 
-    private void J_OnRewindFinished( object sender, System.EventArgs e ) {        
+    private void J_OnRewindFinished( object sender, System.EventArgs e ) {
+        Debug.Log("rewind finished");
         if ( index < players.Length - 1 ) {
             index++;
             StartCoroutine( RecordObject() );
@@ -93,9 +89,7 @@ public class Timeline : MonoBehaviour {
             foreach ( var item in players ) {
                 var music = GameObject.Find( "Music" ).GetComponent<AudioSource>();
                 music.clip = Globals._.MUSIC_AllPlay;
-                music.Play();
-
-                GameObject.Find("Boss").GetComponent<Boss>().StartRoutine();
+                music.Play();                
 
                 var j = item.GetComponent<Journal>();
                 j.Play();
