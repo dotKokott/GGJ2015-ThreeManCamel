@@ -105,6 +105,7 @@ public class Controller : JournalObject {
 
         if ( other.gameObject.tag == "Attack" ) {
             Instantiate( Globals._.PREFAB_EXPLOSION, transform.position, Quaternion.identity );
+            Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Explosion );
             Destroy( gameObject );
         }
     }

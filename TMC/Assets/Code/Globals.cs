@@ -12,6 +12,7 @@ public class Globals : MonoBehaviour {
     public AudioClip SOUND_Beam;
     public AudioClip SOUND_Smash;
     public AudioClip SOUND_Fireball;
+    public AudioClip SOUND_Explosion;
 
 
     [HideInInspector]
