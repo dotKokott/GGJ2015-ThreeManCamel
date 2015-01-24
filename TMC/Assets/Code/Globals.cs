@@ -23,8 +23,13 @@ public class Globals : MonoBehaviour {
     public GameObject BOSS_BeamLeft;
     public GameObject BOSS_BeamRight;
     public GameObject BOSS_BeamDown;
+
     public GameObject BOSS_Smash;
-    public GameObject BOSS_Cones;
+
+    public GameObject BOSS_ConeUp;
+    public GameObject BOSS_ConeLeft;
+    public GameObject BOSS_ConeRight;
+    public GameObject BOSS_ConeDown;
 
     public float TIME_TURN;
     public float TIME_MARKER_SPAWN;
