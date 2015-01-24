@@ -20,9 +20,14 @@ public class Controller : JournalObject {
 
     private Vector3 velocity = new Vector3();
     public float acceleration;
-    public float friction; 
+    public float friction;
+
+    public float StrikeCooldown = 1f;
+    private float strikeTimer;
 
     void Start() {
+        strikeTimer = StrikeCooldown;
+
         renderer = GetComponent<Renderer>();
 
         IsAlive = true;
@@ -57,10 +62,9 @@ public class Controller : JournalObject {
                         case CharacterType.Knight:
                             var strike = Instantiate(Globals._.PREFAB_STRIKE, transform.position, Globals._.PREFAB_STRIKE.transform.rotation) as GameObject;
                             strike.GetComponent<AttackInfo>().Owner = this.gameObject;
-                            
+
                             var strikeComp = strike.GetComponent<Strike>();
                             strikeComp.Direction = direction;
-
 
                             Camera.main.GetComponent<AudioSource>().PlayOneShot(Globals._.SOUND_Smash);
 
@@ -91,6 +95,8 @@ public class Controller : JournalObject {
             if ( !IsAlive ) return;
 
             if ( beam != null ) return;
+
+            strikeTimer += Time.deltaTime;
 
             var v = -InputManager.GetAxisValue(0, AxesMapping.LEFT_Y_AXIS);
             var h = InputManager.GetAxisValue(0, AxesMapping.LEFT_X_AXIS);
@@ -130,15 +136,21 @@ public class Controller : JournalObject {
 
                         Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Smash );
 
+                        attackLimit--;
+
                         break;
                     case CharacterType.Knight:
-                        var strike = Instantiate(Globals._.PREFAB_STRIKE, transform.position, Globals._.PREFAB_STRIKE.transform.rotation) as GameObject;
-                        strike.GetComponent<AttackInfo>().Owner = this.gameObject;
+                        if (strikeTimer >= StrikeCooldown) {
+                            var strike = Instantiate(Globals._.PREFAB_STRIKE, transform.position, Globals._.PREFAB_STRIKE.transform.rotation) as GameObject;
+                            strike.GetComponent<AttackInfo>().Owner = this.gameObject;
 
-                        var strikeComp = strike.GetComponent<Strike>();
-                        strikeComp.Direction = direction;
+                            var strikeComp = strike.GetComponent<Strike>();
+                            strikeComp.Direction = direction;
 
-                        Camera.main.GetComponent<AudioSource>().PlayOneShot(Globals._.SOUND_Smash);
+                            Camera.main.GetComponent<AudioSource>().PlayOneShot(Globals._.SOUND_Smash);
+
+                            strikeTimer = 0;
+                        }
 
                         break;
                     case CharacterType.Mage:
@@ -149,13 +161,13 @@ public class Controller : JournalObject {
                         beam.transform.position += -transform.up * beam.transform.localScale.y / 2;
                         Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Beam );
 
+                        attackLimit--;
+
                         break;
                     default:
                         break;
                 }
-
-
-                attackLimit--;
+                
             }
         }
     }
