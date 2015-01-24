@@ -148,11 +148,11 @@ public class Controller : JournalObject {
                 return;
             }              
 
-            if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_A )) {
-                Attacked = true;
-
+            if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_A )) {               
                 switch (Type) {
                     case CharacterType.Tank:
+                        Attacked = true;
+
                         var smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
                         smash.GetComponent<AttackInfo>().Owner = this.gameObject;
 
@@ -163,6 +163,8 @@ public class Controller : JournalObject {
                         break;
                     case CharacterType.Knight:
                         if (strikeTimer >= StrikeCooldown) {
+                            Attacked = true;
+
                             var strike = Instantiate(Globals._.PREFAB_STRIKE, transform.position, Globals._.PREFAB_STRIKE.transform.rotation) as GameObject;
                             strike.GetComponent<AttackInfo>().Owner = this.gameObject;
 
@@ -176,6 +178,8 @@ public class Controller : JournalObject {
 
                         break;
                     case CharacterType.Mage:
+                        Attacked = true;
+
                         beam = Instantiate( Globals._.PREFAB_BEAM, transform.position, Globals._.PREFAB_BEAM.transform.rotation ) as GameObject;
                         beam.transform.rotation = transform.rotation;
                         beam.GetComponent<AttackInfo>().Owner = this.gameObject;
