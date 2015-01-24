@@ -1,0 +1,142 @@
+fileFormatVersion: 2
+guid: 52ba9fd7fe5c44cd8b57ac24428a3fee
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Big_Boss_MESH
+    100002: //RootNode
+    100004: Head_CTRL
+    100006: Head_CTRLGRP
+    100008: Head_JNT
+    100010: Hip_CTRL
+    100012: Hip_CTRLGRP
+    100014: L_Ankle_JNT
+    100016: L_Elbow_CTRL
+    100018: L_Elbow_CTRLGRP
+    100020: L_Elbow_JNT
+    100022: L_Hip_JNT
+    100024: L_Knee_JNT
+    100026: L_Shoulder_CTRL
+    100028: L_Shoulder_CTRLGRP
+    100030: L_Shoulder_JNT
+    100032: L_Wrist_CTRL
+    100034: L_Wrist_CTRLGRP
+    100036: L_Wrist_JNT
+    100038: R_Ankle_JNT
+    100040: R_Elbow_CTRL
+    100042: R_Elbow_CTRLGRP
+    100044: R_Elbow_JNT
+    100046: R_Hip_JNT
+    100048: R_Knee_JNT
+    100050: R_Shoulder_CTRL
+    100052: R_Shoulder_CTRLGRP
+    100054: R_Shoulder_JNT
+    100056: R_Wrist_CTRL
+    100058: R_Wrist_CTRLGRP
+    100060: R_Wrist_JNT
+    100062: Root_CTRL
+    100064: Root_JNT
+    100066: Spine_1_JNT
+    100068: Spine_2_JNT
+    100070: Upperbody_CTRL
+    100072: Upperbody_CTRLGRP
+    400000: //RootNode
+    400002: Big_Boss_MESH
+    400004: Head_CTRL
+    400006: Head_CTRLGRP
+    400008: Head_JNT
+    400010: Hip_CTRL
+    400012: Hip_CTRLGRP
+    400014: L_Ankle_JNT
+    400016: L_Elbow_CTRL
+    400018: L_Elbow_CTRLGRP
+    400020: L_Elbow_JNT
+    400022: L_Hip_JNT
+    400024: L_Knee_JNT
+    400026: L_Shoulder_CTRL
+    400028: L_Shoulder_CTRLGRP
+    400030: L_Shoulder_JNT
+    400032: L_Wrist_CTRL
+    400034: L_Wrist_CTRLGRP
+    400036: L_Wrist_JNT
+    400038: R_Ankle_JNT
+    400040: R_Elbow_CTRL
+    400042: R_Elbow_CTRLGRP
+    400044: R_Elbow_JNT
+    400046: R_Hip_JNT
+    400048: R_Knee_JNT
+    400050: R_Shoulder_CTRL
+    400052: R_Shoulder_CTRLGRP
+    400054: R_Shoulder_JNT
+    400056: R_Wrist_CTRL
+    400058: R_Wrist_CTRLGRP
+    400060: R_Wrist_JNT
+    400062: Root_CTRL
+    400064: Root_JNT
+    400066: Spine_1_JNT
+    400068: Spine_2_JNT
+    400070: Upperbody_CTRL
+    400072: Upperbody_CTRLGRP
+    4300000: Big_Boss_MESH
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Big_Boss_MESH
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    pivotNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 

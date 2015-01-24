@@ -1,0 +1,152 @@
+fileFormatVersion: 2
+guid: e5fc9ed0d9b7b4b01bd211f554579d27
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: belly
+    100002: body
+    100004: face
+    100006: feather
+    100008: hair
+    100010: hair1
+    100012: hair2
+    100014: hair3
+    100016: hair4
+    100018: hair5
+    100020: hand
+    100022: helm
+    100024: shoulderPiece1
+    100026: shoulderPiece2
+    100028: skirt
+    100030: sword
+    100032: sword 1
+    100034: torso
+    100036: verticalStripe
+    100038: //RootNode
+    400000: belly
+    400002: body
+    400004: face
+    400006: feather
+    400008: hair
+    400010: hair1
+    400012: hair2
+    400014: hair3
+    400016: hair4
+    400018: hair5
+    400020: hand
+    400022: helm
+    400024: shoulderPiece1
+    400026: shoulderPiece2
+    400028: skirt
+    400030: sword
+    400032: sword 1
+    400034: torso
+    400036: verticalStripe
+    400038: //RootNode
+    2300000: belly
+    2300002: face
+    2300004: feather
+    2300006: hair1
+    2300008: hair2
+    2300010: hair3
+    2300012: hair4
+    2300014: hair5
+    2300016: hand
+    2300018: helm
+    2300020: shoulderPiece1
+    2300022: shoulderPiece2
+    2300024: skirt
+    2300026: sword 1
+    2300028: torso
+    2300030: verticalStripe
+    3300000: belly
+    3300002: face
+    3300004: feather
+    3300006: hair1
+    3300008: hair2
+    3300010: hair3
+    3300012: hair4
+    3300014: hair5
+    3300016: hand
+    3300018: helm
+    3300020: shoulderPiece1
+    3300022: shoulderPiece2
+    3300024: skirt
+    3300026: sword 1
+    3300028: torso
+    3300030: verticalStripe
+    4300000: helm
+    4300002: verticalStripe
+    4300004: face
+    4300006: torso
+    4300008: belly
+    4300010: skirt
+    4300012: shoulderPiece1
+    4300014: shoulderPiece2
+    4300016: hair1
+    4300018: hair2
+    4300020: hair3
+    4300022: hair4
+    4300024: hair5
+    4300026: feather
+    4300028: sword
+    4300030: hand
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    pivotNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
