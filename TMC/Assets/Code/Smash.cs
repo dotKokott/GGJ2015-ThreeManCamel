@@ -17,7 +17,7 @@ public class Smash : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (transform.localScale.y < 3) {
+        if (transform.localScale.y < 7) {
             transform.localScale += new Vector3(GrowSpeed * Time.deltaTime, GrowSpeed * Time.deltaTime);
         }
     }

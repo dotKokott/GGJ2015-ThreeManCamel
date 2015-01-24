@@ -3,10 +3,16 @@ using System.Collections;
 
 public class Timeline : MonoBehaviour {
 
+    //I needed a quick way to see how much time was left
+    public GameObject timeLineGraphics;
+    bool isDoing;
+    Vector3 originalScale;
+    ///
+
     private GameObject[] players;
     private int index = 0;
 
-    public float TurnTime = 5f;
+    public float TurnTime = 7f;
 
     // Use this for initialization
     void Start() {
@@ -14,6 +20,10 @@ public class Timeline : MonoBehaviour {
         foreach (var item in players) {
             item.GetComponent<Journal>().OnRewindFinished += J_OnRewindFinished;
         }
+
+        //I needed a quick way to see how much time was left
+        originalScale = timeLineGraphics.transform.localScale;
+        //
     }
 
     // Update is called once per frame
@@ -21,7 +31,22 @@ public class Timeline : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.O) || InputManager.GetButtonDown(0, ButtonMapping.BUTTON_Y)) {
             StartCoroutine(RecordObject());
         }
+
+       
     }
+
+    void FixedUpdate() {
+        //I needed a quick way to see how much time was left
+        if (isDoing) {
+            timeLineGraphics.transform.localScale -= new Vector3(Time.deltaTime / (1.1f * TurnTime / 7f), 0f, 0f); // dont ask
+        }
+
+        else {
+            if (timeLineGraphics.transform.localScale.x < originalScale.x)
+                timeLineGraphics.transform.localScale += new Vector3(Time.deltaTime / (1.1f * TurnTime / 7f), 0f, 0f);
+        }
+    }
+
 
     IEnumerator RecordObject() {
         var p = players[index];
@@ -29,11 +54,26 @@ public class Timeline : MonoBehaviour {
 
         j.Record();
 
+        SetUIActive(true);
+
         yield return new WaitForSeconds(TurnTime);
         j.Idle();
-        yield return new WaitForSeconds(1);
+        //Nope
+        //yield return new WaitForSeconds(1f);
         GetComponent<AudioSource>().PlayOneShot(Globals._.SOUND_Rewind);
         j.Play(true);
+
+        SetUIActive(false);
+    }
+
+    private void SetUIActive(bool isActive) {
+        isDoing = isActive;
+
+        if (!isDoing) {
+            timeLineGraphics.GetComponent<Renderer>().material.color = Color.white;
+        } else {
+            timeLineGraphics.GetComponent<Renderer>().material.color = Color.yellow;
+        }
     }
 
     private void J_OnRewindFinished(object sender, System.EventArgs e) {

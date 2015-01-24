@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System;
 
 public class Journal : MonoBehaviour {
+   int reverseFrameSpeed = 1;
 
     public class JournalEventArgs : EventArgs {
         public Frame Frame;
@@ -98,7 +99,7 @@ public class Journal : MonoBehaviour {
 
                 return;
             }
-
+             
             var f = frames[frameIndex];
 
             jObject.transform.position = f.Position;
@@ -109,7 +110,7 @@ public class Journal : MonoBehaviour {
                 OnFrame.Invoke(this, new JournalEventArgs(f, Mode));
             }
 
-            frameIndex--;
+            frameIndex -= reverseFrameSpeed;
         }
     }
 

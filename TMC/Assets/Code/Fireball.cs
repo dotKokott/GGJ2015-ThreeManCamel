@@ -5,6 +5,7 @@ public class Fireball : MonoBehaviour {
 
     public Vector3 Direction;
     public float Speed = 20;
+    public float AliveTime = 5;
 
     private float timer = 0;
     void Start() {
@@ -16,7 +17,7 @@ public class Fireball : MonoBehaviour {
     }
 
     IEnumerator Kill() {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(AliveTime);
 
         Destroy(this.gameObject);
     }
