@@ -3,27 +3,22 @@ using System.Collections;
 
 public class Smash : MonoBehaviour {
 
-    bool destroyed = false;
-    float dTime = 0;
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (!destroyed) {
-            transform.localScale += new Vector3(20 * Time.deltaTime, 20 * Time.deltaTime);
+    public float StayTime = 5;
+    public float GrowSpeed = 20;
 
-            if (transform.localScale.x > 3) {
-                destroyed = true;                
-            }
-        } else {
-            dTime += Time.deltaTime;
+    void Start() {
+        StartCoroutine(Kill());
+    }
 
-            if (dTime > 1) {
-                Destroy(this.gameObject);
-            }
+    IEnumerator Kill() {
+        yield return new WaitForSeconds(StayTime);
+        Destroy(this.gameObject);
+    }
+
+    // Update is called once per frame
+    void Update() {
+        if (transform.localScale.y < 3) {
+            transform.localScale += new Vector3(GrowSpeed * Time.deltaTime, GrowSpeed * Time.deltaTime);
         }
-        
-	}
+    }
 }

@@ -8,16 +8,16 @@ public class Timeline : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        players = GameObject.FindGameObjectsWithTag( "Player" );
-        foreach ( var item in players ) {
+        players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (var item in players) {
             item.GetComponent<Journal>().OnRewindFinished += J_OnRewindFinished;
         }
     }
 
     // Update is called once per frame
     void Update() {
-        if ( Input.GetKeyDown( KeyCode.O ) ) {
-            StartCoroutine( RecordObject() );
+        if (Input.GetKeyDown(KeyCode.O) || InputManager.GetButtonDown(0, ButtonMapping.BUTTON_Y)) {
+            StartCoroutine(RecordObject());
         }
     }
 
@@ -27,18 +27,19 @@ public class Timeline : MonoBehaviour {
 
         j.Record();
 
-        yield return new WaitForSeconds( 2.5f );
+        yield return new WaitForSeconds(2.5f);
         j.Idle();
-        yield return new WaitForSeconds( 1 );
-        j.Play( true );
+        yield return new WaitForSeconds(1);
+        GetComponent<AudioSource>().PlayOneShot(Globals._.SOUND_Rewind);
+        j.Play(true);
     }
 
-    private void J_OnRewindFinished( object sender, System.EventArgs e ) {
-        if ( index < players.Length - 1 ) {
+    private void J_OnRewindFinished(object sender, System.EventArgs e) {
+        if (index < players.Length - 1) {
             index++;
-            StartCoroutine( RecordObject() );
+            StartCoroutine(RecordObject());
         } else {
-            foreach ( var item in players ) {
+            foreach (var item in players) {
                 var j = item.GetComponent<Journal>();
                 j.Play();
             }

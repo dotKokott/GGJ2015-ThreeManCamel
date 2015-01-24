@@ -25,10 +25,12 @@ public class Journal : MonoBehaviour {
 
     public struct Frame {
         public Vector3 Position;
+        public Quaternion Rotation;
         public bool IsAlive;
 
         public bool PrimaryAttack;
         public bool SecondaryAttack;
+        public bool ThirdiraryAttack;
     }
 
     [HideInInspector]
@@ -57,9 +59,11 @@ public class Journal : MonoBehaviour {
             var f = new Frame();
 
             f.Position = jObject.transform.position;
+            f.Rotation = jObject.transform.rotation;
             f.IsAlive = jObject.IsAlive;
             f.PrimaryAttack = InputManager.GetButtonDown(0, ButtonMapping.BUTTON_A);
             f.SecondaryAttack = InputManager.GetButtonDown(0, ButtonMapping.BUTTON_X);
+            f.ThirdiraryAttack = InputManager.GetButtonDown(0, ButtonMapping.BUTTON_B);
 
             frames.Add(f);
         } else if (Mode == JournalMode.Playing) {
@@ -76,6 +80,7 @@ public class Journal : MonoBehaviour {
             var f = frames[frameIndex];
 
             jObject.transform.position = f.Position;
+            jObject.transform.rotation = f.Rotation;
             jObject.IsAlive = f.IsAlive;
 
             if (OnFrame != null) {
@@ -97,6 +102,7 @@ public class Journal : MonoBehaviour {
             var f = frames[frameIndex];
 
             jObject.transform.position = f.Position;
+            jObject.transform.rotation = f.Rotation;
             jObject.IsAlive = f.IsAlive;
 
             if (OnFrame != null) {
