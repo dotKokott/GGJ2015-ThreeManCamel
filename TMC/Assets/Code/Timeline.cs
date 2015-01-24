@@ -52,6 +52,13 @@ public class Timeline : MonoBehaviour {
         var p = players[index];
         var j = p.GetComponent<Journal>();
 
+        var music = GameObject.Find("Music").GetComponent<AudioSource>();        
+        music.clip = Globals._.MUSIC_SinglePlay;
+        if (p.name == "Boss") {
+            music.clip = Globals._.MUSIC_Boss;
+        }
+        music.Play();
+
         j.Record();
 
         SetUIActive(true);
@@ -59,8 +66,10 @@ public class Timeline : MonoBehaviour {
         yield return new WaitForSeconds(TurnTime);
         j.Idle();
         //Nope
-        //yield return new WaitForSeconds(1f);
-        GetComponent<AudioSource>().PlayOneShot(Globals._.SOUND_Rewind);
+        //yield return new WaitForSeconds(1f);        
+        music.clip = Globals._.MUSIC_Reverse;
+        music.Play();
+
         j.Play(true);
 
         SetUIActive(false);
@@ -81,6 +90,10 @@ public class Timeline : MonoBehaviour {
             index++;
             StartCoroutine(RecordObject());
         } else {
+            var music = GameObject.Find("Music").GetComponent<AudioSource>();
+            music.clip = Globals._.MUSIC_AllPlay;
+            music.Play();
+
             foreach (var item in players) {
                 var j = item.GetComponent<Journal>();
                 j.Play();

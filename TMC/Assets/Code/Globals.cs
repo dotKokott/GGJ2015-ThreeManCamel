@@ -14,6 +14,11 @@ public class Globals : MonoBehaviour {
     public AudioClip SOUND_Fireball;
     public AudioClip SOUND_Explosion;
 
+    public AudioClip MUSIC_SinglePlay;
+    public AudioClip MUSIC_AllPlay;
+    public AudioClip MUSIC_Reverse;
+    public AudioClip MUSIC_Boss;
+
 
     [HideInInspector]
     public static Globals _;

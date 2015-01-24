@@ -81,16 +81,16 @@ public class Controller : JournalObject {
 
             if ( beam != null ) return;
 
-            var v = InputManager.GetAxisValue( 0, AxesMapping.LEFT_Y_AXIS );
-            var h = InputManager.GetAxisValue( 0, AxesMapping.LEFT_X_AXIS );
+            //var v = InputManager.GetAxisValue( 0, AxesMapping.LEFT_Y_AXIS );
+            //var h = InputManager.GetAxisValue( 0, AxesMapping.LEFT_X_AXIS );
 
-            var vel = new Vector3( h * 5, -v * 5 ) * Time.deltaTime;
-           // velocity.x += acceleration * Time.deltaTime * InputManager.GetAxisValue(0, AxesMapping.LEFT_X_AXIS) - velocity.x * friction * Time.deltaTime;
-            //velocity.y += acceleration * Time.deltaTime * -InputManager.GetAxisValue(0, AxesMapping.LEFT_Y_AXIS) - velocity.y * friction * Time.deltaTime;
+            //var vel = new Vector3( h * 5, -v * 5 ) * Time.deltaTime;
+            velocity.x += acceleration * Time.deltaTime * InputManager.GetAxisValue(0, AxesMapping.LEFT_X_AXIS) - velocity.x * friction * Time.deltaTime;
+            velocity.y += acceleration * Time.deltaTime * -InputManager.GetAxisValue(0, AxesMapping.LEFT_Y_AXIS) - velocity.y * friction * Time.deltaTime;            
 
-            //Vector3 vel = velocity;
+            Vector3 vel = velocity;
 
-           // GetComponent<Rigidbody>().MovePosition(transform.position + velocity);
+           //GetComponent<Rigidbody>().MovePosition(transform.position + velocity);
 
             transform.position += vel;
 
@@ -138,7 +138,7 @@ public class Controller : JournalObject {
         var comp = other.GetComponent<AttackInfo>();
         if (comp == null || comp.Owner == this.gameObject) return;
 
-        if (Journal.Mode == Journal.JournalMode.Recording) return;
+        if (Journal.Mode == Journal.JournalMode.Recording || Journal.Mode == Journal.JournalMode.Playing) return;
 
         if ( other.gameObject.tag == "Attack" ) {            
             if (--health <= 0) {
