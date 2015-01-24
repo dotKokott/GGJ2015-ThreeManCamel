@@ -7,6 +7,7 @@ public class Timeline : MonoBehaviour {
     private int index = 0;
 
     public static float TTime = 0;
+    public static float MSTime = 0;
     public float TurnTime = 7f;
     public float MarkerSpawnTime = 2f;
 
@@ -16,15 +17,17 @@ public class Timeline : MonoBehaviour {
     private GameObject tlBar;
     private bool isRewinding;
 
+    void Awake() {
+        TTime = TurnTime;
+        MSTime = MarkerSpawnTime;
+    }
 
     // Use this for initialization
     void Start() {
         tlStart = GameObject.Find( "TL_Start" );
         tlEnd = GameObject.Find( "TL_End" );
         tlBar = GameObject.Find( "TL_Bar" );
-
-        TTime = TurnTime;
-
+        
         tlBar.transform.position = tlStart.transform.position;
 
         players = GameObject.FindGameObjectsWithTag( "Player" );
@@ -43,15 +46,16 @@ public class Timeline : MonoBehaviour {
 
 
     IEnumerator RecordObject() {
-        var go = GameObject.FindGameObjectsWithTag( "TimelineMarker" );
-        foreach ( var item in go ) {
-            Destroy( item );
-        }
-        tlStart.transform.position = tlStart.transform.position;
+        //var go = GameObject.FindGameObjectsWithTag( "TimelineMarker" );
+        //foreach ( var item in go ) {
+        //    Destroy( item );
+        //}
+
+        tlBar.transform.position = tlStart.transform.position;
 
         iTween.MoveTo( tlBar.gameObject, iTween.Hash( "position", tlEnd.transform.position, "time", TurnTime, "easetype", iTween.EaseType.linear ) );
         isRewinding = false;
-        StartCoroutine( PutMarker() );
+        //StartCoroutine( PutMarker() );
 
         var p = players[index];
         var j = p.GetComponent<Journal>();

@@ -3,8 +3,19 @@ using System.Collections;
 
 public class Boss : MonoBehaviour {
 
+
+    public GameObject tlBarPrefab;
+    private GameObject tlStart;
+    private GameObject tlEnd;
+    private GameObject tlBar;
+
 	// Use this for initialization
 	void Start () {
+
+        tlStart = GameObject.Find("TL_Start");
+        tlEnd = GameObject.Find("TL_End");
+        tlBar = GameObject.Find("TL_Bar");
+
         StartRoutine();
 	}
 	
@@ -15,6 +26,21 @@ public class Boss : MonoBehaviour {
 
     public void StartRoutine() {
         StartCoroutine(Routine());
+        iTween.MoveTo(tlBar.gameObject, iTween.Hash("position", tlEnd.transform.position, "time", Timeline.TTime, "easetype", iTween.EaseType.linear));
+        StartCoroutine(PutMarker());
+    }
+    private bool isDone = false;
+
+    IEnumerator PutMarker() {
+        yield return new WaitForSeconds(Timeline.MSTime);
+
+        if (!isDone) {
+            var g = Instantiate(tlBarPrefab, tlBar.transform.position, tlBar.transform.rotation) as GameObject;
+            g.tag = "TimelineMarker";
+            g.transform.localScale = new Vector3(0.2f, 1, 1);
+
+            StartCoroutine(PutMarker());
+        }
     }
 
     IEnumerator Routine() {
@@ -42,6 +68,7 @@ public class Boss : MonoBehaviour {
 
         yield return new WaitForSeconds(1f);
 
+        isDone = true;
         Debug.Log("Finiiish");
     }
 }
