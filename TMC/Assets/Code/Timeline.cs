@@ -26,7 +26,16 @@ public class Timeline : MonoBehaviour {
         
         tlBar.transform.position = tlStart.transform.position;
 
-        players = GameObject.FindGameObjectsWithTag( "Player" );
+        var _players = GameObject.FindGameObjectsWithTag( "Player" );
+        players = GameObject.FindGameObjectsWithTag("Player");
+        //SUPER DIRTY
+
+
+        foreach (var item in _players) {
+            var order = item.GetComponent<Controller>().Order;
+            players[order] = item;
+        }
+
         foreach ( var item in players ) {
             item.GetComponent<Journal>().OnRewindFinished += J_OnRewindFinished;
         }
