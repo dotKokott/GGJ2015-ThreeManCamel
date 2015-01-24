@@ -4,7 +4,7 @@ using System.Collections;
 public class Globals : MonoBehaviour {
 
     public GameObject PREFAB_SMASH;
-    public GameObject PREFAB_FIREBALL;
+    public GameObject PREFAB_STRIKE;
     public GameObject PREFAB_BEAM;
     public GameObject PREFAB_EXPLOSION;
 
