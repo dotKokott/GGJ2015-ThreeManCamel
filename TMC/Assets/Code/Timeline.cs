@@ -90,7 +90,7 @@ public class Timeline : MonoBehaviour {
         }
     }
 
-    private void J_OnRewindFinished( object sender, System.EventArgs e ) {
+    private void J_OnRewindFinished( object sender, System.EventArgs e ) {        
         if ( index < players.Length - 1 ) {
             index++;
             StartCoroutine( RecordObject() );
