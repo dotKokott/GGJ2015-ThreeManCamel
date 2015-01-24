@@ -136,12 +136,12 @@ public class Controller : JournalObject {
 
     void OnTriggerEnter( Collider other ) {
         var comp = other.GetComponent<AttackInfo>();
-        if (comp == null || comp.Owner == this.gameObject) return;        
+        if (comp == null || comp.Owner == this.gameObject) return;
 
-        if ( other.gameObject.tag == "Attack" ) {
-            print("THIS IS HAPPENING TOO OFTEN");
-            if (--health <= 0 && GetComponent<Journal>().Mode == global::Journal.JournalMode.Playing)
-             { 
+        if (Journal.Mode == Journal.JournalMode.Recording) return;
+
+        if ( other.gameObject.tag == "Attack" ) {            
+            if (--health <= 0) {
                 Instantiate( Globals._.PREFAB_EXPLOSION, transform.position, Quaternion.identity );
                 Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Explosion );
                 Destroy( gameObject );
