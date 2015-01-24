@@ -3,85 +3,84 @@ using System.Collections;
 
 public class Timeline : MonoBehaviour {
 
-    //I needed a quick way to see how much time was left
-    public GameObject timeLineGraphics;
-    bool isDoing;
-    Vector3 originalScale;
-    ///
-
     private GameObject[] players;
     private int index = 0;
 
     public float TurnTime = 7f;
+    public float MarkerSpawnTime = 2f;
+
+    public GameObject tlBarPrefab;
+    private GameObject tlStart;
+    private GameObject tlEnd;
+    private GameObject tlBar;
+    private bool isRewinding;
+
 
     // Use this for initialization
     void Start() {
-        players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (var item in players) {
+        tlStart = GameObject.Find( "TL_Start" );
+        tlEnd = GameObject.Find( "TL_End" );
+        tlBar = GameObject.Find( "TL_Bar" );
+
+        tlBar.transform.position = tlStart.transform.position;
+
+        players = GameObject.FindGameObjectsWithTag( "Player" );
+        foreach ( var item in players ) {
             item.GetComponent<Journal>().OnRewindFinished += J_OnRewindFinished;
         }
 
-        //I needed a quick way to see how much time was left
-        originalScale = timeLineGraphics.transform.localScale;
-        //
     }
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyDown(KeyCode.O) || InputManager.GetButtonDown(0, ButtonMapping.BUTTON_Y)) {
-            StartCoroutine(RecordObject());
-        }
-
-       
-    }
-
-    void FixedUpdate() {
-        //I needed a quick way to see how much time was left
-        if (isDoing) {
-            timeLineGraphics.transform.localScale -= new Vector3(Time.deltaTime / (1.1f * TurnTime / 7f), 0f, 0f); // dont ask
-        }
-
-        else {
-            if (timeLineGraphics.transform.localScale.x < originalScale.x)
-                timeLineGraphics.transform.localScale += new Vector3(Time.deltaTime / (1.1f * TurnTime / 7f), 0f, 0f);
+        if ( Input.GetKeyDown( KeyCode.O ) || InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_Y ) ) {
+            StartCoroutine( RecordObject() );
         }
     }
 
 
     IEnumerator RecordObject() {
+        var go = GameObject.FindGameObjectsWithTag( "TimelineMarker" );
+        foreach ( var item in go ) {
+            Destroy( item );
+        }
+        tlStart.transform.position = tlStart.transform.position;
+
+        iTween.MoveTo( tlBar.gameObject, iTween.Hash( "position", tlEnd.transform.position, "time", 7, "easetype", iTween.EaseType.linear ) );
+        isRewinding = false;
+        StartCoroutine( PutMarker() );
+
         var p = players[index];
         var j = p.GetComponent<Journal>();
 
         j.Record();
 
-        SetUIActive(true);
-
-        yield return new WaitForSeconds(TurnTime);
+        yield return new WaitForSeconds( TurnTime );
         j.Idle();
-        //Nope
-        //yield return new WaitForSeconds(1f);
-        GetComponent<AudioSource>().PlayOneShot(Globals._.SOUND_Rewind);
-        j.Play(true);
-
-        SetUIActive(false);
+        isRewinding = true;
+        //GetComponent<AudioSource>().PlayOneShot(Globals._.SOUND_Rewind);
+        j.Play( true );
+        iTween.MoveTo( tlBar.gameObject, iTween.Hash( "position", tlStart.transform.position, "time", 3, "easetype", iTween.EaseType.easeInOutExpo ) );
     }
 
-    private void SetUIActive(bool isActive) {
-        isDoing = isActive;
+    IEnumerator PutMarker() {
+        yield return new WaitForSeconds( MarkerSpawnTime );
 
-        if (!isDoing) {
-            timeLineGraphics.GetComponent<Renderer>().material.color = Color.white;
-        } else {
-            timeLineGraphics.GetComponent<Renderer>().material.color = Color.yellow;
+        if ( !isRewinding ) {
+            var g = Instantiate( tlBarPrefab, tlBar.transform.position, tlBar.transform.rotation ) as GameObject;
+            g.tag = "TimelineMarker";
+            g.transform.localScale = new Vector3( 0.2f, 1, 1 );
+
+            StartCoroutine( PutMarker() );
         }
     }
 
-    private void J_OnRewindFinished(object sender, System.EventArgs e) {
-        if (index < players.Length - 1) {
+    private void J_OnRewindFinished( object sender, System.EventArgs e ) {
+        if ( index < players.Length - 1 ) {
             index++;
-            StartCoroutine(RecordObject());
+            StartCoroutine( RecordObject() );
         } else {
-            foreach (var item in players) {
+            foreach ( var item in players ) {
                 var j = item.GetComponent<Journal>();
                 j.Play();
             }
