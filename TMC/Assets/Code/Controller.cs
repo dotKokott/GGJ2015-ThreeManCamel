@@ -28,6 +28,10 @@ public class Controller : JournalObject {
     public float BeamChargeTime = 1f;
     private float beamChargeTimer = 0f;
 
+    public int Order = 0;
+
+    private TextMesh orderText;
+
     void Start() {
         strikeTimer = StrikeCooldown;
 
@@ -38,6 +42,9 @@ public class Controller : JournalObject {
         Journal.OnFrame += Journal_OnFrame;
 
         originalAttackLimit = attackLimit;
+
+        orderText = gameObject.transform.FindChild("Order").gameObject.GetComponent<TextMesh>();
+        orderText.text = (Order + 1).ToString() + ".";
     }
 
     private Vector3 prevpos;
@@ -97,6 +104,7 @@ public class Controller : JournalObject {
 
     void Update() {
         if ( Journal.Mode == Journal.JournalMode.Recording ) {
+            orderText.gameObject.SetActive(false);
             if ( !IsAlive ) return;
 
             strikeTimer += Time.deltaTime;
