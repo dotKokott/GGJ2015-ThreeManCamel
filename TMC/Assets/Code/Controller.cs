@@ -12,8 +12,6 @@ public class Controller : JournalObject {
     int originalAttackLimit;
     public int attackLimit = 1;
 
-    public bool isBoss;
-
     private Vector3 velocity = new Vector3();
     public float acceleration;
     public float friction; 
@@ -39,8 +37,7 @@ public class Controller : JournalObject {
             direction = npos;
 
             attackLimit = originalAttackLimit;
-            if (attackLimit > 0 || isBoss) {
-
+            if (attackLimit > 0) {
                 if ( e.Frame.PrimaryAttack ) {
                     Debug.Log( "Firing a" );
                     smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
@@ -50,11 +47,11 @@ public class Controller : JournalObject {
 
                 if ( e.Frame.SecondaryAttack ) {
                     Debug.Log( "Firing b" );
-                    fireball = Instantiate( Globals._.PREFAB_FIREBALL, transform.position, Globals._.PREFAB_FIREBALL.transform.rotation ) as GameObject;
-                    var fire = fireball.GetComponent<Fireball>();
-                    fireball.GetComponent<AttackInfo>().Owner = this.gameObject;
-                    fire.Direction = direction;
-                    Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Fireball );
+                    //fireball = Instantiate( Globals._.PREFAB_FIREBALL, transform.position, Globals._.PREFAB_FIREBALL.transform.rotation ) as GameObject;
+                    //var fire = fireball.GetComponent<Fireball>();
+                    //fireball.GetComponent<AttackInfo>().Owner = this.gameObject;
+                    //fire.Direction = direction;
+                    //Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Fireball );
                 }
 
                 if ( e.Frame.ThirdiraryAttack ) {
@@ -64,7 +61,6 @@ public class Controller : JournalObject {
                 
                     beam.transform.rotation = transform.rotation;
 
-                    //beam.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Rad2Deg * Mathf.Atan2(direction.y, direction.x) + 90));
                     beam.transform.position += -transform.up * beam.transform.localScale.y / 2;
                     Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Beam );
                 }
@@ -105,8 +101,9 @@ public class Controller : JournalObject {
                 transform.rotation = Quaternion.Euler( new Vector3( 0, 0, Mathf.Atan2( direction.y, direction.x ) * Mathf.Rad2Deg + 90 ) );
             }
 
-            //if (attackLimit <= 0 && !isBoss)
-            //    return;
+            if (attackLimit <= 0) {
+                return;
+            }             
 
             if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_A )) {
                 smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
@@ -117,13 +114,13 @@ public class Controller : JournalObject {
             }
 
             if (InputManager.GetButtonDown(0, ButtonMapping.BUTTON_X)) {
-                fireball = Instantiate( Globals._.PREFAB_FIREBALL, transform.position, Globals._.PREFAB_FIREBALL.transform.rotation ) as GameObject;
-                var fire = fireball.GetComponent<Fireball>();
-                fireball.GetComponent<AttackInfo>().Owner = this.gameObject;
+                //fireball = Instantiate( Globals._.PREFAB_FIREBALL, transform.position, Globals._.PREFAB_FIREBALL.transform.rotation ) as GameObject;
+                //var fire = fireball.GetComponent<Fireball>();
+                //fireball.GetComponent<AttackInfo>().Owner = this.gameObject;
 
-                fire.Direction = direction;
-                Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Fireball );
-                attackLimit--;
+                //fire.Direction = direction;
+                //Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Fireball );
+                //attackLimit--;
             }
 
             if (InputManager.GetButtonDown(0, ButtonMapping.BUTTON_B)) {
