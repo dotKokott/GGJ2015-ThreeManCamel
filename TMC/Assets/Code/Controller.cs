@@ -81,10 +81,10 @@ public class Controller : JournalObject {
 
             if ( beam != null ) return;
 
-            //var v = InputManager.GetAxisValue( 0, AxesMapping.LEFT_Y_AXIS );
-            //var h = InputManager.GetAxisValue( 0, AxesMapping.LEFT_X_AXIS );
-            var h = Input.GetAxis( "Horizontal" );
-            var v = Input.GetAxis( "Vertical" );
+            var v = -InputManager.GetAxisValue(0, AxesMapping.LEFT_Y_AXIS);
+            var h = InputManager.GetAxisValue(0, AxesMapping.LEFT_X_AXIS);
+            //var h = Input.GetAxis( "Horizontal" );
+            //var v = Input.GetAxis( "Vertical" );
 
             //var vel = new Vector3( h * 5, -v * 5 ) * Time.deltaTime;
             velocity.x += acceleration * Time.deltaTime * h - velocity.x * friction * Time.deltaTime;
@@ -105,8 +105,8 @@ public class Controller : JournalObject {
                 transform.rotation = Quaternion.Euler( new Vector3( 0, 0, Mathf.Atan2( direction.y, direction.x ) * Mathf.Rad2Deg + 90 ) );
             }
 
-            if (attackLimit <= 0 && !isBoss)
-                return;
+            //if (attackLimit <= 0 && !isBoss)
+            //    return;
 
             if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_A )) {
                 smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
@@ -142,7 +142,7 @@ public class Controller : JournalObject {
         var comp = other.GetComponent<AttackInfo>();
         if (comp == null || comp.Owner == this.gameObject) return;
 
-        if (Journal.Mode == Journal.JournalMode.Recording || Journal.Mode == Journal.JournalMode.Playing) return;
+        if (Journal.Mode == Journal.JournalMode.Recording || Journal.Mode == Journal.JournalMode.Idling) return;
 
         if ( other.gameObject.tag == "Attack" ) {            
             if (--health <= 0) {

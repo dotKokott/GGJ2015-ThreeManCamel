@@ -19,6 +19,10 @@ public class Globals : MonoBehaviour {
     public AudioClip MUSIC_Reverse;
     public AudioClip MUSIC_Boss;
 
+    public GameObject BOSS_Beams;
+    public GameObject BOSS_Smash;
+    public GameObject BOSS_Cones;
+
 
     [HideInInspector]
     public static Globals _;

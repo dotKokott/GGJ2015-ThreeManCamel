@@ -99,6 +99,9 @@ public class Timeline : MonoBehaviour {
                 var music = GameObject.Find( "Music" ).GetComponent<AudioSource>();
                 music.clip = Globals._.MUSIC_AllPlay;
                 music.Play();
+
+                GameObject.Find("Boss").GetComponent<Boss>().StartRoutine();
+
                 var j = item.GetComponent<Journal>();
                 j.Play();
             }

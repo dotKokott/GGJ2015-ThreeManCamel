@@ -11,6 +11,6 @@ public class TemporaryHealthFeedback : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        text.text = ""+c.health;
+        //text.text = ""+c.health;
 	}
 }
