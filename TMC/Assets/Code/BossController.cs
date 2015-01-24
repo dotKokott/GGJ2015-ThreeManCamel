@@ -13,7 +13,8 @@ public enum AttackType {
     BeamDown,
     BeamLeft,
     BeamRight,
-    AreaOfEffect
+    AreaOfEffect,
+    RotatingBeams
 }
 
 [Serializable]
@@ -117,9 +118,35 @@ public class BossController : JournalObject {
                 var smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
                 smash.GetComponent<AttackInfo>().Owner = this.gameObject;
                 break;
+            case AttackType.RotatingBeams:
+                Globals._.BOSS_BeamUp.SetActive(true);
+                Globals._.BOSS_BeamDown.SetActive(true);
+                Globals._.BOSS_BeamLeft.SetActive(true);
+                Globals._.BOSS_BeamRight.SetActive(true);
+
+                StartCoroutine(rotateBeams());
+
+                break;
             default:
                 break;
         }
+    }
+
+    private IEnumerator rotateBeams() {
+        yield return new WaitForSeconds(1f);
+
+        var beams = GameObject.Find("Beams");
+        var rotator = beams.GetComponent<RotateBeams>();
+        rotator.Rotate = true;
+
+        yield return new WaitForSeconds(6f);
+
+        rotator.Reset();
+
+        Globals._.BOSS_BeamUp.SetActive(false);
+        Globals._.BOSS_BeamDown.SetActive(false);
+        Globals._.BOSS_BeamLeft.SetActive(false);
+        Globals._.BOSS_BeamRight.SetActive(false);
     }
 
     private IEnumerator PrepAttack( BossAttack attack ) {
