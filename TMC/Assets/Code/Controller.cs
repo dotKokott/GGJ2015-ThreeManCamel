@@ -81,19 +81,20 @@ public class Controller : JournalObject {
 
             if ( beam != null ) return;
 
-
             //var v = InputManager.GetAxisValue( 0, AxesMapping.LEFT_Y_AXIS );
             //var h = InputManager.GetAxisValue( 0, AxesMapping.LEFT_X_AXIS );
             var h = Input.GetAxis( "Horizontal" );
-            var v = -Input.GetAxis( "Vertical" );
+            var v = Input.GetAxis( "Vertical" );
 
-            var vel = new Vector3( h * 5, -v * 5 ) * Time.deltaTime;
-           // velocity.x += acceleration * Time.deltaTime * InputManager.GetAxisValue(0, AxesMapping.LEFT_X_AXIS) - velocity.x * friction * Time.deltaTime;
+            //var vel = new Vector3( h * 5, -v * 5 ) * Time.deltaTime;
+            velocity.x += acceleration * Time.deltaTime * h - velocity.x * friction * Time.deltaTime;
+            //velocity.x += acceleration * Time.deltaTime * InputManager.GetAxisValue(0, AxesMapping.LEFT_X_AXIS) - velocity.x * friction * Time.deltaTime;
+            velocity.y += acceleration * Time.deltaTime * v - velocity.y * friction * Time.deltaTime;
             //velocity.y += acceleration * Time.deltaTime * -InputManager.GetAxisValue(0, AxesMapping.LEFT_Y_AXIS) - velocity.y * friction * Time.deltaTime;
 
-            //Vector3 vel = velocity;
+            Vector3 vel = velocity;
 
-           // GetComponent<Rigidbody>().MovePosition(transform.position + velocity);
+           //GetComponent<Rigidbody>().MovePosition(transform.position + velocity);
 
             transform.position += vel;
 
@@ -139,12 +140,12 @@ public class Controller : JournalObject {
 
     void OnTriggerEnter( Collider other ) {
         var comp = other.GetComponent<AttackInfo>();
-        if (comp == null || comp.Owner == this.gameObject) return;        
+        if (comp == null || comp.Owner == this.gameObject) return;
 
-        if ( other.gameObject.tag == "Attack" ) {
-            print("THIS IS HAPPENING TOO OFTEN");
-            if (--health <= 0 && GetComponent<Journal>().Mode == global::Journal.JournalMode.Playing)
-             { 
+        if (Journal.Mode == Journal.JournalMode.Recording || Journal.Mode == Journal.JournalMode.Playing) return;
+
+        if ( other.gameObject.tag == "Attack" ) {            
+            if (--health <= 0) {
                 Instantiate( Globals._.PREFAB_EXPLOSION, transform.position, Quaternion.identity );
                 Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Explosion );
                 Destroy( gameObject );

@@ -53,14 +53,26 @@ public class Timeline : MonoBehaviour {
         var p = players[index];
         var j = p.GetComponent<Journal>();
 
+        var music = GameObject.Find( "Music" ).GetComponent<AudioSource>();
+        music.clip = Globals._.MUSIC_SinglePlay;
+        if ( p.name == "Boss" ) {
+            music.clip = Globals._.MUSIC_Boss;
+        }
+        music.Play();
+
         j.Record();
 
         yield return new WaitForSeconds( TurnTime );
         j.Idle();
+
         isRewinding = true;
-        //GetComponent<AudioSource>().PlayOneShot(Globals._.SOUND_Rewind);
         j.Play( true );
         iTween.MoveTo( tlBar.gameObject, iTween.Hash( "position", tlStart.transform.position, "time", 3, "easetype", iTween.EaseType.easeInOutExpo ) );
+
+        music.clip = Globals._.MUSIC_Reverse;
+        music.Play();
+
+        j.Play( true );
     }
 
     IEnumerator PutMarker() {
@@ -81,6 +93,9 @@ public class Timeline : MonoBehaviour {
             StartCoroutine( RecordObject() );
         } else {
             foreach ( var item in players ) {
+                var music = GameObject.Find( "Music" ).GetComponent<AudioSource>();
+                music.clip = Globals._.MUSIC_AllPlay;
+                music.Play();
                 var j = item.GetComponent<Journal>();
                 j.Play();
             }
