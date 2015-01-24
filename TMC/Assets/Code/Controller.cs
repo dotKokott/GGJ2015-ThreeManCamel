@@ -28,6 +28,7 @@ public class Controller : JournalObject {
             if ( e.Frame.PrimaryAttack ) {
                 Debug.Log( "Firing a" );
                 smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
+                smash.GetComponent<AttackInfo>().Owner = this.gameObject;
                 Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Smash );
             }
 
@@ -35,7 +36,7 @@ public class Controller : JournalObject {
                 Debug.Log( "Firing b" );
                 fireball = Instantiate( Globals._.PREFAB_FIREBALL, transform.position, Globals._.PREFAB_FIREBALL.transform.rotation ) as GameObject;
                 var fire = fireball.GetComponent<Fireball>();
-
+                fireball.GetComponent<AttackInfo>().Owner = this.gameObject;
                 fire.Direction = direction;
                 Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Fireball );
             }
@@ -43,7 +44,10 @@ public class Controller : JournalObject {
             if ( e.Frame.ThirdiraryAttack ) {
                 Debug.Log( "Firing c" );
                 beam = Instantiate( Globals._.PREFAB_BEAM, transform.position, Globals._.PREFAB_BEAM.transform.rotation ) as GameObject;
+                beam.GetComponent<AttackInfo>().Owner = this.gameObject;
+                
                 beam.transform.rotation = transform.rotation;
+
                 //beam.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Rad2Deg * Mathf.Atan2(direction.y, direction.x) + 90));
                 beam.transform.position += -transform.up * beam.transform.localScale.y / 2;
                 Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Beam );
@@ -76,12 +80,15 @@ public class Controller : JournalObject {
 
             if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_A ) ) {
                 smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
+                smash.GetComponent<AttackInfo>().Owner = this.gameObject;
+
                 Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Smash );
             }
 
             if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_X ) ) {
                 fireball = Instantiate( Globals._.PREFAB_FIREBALL, transform.position, Globals._.PREFAB_FIREBALL.transform.rotation ) as GameObject;
                 var fire = fireball.GetComponent<Fireball>();
+                fireball.GetComponent<AttackInfo>().Owner = this.gameObject;
 
                 fire.Direction = direction;
                 Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Fireball );
@@ -90,6 +97,7 @@ public class Controller : JournalObject {
             if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_B ) ) {
                 beam = Instantiate( Globals._.PREFAB_BEAM, transform.position, Globals._.PREFAB_BEAM.transform.rotation ) as GameObject;
                 beam.transform.rotation = transform.rotation;
+                beam.GetComponent<AttackInfo>().Owner = this.gameObject;
                 //beam.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Rad2Deg * Mathf.Atan2(direction.y, direction.x) + 90));
                 beam.transform.position += -transform.up * beam.transform.localScale.y / 2;
                 Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Beam );
@@ -98,10 +106,8 @@ public class Controller : JournalObject {
     }
 
     void OnTriggerEnter( Collider other ) {
-
-        if ( other.gameObject == smash ) return;
-        if ( other.gameObject == fireball ) return;
-        if ( other.gameObject == beam ) return;
+        var comp = other.GetComponent<AttackInfo>();
+        if (comp == null || comp.Owner == this.gameObject) return;        
 
         if ( other.gameObject.tag == "Attack" ) {
             Instantiate( Globals._.PREFAB_EXPLOSION, transform.position, Quaternion.identity );

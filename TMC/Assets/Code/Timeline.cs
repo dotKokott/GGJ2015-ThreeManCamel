@@ -6,6 +6,8 @@ public class Timeline : MonoBehaviour {
     private GameObject[] players;
     private int index = 0;
 
+    public float TurnTime = 5f;
+
     // Use this for initialization
     void Start() {
         players = GameObject.FindGameObjectsWithTag("Player");
@@ -27,7 +29,7 @@ public class Timeline : MonoBehaviour {
 
         j.Record();
 
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(TurnTime);
         j.Idle();
         yield return new WaitForSeconds(1);
         GetComponent<AudioSource>().PlayOneShot(Globals._.SOUND_Rewind);
