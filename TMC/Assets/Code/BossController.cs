@@ -122,17 +122,17 @@ public class BossController : JournalObject {
                 smash.GetComponent<AttackInfo>().Owner = this.gameObject;
                 break;
             case AttackType.RotatingBeams:
-                Globals._.BOSS_BeamUp.SetActive(true);
-                Globals._.BOSS_BeamDown.SetActive(true);
-                Globals._.BOSS_BeamLeft.SetActive(true);
-                Globals._.BOSS_BeamRight.SetActive(true);
+                Globals._.BOSS_BeamUp.SetActive( true );
+                Globals._.BOSS_BeamDown.SetActive( true );
+                Globals._.BOSS_BeamLeft.SetActive( true );
+                Globals._.BOSS_BeamRight.SetActive( true );
 
-                StartCoroutine(rotateBeams());
+                StartCoroutine( rotateBeams() );
 
                 break;
             case AttackType.SingleRotatingBeam:
-                Globals._.BOSS_BeamUp.SetActive(true);
-                StartCoroutine(rotateBeams());               
+                Globals._.BOSS_BeamUp.SetActive( true );
+                StartCoroutine( rotateBeams() );
 
                 break;
             default:
@@ -141,20 +141,20 @@ public class BossController : JournalObject {
     }
 
     private IEnumerator rotateBeams() {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds( 1f );
 
-        var beams = GameObject.Find("Beams");
+        var beams = GameObject.Find( "Beams" );
         var rotator = beams.GetComponent<RotateBeams>();
         rotator.Rotate = true;
 
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds( 6f );
 
         rotator.Reset();
 
-        Globals._.BOSS_BeamUp.SetActive(false);
-        Globals._.BOSS_BeamDown.SetActive(false);
-        Globals._.BOSS_BeamLeft.SetActive(false);
-        Globals._.BOSS_BeamRight.SetActive(false);
+        Globals._.BOSS_BeamUp.SetActive( false );
+        Globals._.BOSS_BeamDown.SetActive( false );
+        Globals._.BOSS_BeamLeft.SetActive( false );
+        Globals._.BOSS_BeamRight.SetActive( false );
     }
 
     private IEnumerator PrepAttack( BossAttack attack ) {
@@ -164,20 +164,34 @@ public class BossController : JournalObject {
         DoAttack( attack );
     }
 
-    void OnTriggerEnter(Collider other) {
-        Debug.Log("Boss hit");
+    void OnTriggerEnter( Collider other ) {
+        Debug.Log( "Boss hit" );
 
         var comp = other.GetComponent<AttackInfo>();
-        if (comp == null || comp.Owner == this.gameObject) return;
+        if ( comp == null || comp.Owner == this.gameObject ) return;
 
-        if (Journal.Mode == Journal.JournalMode.Recording || Journal.Mode == Journal.JournalMode.Idling) return;
+        if ( Journal.Mode == Journal.JournalMode.Recording || Journal.Mode == Journal.JournalMode.Idling ) return;
 
-        if (other.gameObject.tag == "Attack") {
-            if (--Health <= 0) {
-                Instantiate(Globals._.PREFAB_EXPLOSION, transform.position, Quaternion.identity);
-                Camera.main.GetComponent<AudioSource>().PlayOneShot(Globals._.SOUND_Explosion);
-                Destroy(gameObject);
+        if ( other.gameObject.tag == "Attack" ) {
+            if ( --Health <= 0 ) {
+                Instantiate( Globals._.PREFAB_EXPLOSION, transform.position, Quaternion.identity );
+                Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Explosion );
+                Destroy( gameObject );
+            } else {
+                StartCoroutine( Blink( 3 ) );
             }
+        }
+    }
+
+    IEnumerator Blink( int times ) {
+        var r = transform.Find( "Model" ).GetComponentInChildren<Renderer>();
+        r.enabled = false;
+        yield return new WaitForSeconds( 0.02f );
+        r.enabled = true;
+
+        if ( times > 0 ) {
+            yield return new WaitForSeconds( 0.1f );
+            StartCoroutine( Blink( times - 1 ) );
         }
     }
 

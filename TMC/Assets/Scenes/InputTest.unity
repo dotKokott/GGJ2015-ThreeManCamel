@@ -572,6 +572,7 @@ MonoBehaviour:
     Type: 9
   ConeTime: 1
   BeamTime: 1
+  Health: 5
 --- !u!1 &278319968
 GameObject:
   m_PrefabParentObject: {fileID: 152378, guid: cf50a701e2b16004683cd46da5d655ff, type: 2}
@@ -2743,6 +2744,10 @@ Prefab:
     - target: {fileID: 100002, guid: 52ba9fd7fe5c44cd8b57ac24428a3fee, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 52ba9fd7fe5c44cd8b57ac24428a3fee, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 52ba9fd7fe5c44cd8b57ac24428a3fee, type: 3}
