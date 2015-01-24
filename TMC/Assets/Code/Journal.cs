@@ -78,6 +78,11 @@ public class Journal : MonoBehaviour {
                 return;
             }
 
+            if ( frameIndex == -1 ) {
+                iTween.Stop( gameObject );
+                frameIndex = 0;
+            }
+
             var f = frames[frameIndex];
 
             jObject.transform.position = f.Position;
@@ -91,6 +96,7 @@ public class Journal : MonoBehaviour {
             frameIndex++;
         } else if ( Mode == JournalMode.Reversing ) {
             if ( frameIndex < 0 ) {
+                frameIndex = 0;
                 Mode = JournalMode.Idling;
 
                 if ( OnRewindFinished != null ) {
@@ -109,8 +115,6 @@ public class Journal : MonoBehaviour {
             if ( OnFrame != null ) {
                 OnFrame.Invoke( this, new JournalEventArgs( f, Mode ) );
             }
-
-            //frameIndex -= reverseFrameSpeed;
         }
     }
 
@@ -121,8 +125,8 @@ public class Journal : MonoBehaviour {
 
     public void Play( bool reversed = false ) {
         if ( reversed ) {
-            iTween.ValueTo( gameObject, iTween.Hash( "from", frames.Count - 1, "to", 0,
-                "time", 3,
+            iTween.ValueTo( gameObject, iTween.Hash( "from", frames.Count - 1, "to", -1,
+                "time", Timeline.TTime / 2,
                 "onupdate", "reverseUpdate", "easetype", iTween.EaseType.easeInOutExpo ) );
         }
         Mode = reversed ? JournalMode.Reversing : JournalMode.Playing;

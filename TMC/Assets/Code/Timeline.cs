@@ -6,6 +6,7 @@ public class Timeline : MonoBehaviour {
     private GameObject[] players;
     private int index = 0;
 
+    public static float TTime = 0;
     public float TurnTime = 7f;
     public float MarkerSpawnTime = 2f;
 
@@ -21,6 +22,8 @@ public class Timeline : MonoBehaviour {
         tlStart = GameObject.Find( "TL_Start" );
         tlEnd = GameObject.Find( "TL_End" );
         tlBar = GameObject.Find( "TL_Bar" );
+
+        TTime = TurnTime;
 
         tlBar.transform.position = tlStart.transform.position;
 
@@ -46,7 +49,7 @@ public class Timeline : MonoBehaviour {
         }
         tlStart.transform.position = tlStart.transform.position;
 
-        iTween.MoveTo( tlBar.gameObject, iTween.Hash( "position", tlEnd.transform.position, "time", 7, "easetype", iTween.EaseType.linear ) );
+        iTween.MoveTo( tlBar.gameObject, iTween.Hash( "position", tlEnd.transform.position, "time", TurnTime, "easetype", iTween.EaseType.linear ) );
         isRewinding = false;
         StartCoroutine( PutMarker() );
 
@@ -67,7 +70,7 @@ public class Timeline : MonoBehaviour {
 
         isRewinding = true;
         j.Play( true );
-        iTween.MoveTo( tlBar.gameObject, iTween.Hash( "position", tlStart.transform.position, "time", 3, "easetype", iTween.EaseType.easeInOutExpo ) );
+        iTween.MoveTo( tlBar.gameObject, iTween.Hash( "position", tlStart.transform.position, "time", TurnTime / 2, "easetype", iTween.EaseType.easeInOutExpo ) );
 
         music.clip = Globals._.MUSIC_Reverse;
         music.Play();
