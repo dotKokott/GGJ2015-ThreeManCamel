@@ -172,7 +172,7 @@ GameObject:
   - 114: {fileID: 19492722}
   - 114: {fileID: 19492721}
   - 54: {fileID: 19492720}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player2
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -754,6 +754,62 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100020, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100026, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100024, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
   m_IsPrefabParent: 0
@@ -864,7 +920,7 @@ GameObject:
   - 4: {fileID: 504263310}
   - 23: {fileID: 504263309}
   - 102: {fileID: 504263308}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Life
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1444,7 +1500,7 @@ GameObject:
   - 4: {fileID: 725097504}
   - 23: {fileID: 725097506}
   - 102: {fileID: 725097505}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Order
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2016,7 +2072,7 @@ GameObject:
   - 114: {fileID: 1017020206}
   - 114: {fileID: 1017020205}
   - 54: {fileID: 1017020211}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2275,7 +2331,7 @@ GameObject:
   - 4: {fileID: 1076128442}
   - 23: {fileID: 1076128444}
   - 102: {fileID: 1076128443}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Order
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2700,7 +2756,7 @@ GameObject:
   - 4: {fileID: 1502405591}
   - 23: {fileID: 1502405592}
   - 102: {fileID: 1502405590}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Life
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2778,7 +2834,7 @@ GameObject:
   - 4: {fileID: 1512776649}
   - 23: {fileID: 1512776651}
   - 102: {fileID: 1512776650}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Order
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3040,7 +3096,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1728839767}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3107,7 +3163,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1900822274}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
