@@ -424,6 +424,10 @@ Prefab:
       propertyPath: m_TagString
       value: Attack
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: e8e13b8d36a6fae41a7cc66bc841b594, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6995af515edde9948adf01abbdc5891a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8e13b8d36a6fae41a7cc66bc841b594, type: 3}
   m_IsPrefabParent: 0
@@ -1330,6 +1334,10 @@ Prefab:
       propertyPath: m_TagString
       value: Attack
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: e8e13b8d36a6fae41a7cc66bc841b594, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6995af515edde9948adf01abbdc5891a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8e13b8d36a6fae41a7cc66bc841b594, type: 3}
   m_IsPrefabParent: 0
@@ -1478,6 +1486,10 @@ Prefab:
       propertyPath: m_TagString
       value: Attack
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 2ba45c3251440b24a92fc2077a5aa391, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6995af515edde9948adf01abbdc5891a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ba45c3251440b24a92fc2077a5aa391, type: 3}
   m_IsPrefabParent: 0
@@ -3098,6 +3110,10 @@ Prefab:
       propertyPath: m_TagString
       value: Attack
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 2ba45c3251440b24a92fc2077a5aa391, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6995af515edde9948adf01abbdc5891a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ba45c3251440b24a92fc2077a5aa391, type: 3}
   m_IsPrefabParent: 0
