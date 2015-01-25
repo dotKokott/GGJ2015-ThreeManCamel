@@ -88,8 +88,6 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
-  m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_GeneratedSkyboxReflection: {fileID: 0}
@@ -548,6 +546,18 @@ Animation:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: e8e13b8d36a6fae41a7cc66bc841b594, type: 3}
   m_PrefabInternal: {fileID: 164850453}
+--- !u!64 &86114791
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 86114790}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 4300000, guid: e8e13b8d36a6fae41a7cc66bc841b594, type: 3}
 --- !u!1001 &164850453
 Prefab:
   m_ObjectHideFlags: 0
@@ -607,6 +617,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e8e13b8d36a6fae41a7cc66bc841b594, type: 3}
+      propertyPath: m_TagString
+      value: Attack
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8e13b8d36a6fae41a7cc66bc841b594, type: 3}
   m_IsPrefabParent: 0
@@ -628,7 +642,7 @@ GameObject:
   - 54: {fileID: 173989960}
   - 114: {fileID: 173989959}
   m_Layer: 0
-  m_Name: Boss3
+  m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -676,7 +690,7 @@ MonoBehaviour:
   ConeTime: 2.5
   BeamTime: 1
   Health: 5
-  animation: {fileID: 0}
+  animation: {fileID: 1672995649}
 --- !u!54 &173989960
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -723,6 +737,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 173989957}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!111 &221247010
+Animation:
+  m_PrefabParentObject: {fileID: 11100000, guid: 52ba9fd7fe5c44cd8b57ac24428a3fee,
+    type: 3}
+  m_PrefabInternal: {fileID: 521660465}
 --- !u!1 &239269347
 GameObject:
   m_ObjectHideFlags: 0
@@ -2058,6 +2077,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e8e13b8d36a6fae41a7cc66bc841b594, type: 3}
+      propertyPath: m_TagString
+      value: Attack
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8e13b8d36a6fae41a7cc66bc841b594, type: 3}
   m_IsPrefabParent: 0
@@ -2201,6 +2224,10 @@ Prefab:
     - target: {fileID: 100000, guid: 2ba45c3251440b24a92fc2077a5aa391, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2ba45c3251440b24a92fc2077a5aa391, type: 3}
+      propertyPath: m_TagString
+      value: Attack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ba45c3251440b24a92fc2077a5aa391, type: 3}
@@ -4135,7 +4162,6 @@ Light:
     m_Resolution: 3
     m_Strength: 1
     m_Bias: .639999986
-    m_NormalBias: 0
     m_Softness: 4
     m_SoftnessFade: 1
   m_Cookie: {fileID: 0}
@@ -4434,10 +4460,34 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 2ba45c3251440b24a92fc2077a5aa391, type: 3}
   m_PrefabInternal: {fileID: 1920693186}
+--- !u!64 &1356995203
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1356995202}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 4300000, guid: 2ba45c3251440b24a92fc2077a5aa391, type: 3}
 --- !u!1 &1390630753
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 2ba45c3251440b24a92fc2077a5aa391, type: 3}
   m_PrefabInternal: {fileID: 727685788}
+--- !u!64 &1390630754
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1390630753}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 4300000, guid: 2ba45c3251440b24a92fc2077a5aa391, type: 3}
 --- !u!1001 &1463244952
 Prefab:
   m_ObjectHideFlags: 0
@@ -5119,6 +5169,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1651915406}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!111 &1672995649
+Animation:
+  m_PrefabParentObject: {fileID: 11100000, guid: 52ba9fd7fe5c44cd8b57ac24428a3fee,
+    type: 3}
+  m_PrefabInternal: {fileID: 1172387359}
 --- !u!1 &1728839766
 GameObject:
   m_ObjectHideFlags: 0
@@ -5282,6 +5337,18 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: e8e13b8d36a6fae41a7cc66bc841b594, type: 3}
   m_PrefabInternal: {fileID: 715834558}
+--- !u!64 &1829398542
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1829398541}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 4300000, guid: e8e13b8d36a6fae41a7cc66bc841b594, type: 3}
 --- !u!4 &1856261802
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 52ba9fd7fe5c44cd8b57ac24428a3fee, type: 3}
@@ -5373,6 +5440,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2ba45c3251440b24a92fc2077a5aa391, type: 3}
+      propertyPath: m_TagString
+      value: Attack
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ba45c3251440b24a92fc2077a5aa391, type: 3}
   m_IsPrefabParent: 0
@@ -5394,7 +5465,7 @@ GameObject:
   - 54: {fileID: 1959753651}
   - 114: {fileID: 1959753650}
   m_Layer: 0
-  m_Name: Boss2
+  m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5442,7 +5513,7 @@ MonoBehaviour:
   ConeTime: 2.5
   BeamTime: 1
   Health: 5
-  animation: {fileID: 0}
+  animation: {fileID: 221247010}
 --- !u!54 &1959753651
 Rigidbody:
   m_ObjectHideFlags: 0
