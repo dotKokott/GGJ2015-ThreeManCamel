@@ -169,7 +169,7 @@ public class Timeline : MonoBehaviour {
 
         EnableUIObject( "Panel" );
         EnableUIObject( "Image 1" );
-        if ( boss.GetComponentInChildren<Animation>().name == "Failure" ) {
+        if ( boss.GetComponentInChildren<BossController>().Health == 0 ) {
             won = true;
             EnableUIObject( "Victory" );
             EnableUIObject( "Victory 1" );
