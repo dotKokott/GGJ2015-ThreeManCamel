@@ -29,6 +29,8 @@ public class Controller : JournalObject {
     private float beamChargeTimer = 0f;
     public float BeamStayTime = 1f;
 
+	Animation animation;
+
     public int Order = 0;
 
     private TextMesh orderText;
@@ -43,6 +45,8 @@ public class Controller : JournalObject {
         Journal.OnFrame += Journal_OnFrame;
 
         originalAttackLimit = attackLimit;
+
+		animation = GetComponent<Animation>();
 
         orderText = gameObject.transform.FindChild("Order").gameObject.GetComponent<TextMesh>();
         orderText.text = (Order + 1).ToString() + ".";
@@ -137,6 +141,15 @@ public class Controller : JournalObject {
             velocity.y += acceleration * Time.deltaTime * v - velocity.y * friction * Time.deltaTime;            
 
             Vector3 vel = velocity;
+
+			//Should change with a constant treshold
+			if (Vector3.Distance(vel, Vector3.zero) < 0.1f)
+			{
+				animation.Play ("Idle");
+			}
+
+			else
+				animation.Play("Walk");
 
            //GetComponent<Rigidbody>().MovePosition(transform.position + velocity);
 
