@@ -268,7 +268,7 @@ public class Controller : JournalObject {
             if ( comp == null || comp.Owner == this.gameObject )
                 return;
 
-            if ( Journal.Mode == Journal.JournalMode.Recording || Journal.Mode == Journal.JournalMode.Idling ) return;
+            if (Journal.Mode != Journal.JournalMode.Playing) return;
 
             if ( collider.gameObject.tag == "Attack" ) {
                 if ( protectionTimer <= 0 ) {

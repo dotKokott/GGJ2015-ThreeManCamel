@@ -221,7 +221,7 @@ public class BossController : JournalObject {
             var comp = collider.GetComponent<AttackInfo>();
             if ( comp == null || comp.Owner == this.gameObject ) return;
 
-            if ( Journal.Mode == Journal.JournalMode.Recording || Journal.Mode == Journal.JournalMode.Idling ) return;
+            if ( Journal.Mode != Journal.JournalMode.Playing ) return;
 
             if ( collidersAlreadyHit.Contains( collider.gameObject ) ) return;
 
