@@ -94,7 +94,6 @@ public class BossController : JournalObject {
                 Globals._.BOSS_ConeDown.SetActive( true );
                 iTween.ScaleTo( Globals._.BOSS_ConeDown, new Vector3( 70, 70, 70 ), ConeTime * .75f );
                 Globals._.BOSS_ConeDown.DeactivateAfter( ConeTime );
-				animation.Play ("Cone Attack", AnimationPlayMode.Stop);
                 break;
             case AttackType.ConeLeft:
                 Globals._.BOSS_ConeLeft.transform.localScale = new Vector3( 75, 75, 7 );
@@ -114,8 +113,7 @@ public class BossController : JournalObject {
                 break;
             case AttackType.BeamDown:
                 Globals._.BOSS_BeamDown.SetActive( true );
-                Globals._.BOSS_BeamDown.DeactivateAfter( BeamTime );
-			animation.Play ("Line Attack", AnimationPlayMode.Stop);
+                Globals._.BOSS_BeamDown.DeactivateAfter( BeamTime );			
                 break;
             case AttackType.BeamLeft:
                 Globals._.BOSS_BeamLeft.SetActive( true );
@@ -128,7 +126,7 @@ public class BossController : JournalObject {
             case AttackType.AreaOfEffect:
                 var smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
                 smash.GetComponent<AttackInfo>().Owner = this.gameObject;
-				animation.Play ("AOE", AnimationPlayMode.Stop);
+				
                 break;
             case AttackType.RotatingBeams:
                 Globals._.BOSS_BeamUp.SetActive( true );
@@ -167,7 +165,45 @@ public class BossController : JournalObject {
     }
 
     private IEnumerator PrepAttack( BossAttack attack ) {
-        yield return new WaitForSeconds( attack.TimeFromStart );
+        var animationName = "";
+        var animTime = 0f;
+
+        switch (attack.Type) {
+            case AttackType.ConeUp:
+            case AttackType.ConeDown:                
+            case AttackType.ConeLeft:
+            case AttackType.ConeRight:
+                animationName = "Cone Attack";
+                animTime = 1.667f;
+
+                break;
+            case AttackType.BeamUp:                                
+            case AttackType.BeamDown:
+            case AttackType.BeamLeft:
+            case AttackType.BeamRight:
+                animationName = "Line Attack";
+                animTime = 1.208f;
+
+                break;
+            case AttackType.AreaOfEffect:
+                animationName = "AOE";
+                animTime = 1.450f;
+
+                break;
+            case AttackType.RotatingBeams:
+                break;
+            case AttackType.SingleRotatingBeam:
+                break;
+            default:
+                break;
+        }
+
+        yield return new WaitForSeconds( attack.TimeFromStart - animTime / 2f);
+
+        animation.Play(animationName, AnimationPlayMode.Stop);
+        
+        yield return new WaitForSeconds(animTime / 2f);
+
         // Omg, we're still GGJ'ing. It didn't work with just saying "Attacked = true"...
         GetComponent<JournalObject>().Attacked = true;
         DoAttack( attack );
