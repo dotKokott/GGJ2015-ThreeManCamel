@@ -8741,6 +8741,7 @@ MonoBehaviour:
   - {fileID: 238040302}
   - {fileID: 105695900}
   stomp: {fileID: 373050287}
+  aoeClip: {fileID: 8300000, guid: 078c1a3abafb58d4d8a62cc47bfe0c9e, type: 3}
 --- !u!82 &372871281
 AudioSource:
   m_ObjectHideFlags: 0

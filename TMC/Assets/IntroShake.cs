@@ -9,9 +9,11 @@ public class IntroShake : MonoBehaviour {
 	public CanvasRenderer[] canvases;
 	float timer = 0f;
 	public AudioSource stomp;
+	public AudioClip aoeClip;
 
 	bool dirtyCode;
 	bool dirtyCode2;
+	bool dirtyCode3;
 	bool started;
 
 	// Use this for initialization
@@ -40,8 +42,15 @@ public class IntroShake : MonoBehaviour {
 				iTween.ShakePosition(gameObject, amount * 7f, 2f); 
 			}
 
+			if (timer >= 1.04f & !dirtyCode3)
+			{
+				AudioSource.PlayClipAtPoint(aoeClip, Camera.main.transform.position);
+				dirtyCode3 = true;
+			}
+
 			if (timer >= 1.4f & !dirtyCode2)
 			{
+
 				dirtyCode2 = true;
 	
 				iTween.CameraFadeAdd ();
@@ -56,6 +65,7 @@ public class IntroShake : MonoBehaviour {
 			StopAllCoroutines();
 
 			animation.Play ("AOE");
+
 
 			foreach (MonoBehaviour mb in behaviours)
 			{
