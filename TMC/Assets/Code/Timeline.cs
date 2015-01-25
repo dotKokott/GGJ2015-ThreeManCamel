@@ -201,10 +201,21 @@ public class Timeline : MonoBehaviour {
                 }
             }
         } else {
-            if ( boss.GetComponentInChildren<BossController>().Health == 0 ) {
-                won = true;
-                EnableUIObject( "Victory" );
-                EnableUIObject( "Victory 1" );
+            if ( GameObject.FindGameObjectsWithTag( "Player" ).Length == playersInLevel ) {
+                if ( boss.GetComponent<BossController>().Health == 0 ) {
+                    won = true;
+                    EnableUIObject( "Victory" );
+                    EnableUIObject( "Victory 1" );
+                } else {
+                    won = false;
+                    if ( UnityEngine.Random.Range( 0, 100 ) < 50 ) {
+                        EnableUIObject( "NoBoss" );
+                        EnableUIObject( "NoBoss 1" );
+                    } else {
+                        EnableUIObject( "Death" );
+                        EnableUIObject( "Death 1" );
+                    }
+                }
             } else {
                 won = false;
                 if ( UnityEngine.Random.Range( 0, 100 ) < 50 ) {
