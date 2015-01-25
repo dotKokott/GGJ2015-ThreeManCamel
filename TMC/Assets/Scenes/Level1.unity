@@ -88,6 +88,8 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_GeneratedSkyboxReflection: {fileID: 0}
@@ -524,7 +526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Attacked: 0
   Attacks:
-  - TimeFromStart: 1
+  - TimeFromStart: 2
     Type: 1
   - TimeFromStart: 4.5
     Type: 3
@@ -2468,6 +2470,7 @@ Light:
     m_Resolution: 3
     m_Strength: 1
     m_Bias: .639999986
+    m_NormalBias: 0
     m_Softness: 4
     m_SoftnessFade: 1
   m_Cookie: {fileID: 0}

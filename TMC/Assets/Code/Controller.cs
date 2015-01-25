@@ -72,7 +72,17 @@ public class Controller : JournalObject {
 
             direction = npos;
 
+            if (beam != null) {
+                if (!beam.activeInHierarchy) {
+                    beamChargeTimer += Time.deltaTime;
 
+                    if (beamChargeTimer >= BeamChargeTime) {
+                        beam.SetActive(true);
+
+                        beamChargeTimer = 0;
+                    }
+                }
+            }
 
             attackLimit = originalAttackLimit;
             if ( attackLimit > 0 ) {
@@ -107,7 +117,9 @@ public class Controller : JournalObject {
 
                             beam.transform.localScale = new Vector3( 5, 72, 145 );
                             iTween.ScaleTo(beam, new Vector3(36, 72, 145), 0.2f);
-                            beam.DestroyAfter( BeamStayTime );                        
+                            beam.DestroyAfter( BeamStayTime );
+
+                            beam.SetActive(false);
 
                             beam.transform.position = new Vector3( beam.transform.position.x, beam.transform.position.y, -0.15f );
 
