@@ -536,9 +536,11 @@ MonoBehaviour:
     Type: 0
   - TimeFromStart: .5
     Type: 1
+  - TimeFromStart: 1
+    Type: 8
   ConeTime: 7
   BeamTime: 10
-  Health: 1
+  Health: 2
   animation: {fileID: 82744704}
 --- !u!1 &278319968
 GameObject:
