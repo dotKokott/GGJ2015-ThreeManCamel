@@ -63,6 +63,7 @@ public class BossController : JournalObject {
 
     private void Journal_OnFrame( object sender, Journal.JournalEventArgs e ) {
         if ( e.Mode == Journal.JournalMode.Playing ) {
+            if ( Health == 0 ) return;
             if ( e.Frame.Attacked ) {
                 float time = Attacks[index].TimeFromStart;
                 for ( int i = 0; i < Attacks.Count; i++ ) {
@@ -249,6 +250,7 @@ public class BossController : JournalObject {
     }
 
     private List<GameObject> collidersAlreadyHit = new List<GameObject>();
+    private bool isDead;
 
     void OnTriggerStay( Collider collider ) {
         if (collider.name.Contains("Protector")) {
@@ -265,9 +267,10 @@ public class BossController : JournalObject {
                 collidersAlreadyHit.Add( collider.gameObject );
 
                 if ( --Health <= 0 ) {
-                    Instantiate( Globals._.PREFAB_EXPLOSION, transform.position, Quaternion.identity );
-                    Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Explosion );
-                    Destroy( gameObject );
+                    StartCoroutine( PlayDeathAnimation() );
+                    //Instantiate( Globals._.PREFAB_EXPLOSION, transform.position, Quaternion.identity );
+                    //Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Explosion );
+                    //Destroy( gameObject );
                 } else {
                     StartCoroutine( Blink( 3 ) );
                 }
@@ -284,6 +287,13 @@ public class BossController : JournalObject {
         if ( times > 0 ) {
             yield return new WaitForSeconds( 0.1f );
             StartCoroutine( Blink( times - 1 ) );
+        }
+    }
+
+    IEnumerator PlayDeathAnimation() {
+        animation.Play( "Failure", AnimationPlayMode.Stop );
+        while ( animation.isPlaying ) {
+            yield return new WaitForSeconds( 0.1f );
         }
     }
 

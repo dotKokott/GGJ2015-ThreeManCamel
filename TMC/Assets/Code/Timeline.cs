@@ -61,6 +61,8 @@ public class Timeline : MonoBehaviour {
         EnableUIObject( "Title 2" );
     }
 
+    bool isRecording = false;
+
     // Update is called once per frame
     void Update() {
         if ( Input.GetKeyDown( KeyCode.O ) || InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_Y ) ) {
@@ -73,10 +75,12 @@ public class Timeline : MonoBehaviour {
             } else {
                 DisableUI();
 
-                if ( playIndex == -1 ) {
-                    StartCoroutine( RecordBoss() );
-                } else {
-                    StartCoroutine( RecordObject() );
+                if ( !isRecording ) {
+                    if ( playIndex == -1 ) {
+                        StartCoroutine( RecordBoss() );
+                    } else {
+                        StartCoroutine( RecordObject() );
+                    }
                 }
             }
         }
@@ -93,6 +97,8 @@ public class Timeline : MonoBehaviour {
     }
 
     IEnumerator RecordBoss() {
+        isRecording = true;
+
         MoveTimelineForward();
         var j = boss.GetComponent<Journal>();
 
@@ -114,6 +120,8 @@ public class Timeline : MonoBehaviour {
     }
 
     IEnumerator RecordObject() {
+        isRecording = true;
+
         MoveTimelineForward();
 
         var p = players[index];
@@ -155,16 +163,21 @@ public class Timeline : MonoBehaviour {
 
     private void DisableUI() {
         foreach ( var item in Globals._.UI ) {
-                item.SetActive( false );
+            item.SetActive( false );
         }
     }
 
     private void Boss_OnPlayFinished( object sender, System.EventArgs e ) {
+        StartCoroutine( BossASD() );
+    }
+
+    private IEnumerator BossASD() {
+        yield return new WaitForSeconds( 1.3f );
         gameOver = true;
 
         EnableUIObject( "Panel" );
         EnableUIObject( "Image 1" );
-        if ( boss == null ) {
+        if ( boss.GetComponentInChildren<BossController>().Health == 0 ) {
             won = true;
             EnableUIObject( "Victory" );
             EnableUIObject( "Victory 1" );
@@ -180,7 +193,10 @@ public class Timeline : MonoBehaviour {
         }
     }
 
+
     private void Boss_OnRewindFinished( object sender, System.EventArgs e ) {
+        isRecording = false;
+
         var music = GameObject.Find( "Music" ).GetComponent<AudioSource>();
         music.Stop();
 
@@ -204,6 +220,8 @@ public class Timeline : MonoBehaviour {
     }
 
     private void J_OnRewindFinished( object sender, System.EventArgs e ) {
+        isRecording = false;
+
         var music = GameObject.Find( "Music" ).GetComponent<AudioSource>();
         music.Stop();
 
