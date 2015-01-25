@@ -361,6 +361,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 459100}
   - 108: {fileID: 10841694}
+  - 114: {fileID: 11425106}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -520,6 +521,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 436650}
   - 108: {fileID: 10810990}
+  - 114: {fileID: 11455720}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -727,6 +729,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 491734}
   - 108: {fileID: 10864966}
+  - 114: {fileID: 11484526}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -1170,6 +1173,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 459264}
   - 108: {fileID: 10865696}
+  - 114: {fileID: 11472868}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -4323,6 +4327,58 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11425106
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a08a4aae52cf4b84bd1238346fcfd4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flickeringLightStyle: 0
+  campfireMethod: 0
+  campfireIntesityStyle: 1
+  campfireRangeStyle: 0
+  CampfireIntensityBaseValue: .389999986
+  CampfireIntensityFlickerValue: .0399999991
+  CampfireRangeBaseValue: 9.60999966
+  CampfireRangeFlickerValue: 2
+  CampfireSineCycleIntensitySpeed: 5
+  CampfireSineCycleRangeSpeed: 5
+  FluorescentFlickerMin: .400000006
+  FluorescentFlickerMax: .5
+  FluorescentFlicerPercent: .949999988
+  FluorescentFlickerPlaySound: 0
+  FluorescentFlickerAudioClip: {fileID: 0}
+--- !u!114 &11455720
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a08a4aae52cf4b84bd1238346fcfd4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flickeringLightStyle: 0
+  campfireMethod: 0
+  campfireIntesityStyle: 1
+  campfireRangeStyle: 0
+  CampfireIntensityBaseValue: .389999986
+  CampfireIntensityFlickerValue: .0399999991
+  CampfireRangeBaseValue: 9.60999966
+  CampfireRangeFlickerValue: 2
+  CampfireSineCycleIntensitySpeed: 5
+  CampfireSineCycleRangeSpeed: 5
+  FluorescentFlickerMin: .400000006
+  FluorescentFlickerMax: .5
+  FluorescentFlicerPercent: .949999988
+  FluorescentFlickerPlaySound: 0
+  FluorescentFlickerAudioClip: {fileID: 0}
 --- !u!114 &11463082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4334,6 +4390,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d688c0d25eaf2843972bf350f45103d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11472868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a08a4aae52cf4b84bd1238346fcfd4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flickeringLightStyle: 0
+  campfireMethod: 0
+  campfireIntesityStyle: 1
+  campfireRangeStyle: 0
+  CampfireIntensityBaseValue: .389999986
+  CampfireIntensityFlickerValue: .0399999991
+  CampfireRangeBaseValue: 9.60999966
+  CampfireRangeFlickerValue: 2
+  CampfireSineCycleIntensitySpeed: 5
+  CampfireSineCycleRangeSpeed: 5
+  FluorescentFlickerMin: .400000006
+  FluorescentFlickerMax: .5
+  FluorescentFlicerPercent: .949999988
+  FluorescentFlickerPlaySound: 0
+  FluorescentFlickerAudioClip: {fileID: 0}
+--- !u!114 &11484526
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a08a4aae52cf4b84bd1238346fcfd4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flickeringLightStyle: 0
+  campfireMethod: 0
+  campfireIntesityStyle: 1
+  campfireRangeStyle: 0
+  CampfireIntensityBaseValue: .389999986
+  CampfireIntensityFlickerValue: .0399999991
+  CampfireRangeBaseValue: 9.60999966
+  CampfireRangeFlickerValue: 2
+  CampfireSineCycleIntensitySpeed: 5
+  CampfireSineCycleRangeSpeed: 5
+  FluorescentFlickerMin: .400000006
+  FluorescentFlickerMax: .5
+  FluorescentFlicerPercent: .949999988
+  FluorescentFlickerPlaySound: 0
+  FluorescentFlickerAudioClip: {fileID: 0}
 --- !u!198 &19830586
 ParticleSystem:
   m_ObjectHideFlags: 1
