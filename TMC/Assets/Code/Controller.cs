@@ -29,6 +29,7 @@ public class Controller : JournalObject {
     private float beamChargeTimer = 0f;
     public float BeamStayTime = 1f;
 
+	public GameObject animationContainer;
 	Animation animation;
 
     public int Order = 0;
@@ -46,7 +47,7 @@ public class Controller : JournalObject {
 
         originalAttackLimit = attackLimit;
 
-		animation = GetComponent<Animation>();
+		animation = animationContainer.GetComponent<Animation>();
 
         orderText = gameObject.transform.FindChild("Order").gameObject.GetComponent<TextMesh>();
         orderText.text = (Order + 1).ToString() + ".";
@@ -112,6 +113,9 @@ public class Controller : JournalObject {
     }
 
     void Update() {
+		//animation.Play ("Idle");
+		print(animation.IsPlaying("Attack"));
+
         if ( Journal.Mode == Journal.JournalMode.Recording ) {
             orderText.gameObject.SetActive(false);
             if ( !IsAlive ) return;
@@ -143,13 +147,18 @@ public class Controller : JournalObject {
             Vector3 vel = velocity;
 
 			//Should change with a constant treshold
-			if (Vector3.Distance(vel, Vector3.zero) < 0.1f)
-			{
-				animation.Play ("Idle");
-			}
 
-			else
-				animation.Play("Walk");
+			if (!animation.IsPlaying("Attack"))
+			{
+				if (Vector3.Distance(vel, Vector3.zero) < 0.01f)
+				{
+					print ("THIS");
+					animation.Play ("Idle");
+				}
+
+				else
+					animation.Play("Walk", AnimationPlayMode.Stop);
+			}
 
            //GetComponent<Rigidbody>().MovePosition(transform.position + velocity);
 
@@ -166,7 +175,9 @@ public class Controller : JournalObject {
                 return;
             }              
 
-            if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_A )) {               
+            if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_A )) {  
+				animation.Play("Attack");
+
                 switch (Type) {
                     case CharacterType.Tank:
                         Attacked = true;
