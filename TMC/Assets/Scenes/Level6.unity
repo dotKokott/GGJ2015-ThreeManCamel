@@ -88,6 +88,8 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_GeneratedSkyboxReflection: {fileID: 0}
@@ -2118,6 +2120,20 @@ MonoBehaviour:
   BOSS_ConeLeft: {fileID: 1356995202}
   BOSS_ConeRight: {fileID: 1390630753}
   BOSS_ConeDown: {fileID: 1829398541}
+  UI:
+  - {fileID: 1171103773}
+  - {fileID: 1171103765}
+  - {fileID: 1171103764}
+  - {fileID: 1171103768}
+  - {fileID: 1171103762}
+  - {fileID: 1171103761}
+  - {fileID: 1171103763}
+  - {fileID: 1171103771}
+  - {fileID: 1171103770}
+  - {fileID: 1171103769}
+  - {fileID: 1171103767}
+  - {fileID: 1171103772}
+  - {fileID: 1171103766}
   TIME_TURN: 0
   TIME_MARKER_SPAWN: 0
 --- !u!4 &1043425323
@@ -2352,6 +2368,58 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1171103761
+GameObject:
+  m_PrefabParentObject: {fileID: 153304, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+  m_PrefabInternal: {fileID: 1171103760}
+--- !u!1 &1171103762
+GameObject:
+  m_PrefabParentObject: {fileID: 116412, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+  m_PrefabInternal: {fileID: 1171103760}
+--- !u!1 &1171103763
+GameObject:
+  m_PrefabParentObject: {fileID: 196998, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+  m_PrefabInternal: {fileID: 1171103760}
+--- !u!1 &1171103764
+GameObject:
+  m_PrefabParentObject: {fileID: 114700, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+  m_PrefabInternal: {fileID: 1171103760}
+--- !u!1 &1171103765
+GameObject:
+  m_PrefabParentObject: {fileID: 115066, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+  m_PrefabInternal: {fileID: 1171103760}
+--- !u!1 &1171103766
+GameObject:
+  m_PrefabParentObject: {fileID: 199844, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+  m_PrefabInternal: {fileID: 1171103760}
+--- !u!1 &1171103767
+GameObject:
+  m_PrefabParentObject: {fileID: 165274, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+  m_PrefabInternal: {fileID: 1171103760}
+--- !u!1 &1171103768
+GameObject:
+  m_PrefabParentObject: {fileID: 154448, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+  m_PrefabInternal: {fileID: 1171103760}
+--- !u!1 &1171103769
+GameObject:
+  m_PrefabParentObject: {fileID: 172628, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+  m_PrefabInternal: {fileID: 1171103760}
+--- !u!1 &1171103770
+GameObject:
+  m_PrefabParentObject: {fileID: 112496, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+  m_PrefabInternal: {fileID: 1171103760}
+--- !u!1 &1171103771
+GameObject:
+  m_PrefabParentObject: {fileID: 189710, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+  m_PrefabInternal: {fileID: 1171103760}
+--- !u!1 &1171103772
+GameObject:
+  m_PrefabParentObject: {fileID: 129978, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+  m_PrefabInternal: {fileID: 1171103760}
+--- !u!1 &1171103773
+GameObject:
+  m_PrefabParentObject: {fileID: 141978, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+  m_PrefabInternal: {fileID: 1171103760}
 --- !u!4 &1178582031
 Transform:
   m_PrefabParentObject: {fileID: 400010, guid: c8a99771a3aec43b9b7d0f4265a3f264, type: 3}
@@ -2403,8 +2471,7 @@ Light:
     m_Resolution: 3
     m_Strength: 1
     m_Bias: .639999986
-    m_Softness: 4
-    m_SoftnessFade: 1
+    m_NormalBias: .400000006
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_ActuallyLightmapped: 0
