@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[DisallowMultipleComponentsAttribute]
+[DisallowMultipleComponent]
 public class Blinker : MonoBehaviour {
 
 	// Use this for initialization
