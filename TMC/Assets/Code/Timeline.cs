@@ -146,11 +146,11 @@ public class Timeline : MonoBehaviour {
         //yield return new WaitForSeconds( MarkerSpawnTime );
 
         //if ( !isRewinding ) {
-            var g = Instantiate( tlBarPrefab, tlBar.transform.position, tlBar.transform.rotation ) as GameObject;
-            g.tag = "TimelineMarker";
-            g.transform.localScale = new Vector3( 0.2f, 1, 1 );
+        var g = Instantiate( tlBarPrefab, tlBar.transform.position, tlBar.transform.rotation ) as GameObject;
+        g.tag = "TimelineMarker";
+        g.transform.localScale = new Vector3( 0.2f, 1, 1 );
 
-            //StartCoroutine( PutMarker() );
+        //StartCoroutine( PutMarker() );
         //}
 
         //return null;
@@ -181,20 +181,38 @@ public class Timeline : MonoBehaviour {
 
         EnableUIObject( "Panel" );
         EnableUIObject( "Image 1" );
-        if ( boss.GetComponentInChildren<BossController>().Health == 0 ) {
-            won = true;
-            EnableUIObject( "Victory" );
-            EnableUIObject( "Victory 1" );
-        } else {
-            won = false;
-            if ( UnityEngine.Random.Range( 0, 100 ) < 50 ) {
-                EnableUIObject( "NoBoss" );
-                EnableUIObject( "NoBoss 1" );
+        if ( Application.loadedLevelName == "Level3" ) {
+            if ( GameObject.FindGameObjectsWithTag( "Player" ).Length > 0 ) {
+                won = true;
+                EnableUIObject( "Victory" );
+                EnableUIObject( "Victory 1" );
             } else {
-                EnableUIObject( "Death" );
-                EnableUIObject( "Death 1" );
+                won = false;
+                if ( UnityEngine.Random.Range( 0, 100 ) < 50 ) {
+                    EnableUIObject( "NoBoss" );
+                    EnableUIObject( "NoBoss 1" );
+                } else {
+                    EnableUIObject( "Death" );
+                    EnableUIObject( "Death 1" );
+                }
+            }
+        } else {
+            if ( boss.GetComponentInChildren<BossController>().Health == 0 ) {
+                won = true;
+                EnableUIObject( "Victory" );
+                EnableUIObject( "Victory 1" );
+            } else {
+                won = false;
+                if ( UnityEngine.Random.Range( 0, 100 ) < 50 ) {
+                    EnableUIObject( "NoBoss" );
+                    EnableUIObject( "NoBoss 1" );
+                } else {
+                    EnableUIObject( "Death" );
+                    EnableUIObject( "Death 1" );
+                }
             }
         }
+
     }
 
     private void Boss_OnRewindFinished( object sender, System.EventArgs e ) {
