@@ -32,6 +32,7 @@ ModelImporter:
     400024: Warrior_Wrist_CTRLGRP
     400026: Warrior_Wrist_JNT
     4300000: Warrior_MESH
+    7400000: Take 001
     9500000: //RootNode
     13700000: Warrior_MESH
   materials:

@@ -7,13 +7,44 @@ ModelImporter:
     100002: Defender_MESH
     100004: Defender_Root_CTRL
     100006: Defender_Root_JNT
+    100008: Defender_Elbow_CTRL
+    100010: Defender_Elbow_CTRLGRP
+    100012: Defender_Elbow_JNT
+    100014: Defender_Head_JNT
+    100016: Defender_Shoulder_CTRL
+    100018: Defender_Shoulder_CTRLGRP
+    100020: Defender_Shoulder_JNT
+    100022: Defender_Skill_CTRL
+    100024: Defender_Skill_CTRLGRP
+    100026: Defender_Skill_JNT
+    100028: Defender_Skill_MESH
+    100030: Defender_Wrist_CTRL
+    100032: Defender_Wrist_CTRLGRP
+    100034: Defender_Wrist_JNT
     400000: //RootNode
     400002: Defender_MESH
     400004: Defender_Root_CTRL
     400006: Defender_Root_JNT
+    400008: Defender_Elbow_CTRL
+    400010: Defender_Elbow_CTRLGRP
+    400012: Defender_Elbow_JNT
+    400014: Defender_Head_JNT
+    400016: Defender_Shoulder_CTRL
+    400018: Defender_Shoulder_CTRLGRP
+    400020: Defender_Shoulder_JNT
+    400022: Defender_Skill_CTRL
+    400024: Defender_Skill_CTRLGRP
+    400026: Defender_Skill_JNT
+    400028: Defender_Skill_MESH
+    400030: Defender_Wrist_CTRL
+    400032: Defender_Wrist_CTRLGRP
+    400034: Defender_Wrist_JNT
     4300000: Defender_MESH
+    4300002: Defender_Skill_MESH
+    7400000: Take 001
     9500000: //RootNode
     13700000: Defender_MESH
+    13700002: Defender_Skill_MESH
   materials:
     importMaterials: 1
     materialName: 0
