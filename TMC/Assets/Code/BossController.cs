@@ -36,6 +36,8 @@ public class BossController : JournalObject {
 
     public int Health = 5;
 
+	public Animation animation;
+
     // Use this for initialization
     void Start() {
         Journal.OnStartRecording += Journal_OnStartRecording;
@@ -92,6 +94,7 @@ public class BossController : JournalObject {
                 Globals._.BOSS_ConeDown.SetActive( true );
                 iTween.ScaleTo( Globals._.BOSS_ConeDown, new Vector3( 70, 70, 70 ), ConeTime * .75f );
                 Globals._.BOSS_ConeDown.DeactivateAfter( ConeTime );
+				animation.Play ("Cone Attack", AnimationPlayMode.Stop);
                 break;
             case AttackType.ConeLeft:
                 Globals._.BOSS_ConeLeft.transform.localScale = new Vector3( 75, 75, 7 );
@@ -112,6 +115,7 @@ public class BossController : JournalObject {
             case AttackType.BeamDown:
                 Globals._.BOSS_BeamDown.SetActive( true );
                 Globals._.BOSS_BeamDown.DeactivateAfter( BeamTime );
+			animation.Play ("Line Attack", AnimationPlayMode.Stop);
                 break;
             case AttackType.BeamLeft:
                 Globals._.BOSS_BeamLeft.SetActive( true );
@@ -124,6 +128,7 @@ public class BossController : JournalObject {
             case AttackType.AreaOfEffect:
                 var smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
                 smash.GetComponent<AttackInfo>().Owner = this.gameObject;
+				animation.Play ("AOE", AnimationPlayMode.Stop);
                 break;
             case AttackType.RotatingBeams:
                 Globals._.BOSS_BeamUp.SetActive( true );
