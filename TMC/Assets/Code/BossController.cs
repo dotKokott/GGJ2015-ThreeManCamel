@@ -41,7 +41,7 @@ public class BossController : JournalObject {
     // Use this for initialization
     void Start() {
         Journal.OnStartRecording += Journal_OnStartRecording;
-        //Journal.OnFrame += Journal_OnFrame;
+        Journal.OnFrame += Journal_OnFrame;
         //Journal.OnStartPlaying += Journal_OnStartPlaying;
     }
 
