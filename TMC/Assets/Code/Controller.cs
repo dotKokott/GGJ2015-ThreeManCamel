@@ -50,6 +50,8 @@ public class Controller : JournalObject {
 
         orderText = gameObject.transform.FindChild( "Order" ).gameObject.GetComponent<TextMesh>();
         orderText.text = ( Order + 1 ).ToString() + ".";
+        orderText.gameObject.SetActive(false);
+
         animation = base.ani = animationContainer.GetComponent<Animation>();
     }
 
