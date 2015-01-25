@@ -103,7 +103,11 @@ public class Controller : JournalObject {
                             var strikeComp = strike.GetComponent<Strike>();
                             strikeComp.Direction = direction;
 
-                            Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Smash );
+                            if (Random.Range(0, 2) == 0) {
+                                Camera.main.GetComponent<AudioSource>().PlayOneShot(Globals._.SFX_SWOOSH);
+                            } else {
+                                Camera.main.GetComponent<AudioSource>().PlayOneShot(Globals._.SFX_SWOOSH2);
+                            }
 
                             break;
                         case CharacterType.Mage:
@@ -113,7 +117,7 @@ public class Controller : JournalObject {
                             beam.AddComponent<AttackInfo>().Owner = this.gameObject;
 
                             beam.transform.position += -transform.up * beam.transform.localScale.y / 2;
-                            Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Beam );
+                            Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SFX_MAGE_ATTACK );
 
                             beam.transform.localScale = new Vector3( 5, 72, 145 );
                             iTween.ScaleTo(beam, new Vector3(36, 72, 145), 0.2f);
@@ -226,8 +230,12 @@ public class Controller : JournalObject {
                             var strikeComp = strike.GetComponent<Strike>();
                             strikeComp.Direction = direction;
 
-                            Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Smash );
-
+                            if (Random.Range(0, 2) == 0) {
+                                Camera.main.GetComponent<AudioSource>().PlayOneShot(Globals._.SFX_SWOOSH);
+                            } else {
+                                Camera.main.GetComponent<AudioSource>().PlayOneShot(Globals._.SFX_SWOOSH2);
+                            }
+                            
                             strikeTimer = 0;
                         }
 
@@ -241,7 +249,7 @@ public class Controller : JournalObject {
                         beam.AddComponent<AttackInfo>().Owner = this.gameObject;
 
                         beam.transform.position += -transform.up * beam.transform.localScale.y / 2;
-                        Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Beam );
+                        Camera.main.GetComponent<AudioSource>().PlayOneShot(Globals._.SFX_MAGE_ATTACK);
                         beam.transform.position = new Vector3( beam.transform.position.x, beam.transform.position.y, -0.15f );
                         
                         beam.transform.localScale = new Vector3( 5, 72, 145 );
