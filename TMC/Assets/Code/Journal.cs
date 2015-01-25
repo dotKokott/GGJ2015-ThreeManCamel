@@ -155,6 +155,8 @@ public class Journal : MonoBehaviour {
             iTween.ValueTo( gameObject, iTween.Hash( "from", frames.Count - 1, "to", -1,
                 "time", Globals._.TIME_TURN / 2,
                 "onupdate", "reverseUpdate", "easetype", iTween.EaseType.easeInOutExpo ) );
+
+            GameObject.Find( "Rewind" ).GetComponent<RewindBlink>().DoBlink();
         }
 
         Mode = reversed ? JournalMode.Reversing : JournalMode.Playing;

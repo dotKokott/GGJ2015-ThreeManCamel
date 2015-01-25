@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnitySampleAssets.ImageEffects;
 
 public class Globals : MonoBehaviour {
 
@@ -45,11 +46,21 @@ public class Globals : MonoBehaviour {
     public AudioClip SFX_JUMP;
 
     [HideInInspector]
+    public NoiseAndScratches nas;
+    [HideInInspector]
+    public ColorCorrectionCurves ccc;
+
+    [HideInInspector]
     public static Globals _;
 
 	// Use this for initialization
 	void Start () {
         _ = this;
+
+        nas = Camera.main.GetComponent<NoiseAndScratches>();
+        ccc = Camera.main.GetComponent<ColorCorrectionCurves>();
+        nas.enabled = false;
+        ccc.enabled = false;
 	}
 	
 	// Update is called once per frame

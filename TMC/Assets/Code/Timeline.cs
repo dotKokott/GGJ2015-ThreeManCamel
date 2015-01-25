@@ -156,6 +156,10 @@ public class Timeline : MonoBehaviour {
         //return null;
     }
 
+    private void DoRewind() {
+
+    }
+
     private void EnableUIObject( string name ) {
         foreach ( var item in Globals._.UI ) {
             if ( item.name == name ) {
