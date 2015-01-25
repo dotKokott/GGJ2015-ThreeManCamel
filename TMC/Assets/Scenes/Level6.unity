@@ -1280,7 +1280,7 @@ MonoBehaviour:
   beam: {fileID: 0}
   smash: {fileID: 0}
   health: 1
-  attackLimit: 2
+  attackLimit: 1
   acceleration: .5
   friction: 16
   StrikeCooldown: 1
