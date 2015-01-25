@@ -423,6 +423,7 @@ MonoBehaviour:
   StrikeCooldown: 1
   BeamChargeTime: 1
   BeamStayTime: 1
+  animationContainer: {fileID: 1742362482}
   Order: 1
 --- !u!114 &19492722
 MonoBehaviour:
@@ -536,6 +537,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf50a701e2b16004683cd46da5d655ff, type: 2}
   m_IsPrefabParent: 0
+--- !u!111 &82744704
+Animation:
+  m_PrefabParentObject: {fileID: 11100000, guid: 52ba9fd7fe5c44cd8b57ac24428a3fee,
+    type: 3}
+  m_PrefabInternal: {fileID: 1463244952}
 --- !u!1 &86114790
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: e8e13b8d36a6fae41a7cc66bc841b594, type: 3}
@@ -668,6 +674,7 @@ MonoBehaviour:
   ConeTime: 2.5
   BeamTime: 1
   Health: 5
+  animation: {fileID: 0}
 --- !u!54 &173989960
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -728,12 +735,12 @@ GameObject:
   - 54: {fileID: 239269349}
   - 114: {fileID: 239269357}
   m_Layer: 0
-  m_Name: Boss1
+  m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &239269349
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -816,6 +823,7 @@ MonoBehaviour:
   ConeTime: 1
   BeamTime: 1
   Health: 5
+  animation: {fileID: 82744704}
 --- !u!1 &278319968
 GameObject:
   m_PrefabParentObject: {fileID: 152378, guid: cf50a701e2b16004683cd46da5d655ff, type: 2}
@@ -869,19 +877,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: c8a99771a3aec43b9b7d0f4265a3f264, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -.707106829
+      value: -.0017809571
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: c8a99771a3aec43b9b7d0f4265a3f264, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: .707104504
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: c8a99771a3aec43b9b7d0f4265a3f264, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -.707104623
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: c8a99771a3aec43b9b7d0f4265a3f264, type: 3}
       propertyPath: m_LocalRotation.w
-      value: .707106709
+      value: .00178082136
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: c8a99771a3aec43b9b7d0f4265a3f264, type: 3}
       propertyPath: m_RootOrder
@@ -898,6 +906,14 @@ Prefab:
     - target: {fileID: 400010, guid: c8a99771a3aec43b9b7d0f4265a3f264, type: 3}
       propertyPath: m_LocalScale.z
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: c8a99771a3aec43b9b7d0f4265a3f264, type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: c8a99771a3aec43b9b7d0f4265a3f264, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c8a99771a3aec43b9b7d0f4265a3f264, type: 3}
@@ -923,19 +939,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -1.15202326e-07
+      value: -.0011795467
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -.707106709
+      value: -.707105756
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
       propertyPath: m_LocalRotation.z
-      value: .707106829
+      value: .707105875
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -1.15202312e-07
+      value: .00117931596
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
       propertyPath: m_RootOrder
@@ -1008,6 +1024,14 @@ Prefab:
     - target: {fileID: 100010, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
@@ -1675,6 +1699,18 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: 8b0480522dbee4c6d9aa1dbbc870c6be, type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: 8b0480522dbee4c6d9aa1dbbc870c6be, type: 3}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 7400002, guid: 8b0480522dbee4c6d9aa1dbbc870c6be, type: 3}
+    - target: {fileID: 100000, guid: 8b0480522dbee4c6d9aa1dbbc870c6be, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b0480522dbee4c6d9aa1dbbc870c6be, type: 3}
   m_IsPrefabParent: 0
@@ -1753,6 +1789,7 @@ MonoBehaviour:
   StrikeCooldown: 1
   BeamChargeTime: 1
   BeamStayTime: 1
+  animationContainer: {fileID: 1463704231}
   Order: 2
 --- !u!114 &697064112
 MonoBehaviour:
@@ -2047,6 +2084,7 @@ MonoBehaviour:
   ConeTime: 2.5
   BeamTime: 1
   Health: 5
+  animation: {fileID: 0}
 --- !u!54 &762102741
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2212,7 +2250,7 @@ Camera:
   m_GameObject: {fileID: 768275309}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 3
+  m_ClearFlags: 2
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -2897,6 +2935,7 @@ MonoBehaviour:
   StrikeCooldown: 1
   BeamChargeTime: 1
   BeamStayTime: 1
+  animationContainer: {fileID: 1565568746}
   Order: 0
 --- !u!114 &1017020206
 MonoBehaviour:
@@ -3833,6 +3872,7 @@ MonoBehaviour:
   ConeTime: 2.5
   BeamTime: 1
   Health: 5
+  animation: {fileID: 0}
 --- !u!54 &1238202892
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4426,6 +4466,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 52ba9fd7fe5c44cd8b57ac24428a3fee, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1463704231
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 8b0480522dbee4c6d9aa1dbbc870c6be, type: 3}
+  m_PrefabInternal: {fileID: 652034737}
 --- !u!1 &1502405589
 GameObject:
   m_ObjectHideFlags: 0
@@ -4660,6 +4704,10 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!1 &1565568746
+GameObject:
+  m_PrefabParentObject: {fileID: 100010, guid: c8a99771a3aec43b9b7d0f4265a3f264, type: 3}
+  m_PrefabInternal: {fileID: 411905141}
 --- !u!1 &1569475554
 GameObject:
   m_ObjectHideFlags: 0
@@ -4777,6 +4825,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 74
       objectReference: {fileID: 0}
+    - target: {fileID: 100066, guid: 0245b18607b114274ad97f497cf046d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0245b18607b114274ad97f497cf046d2, type: 3}
   m_IsPrefabParent: 0
@@ -4842,6 +4894,7 @@ MonoBehaviour:
   ConeTime: 2.5
   BeamTime: 1
   Health: 5
+  animation: {fileID: 0}
 --- !u!54 &1651915409
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4916,6 +4969,10 @@ Transform:
   - {fileID: 1178582031}
   m_Father: {fileID: 1017020210}
   m_RootOrder: 0
+--- !u!1 &1742362482
+GameObject:
+  m_PrefabParentObject: {fileID: 100010, guid: f094b8493213d4456aaf17b1d80cb234, type: 3}
+  m_PrefabInternal: {fileID: 438086279}
 --- !u!1 &1749933948
 GameObject:
   m_ObjectHideFlags: 0
@@ -4968,6 +5025,7 @@ MonoBehaviour:
   ConeTime: 2.5
   BeamTime: 1
   Health: 5
+  animation: {fileID: 0}
 --- !u!54 &1749933951
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5206,6 +5264,7 @@ MonoBehaviour:
   ConeTime: 2.5
   BeamTime: 1
   Health: 5
+  animation: {fileID: 0}
 --- !u!54 &1959753651
 Rigidbody:
   m_ObjectHideFlags: 0
