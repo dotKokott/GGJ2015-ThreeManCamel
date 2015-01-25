@@ -88,6 +88,8 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_GeneratedSkyboxReflection: {fileID: 0}
@@ -2309,8 +2311,7 @@ Light:
     m_Resolution: 3
     m_Strength: 1
     m_Bias: .639999986
-    m_Softness: 4
-    m_SoftnessFade: 1
+    m_NormalBias: .400000006
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_ActuallyLightmapped: 0
@@ -3003,6 +3004,50 @@ Prefab:
     - target: {fileID: 11418354, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
       propertyPath: m_Text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 141978, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 112496, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11453854, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+      propertyPath: m_Text
+      value: Press       and try to survive this time
+      objectReference: {fileID: 0}
+    - target: {fileID: 165274, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 172628, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 199844, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 129978, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11453854, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+      propertyPath: m_FontData.m_Alignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22427098, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22427098, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 22427098, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -37.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
