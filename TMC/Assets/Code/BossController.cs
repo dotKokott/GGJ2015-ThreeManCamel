@@ -38,8 +38,12 @@ public class BossController : JournalObject {
 
 	public Animation animation;
 
+    private AudioSource music;
+
     // Use this for initialization
     void Start() {
+        music = GameObject.Find("Music").GetComponent<AudioSource>();
+
         Journal.OnStartRecording += Journal_OnStartRecording;
         //Journal.OnFrame += Journal_OnFrame;
         Journal.OnStartPlaying += Journal_OnStartPlaying;
@@ -94,24 +98,36 @@ public class BossController : JournalObject {
                 Globals._.BOSS_ConeUp.SetActive( true );
                 iTween.ScaleTo( Globals._.BOSS_ConeUp, new Vector3( 70, 70, 70 ), ConeTime * .75f );
                 Globals._.BOSS_ConeUp.DeactivateAfter( ConeTime );
+
+                music.PlayOneShot(Globals._.SFX_BIG_WOOSH);
+
                 break;
             case AttackType.ConeDown:
                 Globals._.BOSS_ConeDown.transform.localScale = new Vector3( 7, 70, 70 );
                 Globals._.BOSS_ConeDown.SetActive( true );
                 iTween.ScaleTo( Globals._.BOSS_ConeDown, new Vector3( 70, 70, 70 ), ConeTime * .75f );
                 Globals._.BOSS_ConeDown.DeactivateAfter( ConeTime );
+
+                music.PlayOneShot(Globals._.SFX_BIG_WOOSH);
+
                 break;
             case AttackType.ConeLeft:
                 Globals._.BOSS_ConeLeft.transform.localScale = new Vector3( 75, 75, 7 );
                 Globals._.BOSS_ConeLeft.SetActive( true );
                 iTween.ScaleTo( Globals._.BOSS_ConeLeft, new Vector3( 75, 75, 75 ), ConeTime * .75f );
                 Globals._.BOSS_ConeLeft.DeactivateAfter( ConeTime );
+                
+                music.PlayOneShot(Globals._.SFX_BIG_WOOSH);
+
                 break;
             case AttackType.ConeRight:
                 Globals._.BOSS_ConeRight.transform.localScale = new Vector3( 75, 75, 7 );
                 Globals._.BOSS_ConeRight.SetActive( true );
                 iTween.ScaleTo( Globals._.BOSS_ConeRight, new Vector3( 75, 75, 75 ), ConeTime * .75f );
                 Globals._.BOSS_ConeRight.DeactivateAfter( ConeTime );
+                
+                music.PlayOneShot(Globals._.SFX_BIG_WOOSH);
+                
                 break;
             case AttackType.BeamUp:
                 Globals._.BOSS_BeamUp.SetActive( true );
@@ -132,6 +148,8 @@ public class BossController : JournalObject {
             case AttackType.AreaOfEffect:
                 var smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
                 smash.GetComponent<AttackInfo>().Owner = this.gameObject;
+                
+                music.PlayOneShot(Globals._.SFX_AEO_SLAM);
 
                 iTween.ShakePosition(Camera.main.gameObject, new Vector3(.25f, .25f, .25f), 0.5f);
                 iTween.ShakeRotation(Camera.main.gameObject, new Vector3(.15f, .15f, .15f), 0.2f);
@@ -214,6 +232,11 @@ public class BossController : JournalObject {
 
 		if(animationName != "") {
 			animation.Play(animationName, AnimationPlayMode.Stop);
+
+            //if (animationName == "AOE") {
+            //    var music = GameObject.Find("Music").GetComponent<AudioSource>();
+            //    music.PlayOneShot(Globals._.SFX_JUMP);
+            //}
 		}
         
         

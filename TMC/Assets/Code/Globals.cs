@@ -37,6 +37,13 @@ public class Globals : MonoBehaviour {
     public float TIME_TURN;
     public float TIME_MARKER_SPAWN;
 
+    public AudioClip SFX_BIG_WOOSH;
+    public AudioClip SFX_MAGE_ATTACK;
+    public AudioClip SFX_AEO_SLAM;
+    public AudioClip SFX_SWOOSH;
+    public AudioClip SFX_SWOOSH2;
+    public AudioClip SFX_JUMP;
+
     [HideInInspector]
     public static Globals _;
 

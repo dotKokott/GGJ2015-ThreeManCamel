@@ -2112,6 +2112,12 @@ MonoBehaviour:
   - {fileID: 1136401017}
   TIME_TURN: 0
   TIME_MARKER_SPAWN: 0
+  SFX_BIG_WOOSH: {fileID: 8300000, guid: 4c129fb4c466af44f8372f5a4d08e01e, type: 3}
+  SFX_MAGE_ATTACK: {fileID: 8300000, guid: 61bb6e174cc4a4b4289efb0a29d78466, type: 3}
+  SFX_AEO_SLAM: {fileID: 8300000, guid: 078c1a3abafb58d4d8a62cc47bfe0c9e, type: 3}
+  SFX_SWOOSH: {fileID: 8300000, guid: ad6f5d621e44b904699bfeec53227adb, type: 3}
+  SFX_SWOOSH2: {fileID: 8300000, guid: b47aa70fc3b08c442807805931dea508, type: 3}
+  SFX_JUMP: {fileID: 8300000, guid: a8cc2e93da3ddf94ea302c04f17c4acd, type: 3}
 --- !u!4 &1043425323
 Transform:
   m_ObjectHideFlags: 0
