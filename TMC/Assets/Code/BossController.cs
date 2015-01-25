@@ -65,7 +65,6 @@ public class BossController : JournalObject {
 
     private void Journal_OnFrame( object sender, Journal.JournalEventArgs e ) {
         if ( e.Mode == Journal.JournalMode.Playing ) {
-            if ( Health == 0 ) return;
             if ( e.Frame.Attacked ) {
                 float time = Attacks[index].TimeFromStart;
                 for ( int i = 0; i < Attacks.Count; i++ ) {
@@ -192,59 +191,61 @@ public class BossController : JournalObject {
     }
 
     private IEnumerator PrepAttack( BossAttack attack ) {
-        var animationName = "";
-        var animTime = 0f;
+            var animationName = "";
+            var animTime = 0f;
 
-        switch (attack.Type) {
-            case AttackType.ConeUp:
-            case AttackType.ConeDown:                
-            case AttackType.ConeLeft:
-            case AttackType.ConeRight:
-                animationName = "Cone Attack";
-                animTime = 1.667f;
+            switch ( attack.Type ) {
+                case AttackType.ConeUp:
+                case AttackType.ConeDown:
+                case AttackType.ConeLeft:
+                case AttackType.ConeRight:
+                    animationName = "Cone Attack";
+                    animTime = 1.667f;
 
-                break;
-            case AttackType.BeamUp:                                
-            case AttackType.BeamDown:
-            case AttackType.BeamLeft:
-            case AttackType.BeamRight:
-                animationName = "Line Attack";
-                animTime = 1.208f;
+                    break;
+                case AttackType.BeamUp:
+                case AttackType.BeamDown:
+                case AttackType.BeamLeft:
+                case AttackType.BeamRight:
+                    animationName = "Line Attack";
+                    animTime = 1.208f;
 
-                break;
-            case AttackType.AreaOfEffect:
-                animationName = "AOE";
-                animTime = 1.9f;
+                    break;
+                case AttackType.AreaOfEffect:
+                    animationName = "AOE";
+                    animTime = 1.9f;
 
-                break;
-            case AttackType.RotatingBeams:
-                animationName = "SpinAttack";
-                animTime = 0;
+                    break;
+                case AttackType.RotatingBeams:
+                    animationName = "SpinAttack";
+                    animTime = 0;
 
-                break;
-            case AttackType.SingleRotatingBeam:
-                break;
-            default:
-                break;
+                    break;
+                case AttackType.SingleRotatingBeam:
+                    break;
+                default:
+                    break;
+            }
+
+            yield return new WaitForSeconds( attack.TimeFromStart - animTime / 2f );
+
+        if ( Health > 0 ) {
+            if ( animationName != "" ) {
+                animation.Play( animationName, AnimationPlayMode.Stop );
+
+                //if (animationName == "AOE") {
+                //    var music = GameObject.Find("Music").GetComponent<AudioSource>();
+                //    music.PlayOneShot(Globals._.SFX_JUMP);
+                //}
+            }
+
+
+            yield return new WaitForSeconds( animTime / 2f );
+
+            // Omg, we're still GGJ'ing. It didn't work with just saying "Attacked = true"...
+            GetComponent<JournalObject>().Attacked = true;
+            DoAttack( attack );
         }
-
-        yield return new WaitForSeconds( attack.TimeFromStart - animTime / 2f);
-
-		if(animationName != "") {
-			animation.Play(animationName, AnimationPlayMode.Stop);
-
-            //if (animationName == "AOE") {
-            //    var music = GameObject.Find("Music").GetComponent<AudioSource>();
-            //    music.PlayOneShot(Globals._.SFX_JUMP);
-            //}
-		}
-        
-        
-        yield return new WaitForSeconds(animTime / 2f);
-
-        // Omg, we're still GGJ'ing. It didn't work with just saying "Attacked = true"...
-        GetComponent<JournalObject>().Attacked = true;
-        DoAttack( attack );
     }
 
     private List<GameObject> collidersAlreadyHit = new List<GameObject>();
