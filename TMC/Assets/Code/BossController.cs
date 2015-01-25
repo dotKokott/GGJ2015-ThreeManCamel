@@ -184,10 +184,14 @@ public class BossController : JournalObject {
 
         rotator.Reset();
 
-        Globals._.BOSS_BeamUp.SetActive( false );
-        Globals._.BOSS_BeamDown.SetActive( false );
-        Globals._.BOSS_BeamLeft.SetActive( false );
-        Globals._.BOSS_BeamRight.SetActive( false );
+        if ( Globals._.BOSS_BeamUp  != null)
+            Globals._.BOSS_BeamUp.SetActive( false );
+        if ( Globals._.BOSS_BeamDown != null )
+            Globals._.BOSS_BeamDown.SetActive( false );
+        if ( Globals._.BOSS_BeamLeft != null )
+            Globals._.BOSS_BeamLeft.SetActive( false );
+        if ( Globals._.BOSS_BeamRight != null )
+            Globals._.BOSS_BeamRight.SetActive( false );
     }
 
     private IEnumerator PrepAttack( BossAttack attack ) {
