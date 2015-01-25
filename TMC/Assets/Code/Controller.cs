@@ -30,7 +30,7 @@ public class Controller : JournalObject {
     private float beamChargeTimer = 0f;
     public float BeamStayTime = 1f;
 
-	public GameObject animationContainer;
+    public GameObject animationContainer;
     Animation animation;
 
     public int Order = 0;
@@ -50,7 +50,7 @@ public class Controller : JournalObject {
 
         orderText = gameObject.transform.FindChild( "Order" ).gameObject.GetComponent<TextMesh>();
         orderText.text = ( Order + 1 ).ToString() + ".";
-		animation = base.ani = animationContainer.GetComponent<Animation>();
+        animation = base.ani = animationContainer.GetComponent<Animation>();
     }
 
     private Vector3 prevpos;
@@ -58,30 +58,32 @@ public class Controller : JournalObject {
 
     void Journal_OnFrame( object sender, Journal.JournalEventArgs e ) {
         if ( e.Mode == Journal.JournalMode.Playing ) {
+            if ( ignoreEverything ) return;
+
             var npos = e.Frame.Position - prevpos;
 
             //if (!animation.IsPlaying("Attack")) {
             //    if (Vector3.Distance(npos, Vector3.zero) < 0.01f) {
             //        animation.Play("Idle");
             //    } else {
-                    //animation.Play("Attack", AnimationPlayMode.Stop);
+            //animation.Play("Attack", AnimationPlayMode.Stop);
             //    }
             //}         
-            
-            if (!string.IsNullOrEmpty(e.Frame.CurrentAnimation)) {
+
+            if ( !string.IsNullOrEmpty( e.Frame.CurrentAnimation ) ) {
                 animation.Play( e.Frame.CurrentAnimation, AnimationPlayMode.Stop );
-            }   
-            
+            }
+
             npos.Normalize();
 
             direction = npos;
 
-            if (beam != null) {
-                if (!beam.activeInHierarchy) {
+            if ( beam != null ) {
+                if ( !beam.activeInHierarchy ) {
                     beamChargeTimer += Time.deltaTime;
 
-                    if (beamChargeTimer >= BeamChargeTime) {
-                        beam.SetActive(true);
+                    if ( beamChargeTimer >= BeamChargeTime ) {
+                        beam.SetActive( true );
 
                         beamChargeTimer = 0;
                     }
@@ -107,10 +109,10 @@ public class Controller : JournalObject {
                             var strikeComp = strike.GetComponent<Strike>();
                             strikeComp.Direction = direction;
 
-                            if (Random.Range(0, 2) == 0) {
-                                Camera.main.GetComponent<AudioSource>().PlayOneShot(Globals._.SFX_SWOOSH);
+                            if ( Random.Range( 0, 2 ) == 0 ) {
+                                Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SFX_SWOOSH );
                             } else {
-                                Camera.main.GetComponent<AudioSource>().PlayOneShot(Globals._.SFX_SWOOSH2);
+                                Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SFX_SWOOSH2 );
                             }
 
                             break;
@@ -124,10 +126,10 @@ public class Controller : JournalObject {
                             Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SFX_MAGE_ATTACK );
 
                             beam.transform.localScale = new Vector3( 5, 72, 145 );
-                            iTween.ScaleTo(beam, new Vector3(36, 72, 145), 0.2f);
+                            iTween.ScaleTo( beam, new Vector3( 36, 72, 145 ), 0.2f );
                             beam.DestroyAfter( BeamStayTime );
 
-                            beam.SetActive(false);
+                            beam.SetActive( false );
 
                             beam.transform.position = new Vector3( beam.transform.position.x, beam.transform.position.y, -0.15f );
 
@@ -146,7 +148,7 @@ public class Controller : JournalObject {
     }
 
     void Update() {
-		//animation.Play ("Idle");
+        //animation.Play ("Idle");
 
         if ( Journal.Mode == Journal.JournalMode.Recording ) {
             orderText.gameObject.SetActive( false );
@@ -168,7 +170,7 @@ public class Controller : JournalObject {
                 return;
             }
 
-            if (smash != null) {
+            if ( smash != null ) {
                 return;
             }
 
@@ -183,18 +185,14 @@ public class Controller : JournalObject {
             Vector3 vel = velocity;
 
             //GetComponent<Rigidbody>().MovePosition(transform.position + velocity);
-			//Should change with a constant treshold
+            //Should change with a constant treshold
 
-			if (!animation.IsPlaying("Attack"))
-			{
-				if (Vector3.Distance(vel, Vector3.zero) < 0.01f)
-				{
-					animation.Play ("Idle");
-				}
-
-				else
-					animation.Play("Walk", AnimationPlayMode.Stop);
-			}
+            if ( !animation.IsPlaying( "Attack" ) ) {
+                if ( Vector3.Distance( vel, Vector3.zero ) < 0.01f ) {
+                    animation.Play( "Idle" );
+                } else
+                    animation.Play( "Walk", AnimationPlayMode.Stop );
+            }
 
             transform.position += vel;
 
@@ -209,10 +207,10 @@ public class Controller : JournalObject {
                 return;
             }
 
-            if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_A )) {  
-				animation.Play("Attack");
+            if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_A ) ) {
+                animation.Play( "Attack" );
 
-                switch (Type) {
+                switch ( Type ) {
                     case CharacterType.Tank:
                         Attacked = true;
 
@@ -234,12 +232,12 @@ public class Controller : JournalObject {
                             var strikeComp = strike.GetComponent<Strike>();
                             strikeComp.Direction = direction;
 
-                            if (Random.Range(0, 2) == 0) {
-                                Camera.main.GetComponent<AudioSource>().PlayOneShot(Globals._.SFX_SWOOSH);
+                            if ( Random.Range( 0, 2 ) == 0 ) {
+                                Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SFX_SWOOSH );
                             } else {
-                                Camera.main.GetComponent<AudioSource>().PlayOneShot(Globals._.SFX_SWOOSH2);
+                                Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SFX_SWOOSH2 );
                             }
-                            
+
                             strikeTimer = 0;
                         }
 
@@ -253,11 +251,11 @@ public class Controller : JournalObject {
                         beam.AddComponent<AttackInfo>().Owner = this.gameObject;
 
                         beam.transform.position += -transform.up * beam.transform.localScale.y / 2;
-                        Camera.main.GetComponent<AudioSource>().PlayOneShot(Globals._.SFX_MAGE_ATTACK);
+                        Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SFX_MAGE_ATTACK );
                         beam.transform.position = new Vector3( beam.transform.position.x, beam.transform.position.y, -0.15f );
-                        
+
                         beam.transform.localScale = new Vector3( 5, 72, 145 );
-                        iTween.ScaleTo(beam, new Vector3(36, 72, 145), 0.2f);
+                        iTween.ScaleTo( beam, new Vector3( 36, 72, 145 ), 0.2f );
 
                         beam.DestroyAfter( BeamStayTime );
 
@@ -277,9 +275,10 @@ public class Controller : JournalObject {
     }
 
     float protectionTimer = 0;
+    private bool ignoreEverything;
 
     void OnTriggerEnter( Collider other ) {
-        
+
     }
 
     void OnTriggerStay( Collider collider ) {
@@ -290,13 +289,14 @@ public class Controller : JournalObject {
             if ( comp == null || comp.Owner == this.gameObject )
                 return;
 
-            if (Journal.Mode != Journal.JournalMode.Playing) return;
+            if ( Journal.Mode != Journal.JournalMode.Playing ) return;
 
             if ( collider.gameObject.tag == "Attack" ) {
                 if ( protectionTimer <= 0 ) {
-                    if ( --health <= 0 ) {                        
-
-                        Destroy( gameObject );
+                    if ( --health <= 0 ) {
+                        gameObject.AddComponent<Blinker>();
+                        ignoreEverything = true;
+                        //Destroy( gameObject );
                     }
                 } else {
                     Debug.Log( "Protected" );

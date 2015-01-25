@@ -88,6 +88,8 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_GeneratedSkyboxReflection: {fileID: 0}
@@ -490,7 +492,7 @@ RectTransform:
   m_LocalScale: {x: .40461871, y: .40461871, z: .40461871}
   m_Children: []
   m_Father: {fileID: 950934783}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -171.300003, y: 54.7999992}
@@ -2044,7 +2046,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22438128, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
@@ -2124,7 +2126,7 @@ RectTransform:
   m_LocalScale: {x: .675063431, y: .675063491, z: .675063491}
   m_Children: []
   m_Father: {fileID: 950934783}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -31.8999996, y: 56.4000015}
@@ -2391,6 +2393,8 @@ MonoBehaviour:
   SFX_SWOOSH: {fileID: 8300000, guid: ad6f5d621e44b904699bfeec53227adb, type: 3}
   SFX_SWOOSH2: {fileID: 8300000, guid: b47aa70fc3b08c442807805931dea508, type: 3}
   SFX_JUMP: {fileID: 8300000, guid: a8cc2e93da3ddf94ea302c04f17c4acd, type: 3}
+  nas: {fileID: 0}
+  ccc: {fileID: 0}
 --- !u!4 &1043425323
 Transform:
   m_ObjectHideFlags: 0
@@ -2640,8 +2644,7 @@ Light:
     m_Resolution: 3
     m_Strength: 1
     m_Bias: .639999986
-    m_Softness: 4
-    m_SoftnessFade: 1
+    m_NormalBias: .400000006
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_ActuallyLightmapped: 0
@@ -2700,7 +2703,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 950934783}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -170.699997, y: 48.9000015}

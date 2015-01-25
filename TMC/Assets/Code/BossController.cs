@@ -242,9 +242,11 @@ public class BossController : JournalObject {
 
             yield return new WaitForSeconds( animTime / 2f );
 
-            // Omg, we're still GGJ'ing. It didn't work with just saying "Attacked = true"...
-            GetComponent<JournalObject>().Attacked = true;
-            DoAttack( attack );
+            if ( Health > 0 ) {
+                // Omg, we're still GGJ'ing. It didn't work with just saying "Attacked = true"...
+                GetComponent<JournalObject>().Attacked = true;
+                DoAttack( attack );
+            }
         }
     }
 
