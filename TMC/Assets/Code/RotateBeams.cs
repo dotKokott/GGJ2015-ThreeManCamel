@@ -4,7 +4,7 @@ using System.Collections;
 public class RotateBeams : MonoBehaviour {
 
     public bool Rotate;
-    public float RotationSpeed = 23f;
+    public float RotationSpeed = 60f;
     private Quaternion originalRotation;
 
 	// Use this for initialization
