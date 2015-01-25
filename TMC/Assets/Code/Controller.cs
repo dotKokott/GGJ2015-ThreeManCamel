@@ -12,6 +12,7 @@ public class Controller : JournalObject {
     public CharacterType Type;
 
     public GameObject beam;
+    public GameObject smash;
 
     public int health = 0;
 
@@ -69,7 +70,7 @@ public class Controller : JournalObject {
 
                     switch ( Type ) {
                         case CharacterType.Tank:
-                            var smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
+                            smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
                             smash.GetComponent<AttackInfo>().Owner = this.gameObject;
                             Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Smash );
 
@@ -137,6 +138,10 @@ public class Controller : JournalObject {
                 return;
             }
 
+            if (smash != null) {
+                return;
+            }
+
             var v = -InputManager.GetAxisValue( 0, AxesMapping.LEFT_Y_AXIS );
             var h = InputManager.GetAxisValue( 0, AxesMapping.LEFT_X_AXIS );
             //var h = Input.GetAxis( "Horizontal" );
@@ -182,7 +187,7 @@ public class Controller : JournalObject {
                     case CharacterType.Tank:
                         Attacked = true;
 
-                        var smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
+                        smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
                         smash.GetComponent<AttackInfo>().Owner = this.gameObject;
 
                         Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Smash );
