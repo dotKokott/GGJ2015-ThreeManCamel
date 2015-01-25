@@ -14,7 +14,7 @@ GameObject:
   - 135: {fileID: 13577772}
   - 114: {fileID: 11440868}
   m_Layer: 0
-  m_Name: Smash
+  m_Name: Protector
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

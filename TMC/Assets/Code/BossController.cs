@@ -126,7 +126,10 @@ public class BossController : JournalObject {
             case AttackType.AreaOfEffect:
                 var smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
                 smash.GetComponent<AttackInfo>().Owner = this.gameObject;
-				
+
+                iTween.ShakePosition(Camera.main.gameObject, new Vector3(.25f, .25f, .25f), 0.5f);
+                iTween.ShakeRotation(Camera.main.gameObject, new Vector3(.15f, .15f, .15f), 0.2f);
+
                 break;
             case AttackType.RotatingBeams:
                 Globals._.BOSS_BeamUp.SetActive( true );
@@ -187,7 +190,7 @@ public class BossController : JournalObject {
                 break;
             case AttackType.AreaOfEffect:
                 animationName = "AOE";
-                animTime = 1.450f;
+                animTime = 1.9f;
 
                 break;
             case AttackType.RotatingBeams:
