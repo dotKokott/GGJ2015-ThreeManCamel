@@ -2125,7 +2125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PREFAB_SMASH: {fileID: 132966, guid: d8afcf083b1e94418a820c1e9e888045, type: 2}
   PREFAB_STRIKE: {fileID: 128578, guid: cf2d6fca10aa32f4c8be40ed9cb4a63f, type: 2}
-  PREFAB_BEAM: {fileID: 143014, guid: f8f1c380dad26914eb3bc39b246dc3de, type: 2}
+  PREFAB_BEAM: {fileID: 165984, guid: 77de46861dace644ea97fabc285d0dc1, type: 2}
   PREFAB_EXPLOSION: {fileID: 161170, guid: d19920b4cf7c1054d9f1ba37f3aab1d4, type: 2}
   PREFAB_PROTECTOR: {fileID: 132966, guid: 249bff6e31bb22747a3f965cbb7938e3, type: 2}
   SOUND_Rewind: {fileID: 8300000, guid: 14462a9cf41b14e40abcd681b4a52063, type: 3}

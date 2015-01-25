@@ -42,7 +42,7 @@ public class BossController : JournalObject {
     void Start() {
         Journal.OnStartRecording += Journal_OnStartRecording;
         //Journal.OnFrame += Journal_OnFrame;
-        Journal.OnStartPlaying += Journal_OnStartPlaying;
+        //Journal.OnStartPlaying += Journal_OnStartPlaying;
     }
 
     void Journal_OnStartPlaying(object sender, EventArgs e) {
