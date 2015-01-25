@@ -17,6 +17,8 @@ ModelImporter:
     100022: Warrior_Wrist_CTRL
     100024: Warrior_Wrist_CTRLGRP
     100026: Warrior_Wrist_JNT
+    100028: Trail_1_MESH
+    100030: Warrior_Trail_JNT
     400000: Warrior_Elbow_CTRL
     400002: Warrior_Elbow_CTRLGRP
     400004: Warrior_Elbow_JNT
@@ -31,13 +33,17 @@ ModelImporter:
     400022: Warrior_Wrist_CTRL
     400024: Warrior_Wrist_CTRLGRP
     400026: Warrior_Wrist_JNT
+    400028: Trail_1_MESH
+    400030: Warrior_Trail_JNT
     4300000: Warrior_MESH
+    4300002: Trail_1_MESH
     7400000: Idle
     7400002: Attack
     7400004: Walk
     9500000: //RootNode
     11100000: //RootNode
     13700000: Warrior_MESH
+    13700002: Trail_1_MESH
   materials:
     importMaterials: 1
     materialName: 0
