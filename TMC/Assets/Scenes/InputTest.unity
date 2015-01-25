@@ -332,6 +332,18 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: e8e13b8d36a6fae41a7cc66bc841b594, type: 3}
   m_PrefabInternal: {fileID: 164850453}
+--- !u!64 &86114794
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 86114790}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 4300000, guid: e8e13b8d36a6fae41a7cc66bc841b594, type: 3}
 --- !u!1001 &164850453
 Prefab:
   m_ObjectHideFlags: 0
@@ -2080,7 +2092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Attacked: 0
-  Type: 2
+  Type: 0
   beam: {fileID: 0}
   health: 1
   attackLimit: 1
@@ -2542,10 +2554,34 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 2ba45c3251440b24a92fc2077a5aa391, type: 3}
   m_PrefabInternal: {fileID: 1920693186}
+--- !u!64 &1356995206
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1356995202}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 4300000, guid: 2ba45c3251440b24a92fc2077a5aa391, type: 3}
 --- !u!1 &1390630753
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 2ba45c3251440b24a92fc2077a5aa391, type: 3}
   m_PrefabInternal: {fileID: 727685788}
+--- !u!64 &1390630757
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1390630753}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 4300000, guid: 2ba45c3251440b24a92fc2077a5aa391, type: 3}
 --- !u!1001 &1463244952
 Prefab:
   m_ObjectHideFlags: 0
@@ -3157,6 +3193,18 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: e8e13b8d36a6fae41a7cc66bc841b594, type: 3}
   m_PrefabInternal: {fileID: 715834558}
+--- !u!64 &1829398545
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1829398541}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 4300000, guid: e8e13b8d36a6fae41a7cc66bc841b594, type: 3}
 --- !u!4 &1856261802
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 52ba9fd7fe5c44cd8b57ac24428a3fee, type: 3}

@@ -7,18 +7,18 @@ public class Smash : MonoBehaviour {
     public float GrowSpeed = 20;
 
     void Start() {
-        StartCoroutine(Kill());
+        StartCoroutine( Kill() );
     }
 
     IEnumerator Kill() {
-        yield return new WaitForSeconds(StayTime);
-        Destroy(this.gameObject);
+        yield return new WaitForSeconds( StayTime );
+        Destroy( this.gameObject );
     }
 
     // Update is called once per frame
     void Update() {
-        if (transform.localScale.y < 4.6f) {
-            transform.localScale += new Vector3(GrowSpeed * Time.deltaTime, GrowSpeed * Time.deltaTime);
+        if ( transform.localScale.y < 4.6f ) {
+            transform.localScale += new Vector3( GrowSpeed * Time.deltaTime, GrowSpeed * Time.deltaTime, GrowSpeed * Time.deltaTime );
         }
     }
 }
