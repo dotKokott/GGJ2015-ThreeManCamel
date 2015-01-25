@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+using UnityEngine.UI;
 
 public class Timeline : MonoBehaviour {
 
@@ -17,6 +19,10 @@ public class Timeline : MonoBehaviour {
     private bool isRewinding;
 
     private int playersInLevel = 0;
+    private bool gameOver = false;
+    private bool won = false;
+
+    private int playIndex = -1;
 
     // Use this for initialization
     void Start() {
@@ -48,13 +54,31 @@ public class Timeline : MonoBehaviour {
         }
 
         playersInLevel = players.Length;
-    }
 
+        EnableUIObject( "Panel" );
+        EnableUIObject( "Next Turn" );
+        EnableUIObject( "Image" );
+        EnableUIObject( "Title 2" );
+    }
 
     // Update is called once per frame
     void Update() {
         if ( Input.GetKeyDown( KeyCode.O ) || InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_Y ) ) {
-            StartCoroutine( RecordBoss() );
+            if ( gameOver ) {
+                if ( won ) {
+                    Application.LoadLevel( Application.loadedLevel + 1 );
+                } else {
+                    Application.LoadLevel( Application.loadedLevel );
+                }
+            } else {
+                DisableUI();
+
+                if ( playIndex == -1 ) {
+                    StartCoroutine( RecordBoss() );
+                } else {
+                    StartCoroutine( RecordObject() );
+                }
+            }
         }
     }
 
@@ -129,38 +153,75 @@ public class Timeline : MonoBehaviour {
         }
     }
 
+    private void DisableUI() {
+        foreach ( var item in Globals._.UI ) {
+                item.SetActive( false );
+        }
+    }
+
     private void Boss_OnPlayFinished( object sender, System.EventArgs e ) {
+        gameOver = true;
+
         EnableUIObject( "Panel" );
         if ( boss == null ) {
+            won = true;
             EnableUIObject( "Victory" );
-            EnableUIObject( "Victory1" );
+            EnableUIObject( "Victory 1" );
         } else {
-            if ( Random.Range( 0, 100 ) < 50 ) {
+            won = false;
+            if ( UnityEngine.Random.Range( 0, 100 ) < 50 ) {
                 EnableUIObject( "NoBoss" );
-                EnableUIObject( "NoBoss1" );
+                EnableUIObject( "NoBoss 1" );
             } else {
                 EnableUIObject( "Death" );
-                EnableUIObject( "Death1" );
+                EnableUIObject( "Death 1" );
             }
         }
     }
 
-    void Boss_OnRewindFinished( object sender, System.EventArgs e ) {
+    private void Boss_OnRewindFinished( object sender, System.EventArgs e ) {
         boss.SetActive( false );
         players[0].SetActive( true );
+        playIndex++;
 
-        StartCoroutine( RecordObject() );
+        EnableUIObject( "Panel" );
+        EnableUIObject( "Next Turn" );
+        EnableUIObject( "Image" );
+        EnableUIObject( "Title" );
+        EnableUIObject( "Title 1" );
+
+        if ( players[index].name == "Player1" ) {
+            GameObject.Find( "Title" ).GetComponent<Text>().text = "Wizard";
+        } else if ( players[index].name == "Player2" ) {
+            GameObject.Find( "Title" ).GetComponent<Text>().text = "Knight";
+        } else if ( players[index].name == "Player3" ) {
+            GameObject.Find( "Title" ).GetComponent<Text>().text = "Protector";
+        }
     }
 
     private void J_OnRewindFinished( object sender, System.EventArgs e ) {
-        Debug.Log( "rewind finished" );
         if ( index < players.Length - 1 ) {
             players[index].SetActive( false );
 
             index++;
+            playIndex++;
 
             players[index].SetActive( true );
-            StartCoroutine( RecordObject() );
+
+
+            EnableUIObject( "Panel" );
+            EnableUIObject( "Next Turn" );
+            EnableUIObject( "Image" );
+            EnableUIObject( "Title" );
+            EnableUIObject( "Title 1" );
+
+            if ( players[index].name == "Player1" ) {
+                GameObject.Find( "Title" ).GetComponent<Text>().text = "Wizard";
+            } else if ( players[index].name == "Player2" ) {
+                GameObject.Find( "Title" ).GetComponent<Text>().text = "Knight";
+            } else if ( players[index].name == "Player3" ) {
+                GameObject.Find( "Title" ).GetComponent<Text>().text = "Protector";
+            }
         } else {
             foreach ( var item in players ) {
                 item.SetActive( true );
@@ -175,6 +236,7 @@ public class Timeline : MonoBehaviour {
             }
 
             boss.GetComponent<Journal>().Play();
+            MoveTimelineForward();
 
             index = 0;
         }
