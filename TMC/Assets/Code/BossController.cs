@@ -268,6 +268,13 @@ public class BossController : JournalObject {
                 collidersAlreadyHit.Add( collider.gameObject );
 
                 if ( --Health <= 0 ) {
+                    var attacks = GameObject.FindGameObjectsWithTag("Attack");
+                    foreach (var attack in attacks) {
+                        if (attack.GetComponent<AttackInfo>().Owner == this.gameObject) {
+                            Destroy(attack.gameObject);
+                        }
+                    }
+
                     StartCoroutine( PlayDeathAnimation() );
                     //Instantiate( Globals._.PREFAB_EXPLOSION, transform.position, Quaternion.identity );
                     //Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Explosion );
