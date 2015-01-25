@@ -469,7 +469,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 19492719}
   m_LocalRotation: {x: 0, y: 0, z: -.00138106756, w: .999999046}
-  m_LocalPosition: {x: 1.49587893, y: -5.50268984, z: 2.99680138}
+  m_LocalPosition: {x: -2.74000001, y: -5.5, z: 3}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children:
   - {fileID: 504263310}
@@ -693,19 +693,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Attacked: 0
   Attacks:
-  - TimeFromStart: 1
+  - TimeFromStart: 2
     Type: 0
-  - TimeFromStart: 1
+  - TimeFromStart: 2
     Type: 1
-  - TimeFromStart: 3.5
+  - TimeFromStart: 4
     Type: 2
-  - TimeFromStart: 3.5
+  - TimeFromStart: 4
     Type: 3
   - TimeFromStart: 6
     Type: 0
   - TimeFromStart: 6
     Type: 1
-  ConeTime: 2.5
+  ConeTime: 2
   BeamTime: 1
   Health: 5
   animation: {fileID: 1672995649}
@@ -779,7 +779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &239269349
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1959,7 +1959,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 697064107}
   m_LocalRotation: {x: 0, y: 0, z: -.00138106756, w: .999999046}
-  m_LocalPosition: {x: 2.43587875, y: -5.50268984, z: 3.02880144}
+  m_LocalPosition: {x: -1.08000004, y: -5.5, z: 3.02999997}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children:
   - {fileID: 577387701}
@@ -2274,7 +2274,7 @@ GameObject:
   - 54: {fileID: 762102741}
   - 114: {fileID: 762102740}
   m_Layer: 0
-  m_Name: Boss5 - Beam not 360 / can't determine speed
+  m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3204,7 +3204,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1017020204}
   m_LocalRotation: {x: 0, y: 0, z: -.00138106756, w: .999999046}
-  m_LocalPosition: {x: .285878897, y: -5.4426899, z: 2.97880149}
+  m_LocalPosition: {x: .680000007, y: -5.44000006, z: 2.98000002}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children:
   - {fileID: 1728839767}
@@ -3541,6 +3541,7 @@ MonoBehaviour:
   PREFAB_STRIKE: {fileID: 128578, guid: cf2d6fca10aa32f4c8be40ed9cb4a63f, type: 2}
   PREFAB_BEAM: {fileID: 143014, guid: f8f1c380dad26914eb3bc39b246dc3de, type: 2}
   PREFAB_EXPLOSION: {fileID: 161170, guid: d19920b4cf7c1054d9f1ba37f3aab1d4, type: 2}
+  PREFAB_PROTECTOR: {fileID: 0}
   SOUND_Rewind: {fileID: 8300000, guid: 14462a9cf41b14e40abcd681b4a52063, type: 3}
   SOUND_Beam: {fileID: 8300000, guid: 34a77e1e0ec7684418328fa6f5b1ee53, type: 3}
   SOUND_Smash: {fileID: 8300000, guid: ba3bcf060b109ad46a5426eac92c0afd, type: 3}
@@ -4066,12 +4067,12 @@ GameObject:
   - 54: {fileID: 1238202892}
   - 114: {fileID: 1238202891}
   m_Layer: 0
-  m_Name: Boss7 - Missing ability to determine beams speed
+  m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1238202890
 Transform:
   m_ObjectHideFlags: 0
