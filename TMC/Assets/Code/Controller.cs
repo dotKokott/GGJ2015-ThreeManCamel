@@ -294,9 +294,8 @@ public class Controller : JournalObject {
 
             if ( collider.gameObject.tag == "Attack" ) {
                 if ( protectionTimer <= 0 ) {
-                    if ( --health <= 0 ) {
-                        Instantiate( Globals._.PREFAB_EXPLOSION, transform.position, Quaternion.identity );
-                        Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Explosion );
+                    if ( --health <= 0 ) {                        
+
                         Destroy( gameObject );
                     }
                 } else {
