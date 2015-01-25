@@ -10,10 +10,15 @@ public class Blinker : MonoBehaviour {
 	}
 
     IEnumerator Blink( int times ) {
-        var r = transform.Find( "Model" ).GetComponentInChildren<Renderer>();
-        r.enabled = false;
+        var r = transform.Find( "Model" ).GetComponentsInChildren<Renderer>();
+
+        foreach ( var item in r ) {
+            item.enabled = false;
+        }
         yield return new WaitForSeconds( 0.02f );
-        r.enabled = true;
+        foreach ( var item in r ) {
+            item.enabled = true;
+        }
 
         if ( times > 0 ) {
             yield return new WaitForSeconds( 0.1f );

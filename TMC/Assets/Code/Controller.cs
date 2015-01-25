@@ -295,7 +295,7 @@ public class Controller : JournalObject {
                     if ( --health <= 0 ) {
                         if ( GetComponent<Blinker>() == null ) {
                             gameObject.AddComponent<Blinker>();
-                            enabled = false;
+                            Journal.enabled = false;
                         }
                     }
                 } else {
