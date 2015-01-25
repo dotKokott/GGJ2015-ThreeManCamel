@@ -5,8 +5,6 @@ public class DebugSkip : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		print ("WHAT GOD GIVES");
-
 		if (Input.GetKeyDown (KeyCode.G))
 		{
 			Application.LoadLevel(Application.loadedLevel + 1);

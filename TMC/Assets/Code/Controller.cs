@@ -139,7 +139,6 @@ public class Controller : JournalObject {
 
     void Update() {
 		//animation.Play ("Idle");
-		print(animation.IsPlaying("Attack"));
 
         if ( Journal.Mode == Journal.JournalMode.Recording ) {
             orderText.gameObject.SetActive( false );
