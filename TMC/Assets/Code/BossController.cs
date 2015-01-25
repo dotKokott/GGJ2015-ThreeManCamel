@@ -164,15 +164,14 @@ public class BossController : JournalObject {
         DoAttack( attack );
     }
 
-    void OnTriggerEnter(Collider other) {
-        Debug.Log("Boss hit");
-
+    void OnTriggerEnter(Collider other) {       
         var comp = other.GetComponent<AttackInfo>();
         if (comp == null || comp.Owner == this.gameObject) return;
 
         if (Journal.Mode == Journal.JournalMode.Recording || Journal.Mode == Journal.JournalMode.Idling) return;
 
         if (other.gameObject.tag == "Attack") {
+            Debug.Log("Boss hit");
             if (--Health <= 0) {
                 Instantiate(Globals._.PREFAB_EXPLOSION, transform.position, Quaternion.identity);
                 Camera.main.GetComponent<AudioSource>().PlayOneShot(Globals._.SOUND_Explosion);
