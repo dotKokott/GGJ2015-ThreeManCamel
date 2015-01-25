@@ -78,7 +78,7 @@ public class Controller : JournalObject {
             if ( attackLimit > 0 ) {
                 if ( e.Frame.Attacked ) {
                     Debug.Log( "Firing a" );
-
+                    animation.Play("Attack");
                     switch ( Type ) {
                         case CharacterType.Tank:
                             smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
