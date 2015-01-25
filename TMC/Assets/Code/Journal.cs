@@ -29,6 +29,7 @@ public class Journal : MonoBehaviour {
         public Quaternion Rotation;
         public bool IsAlive;
         public bool Attacked;
+        public string CurrentAnimation;
     }
 
     [HideInInspector]
@@ -65,6 +66,15 @@ public class Journal : MonoBehaviour {
             f.Attacked = jObject.Attacked;
             if ( f.Attacked ) {
                 jObject.Attacked = false;
+            }
+            if ( jObject.Animaa != null ) {
+                f.CurrentAnimation = "";
+                foreach ( AnimationState item in jObject.Animaa ) {
+                    if (jObject.Animaa.IsPlaying(item.name)) {
+                        f.CurrentAnimation = item.name;
+                        break;
+                    }
+                }
             }
 
             frames.Add( f );

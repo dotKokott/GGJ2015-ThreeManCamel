@@ -5,6 +5,7 @@ using System.Collections;
 public class JournalObject : MonoBehaviour {
 
     protected Renderer renderer;
+    protected Animation ani;
 
     public bool Attacked = false;
 
@@ -31,6 +32,10 @@ public class JournalObject : MonoBehaviour {
 
             return journal;
         }
+    }
+
+    public Animation Animaa {
+        get { return ani; }
     }
 
 

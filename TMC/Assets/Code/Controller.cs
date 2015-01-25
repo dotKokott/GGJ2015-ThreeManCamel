@@ -31,7 +31,7 @@ public class Controller : JournalObject {
     public float BeamStayTime = 1f;
 
 	public GameObject animationContainer;
-	Animation animation;
+    Animation animation;
 
     public int Order = 0;
 
@@ -50,7 +50,7 @@ public class Controller : JournalObject {
 
         orderText = gameObject.transform.FindChild( "Order" ).gameObject.GetComponent<TextMesh>();
         orderText.text = ( Order + 1 ).ToString() + ".";
-		animation = animationContainer.GetComponent<Animation>();
+		animation = base.ani = animationContainer.GetComponent<Animation>();
     }
 
     private Vector3 prevpos;
@@ -60,13 +60,17 @@ public class Controller : JournalObject {
         if ( e.Mode == Journal.JournalMode.Playing ) {
             var npos = e.Frame.Position - prevpos;
 
-            if (!animation.IsPlaying("Attack")) {
-                if (Vector3.Distance(npos, Vector3.zero) < 0.01f) {
-                    animation.Play("Idle");
-                } else {
-                    animation.Play("Walk", AnimationPlayMode.Stop);
-                }
-            }            
+            //if (!animation.IsPlaying("Attack")) {
+            //    if (Vector3.Distance(npos, Vector3.zero) < 0.01f) {
+            //        animation.Play("Idle");
+            //    } else {
+                    //animation.Play("Attack", AnimationPlayMode.Stop);
+            //    }
+            //}         
+            
+            if (!string.IsNullOrEmpty(e.Frame.CurrentAnimation)) {
+                animation.Play( e.Frame.CurrentAnimation, AnimationPlayMode.Stop );
+            }   
             
             npos.Normalize();
 
@@ -88,7 +92,7 @@ public class Controller : JournalObject {
             if ( attackLimit > 0 ) {
                 if ( e.Frame.Attacked ) {
                     Debug.Log( "Firing a" );
-                    animation.Play("Attack");
+                    //animation.Play("Attack");
                     switch ( Type ) {
                         case CharacterType.Tank:
                             smash = Instantiate( Globals._.PREFAB_PROTECTOR, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
