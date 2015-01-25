@@ -151,13 +151,13 @@ public class BossController : JournalObject {
     }
 
     private IEnumerator rotateBeams() {
-        yield return new WaitForSeconds( 1f );
+       // yield return new WaitForSeconds( 1f );
 
         var beams = GameObject.Find( "Beams" );
         var rotator = beams.GetComponent<RotateBeams>();
         rotator.Rotate = true;
 
-        yield return new WaitForSeconds( 6f );
+        yield return new WaitForSeconds( 7f );
 
         rotator.Reset();
 
@@ -203,7 +203,10 @@ public class BossController : JournalObject {
 
         yield return new WaitForSeconds( attack.TimeFromStart - animTime / 2f);
 
-        animation.Play(animationName, AnimationPlayMode.Stop);
+		if(animationName != "") {
+			animation.Play(animationName, AnimationPlayMode.Stop);
+		}
+        
         
         yield return new WaitForSeconds(animTime / 2f);
 

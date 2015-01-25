@@ -26,7 +26,7 @@ public class Controller : JournalObject {
     public float StrikeCooldown = 1f;
     private float strikeTimer;
 
-    public float BeamChargeTime = 1f;
+    public float BeamChargeTime = 1.3f;
     private float beamChargeTimer = 0f;
     public float BeamStayTime = 1f;
 
@@ -81,7 +81,7 @@ public class Controller : JournalObject {
                     animation.Play("Attack");
                     switch ( Type ) {
                         case CharacterType.Tank:
-                            smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
+                            smash = Instantiate( Globals._.PREFAB_PROTECTOR, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
                             smash.GetComponent<AttackInfo>().Owner = this.gameObject;
                             Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Smash );
 
@@ -198,7 +198,7 @@ public class Controller : JournalObject {
                     case CharacterType.Tank:
                         Attacked = true;
 
-                        smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
+                        smash = Instantiate( Globals._.PREFAB_PROTECTOR, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
                         smash.GetComponent<AttackInfo>().Owner = this.gameObject;
 
                         Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Smash );
