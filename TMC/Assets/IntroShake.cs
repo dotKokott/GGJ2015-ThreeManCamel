@@ -8,7 +8,7 @@ public class IntroShake : MonoBehaviour {
 	public MonoBehaviour[] behaviours;
 	public CanvasRenderer[] canvases;
 	float timer = 0f;
-
+	public AudioSource stomp;
 
 	bool dirtyCode;
 	bool dirtyCode2;
@@ -65,6 +65,7 @@ public class IntroShake : MonoBehaviour {
 
 			started = true;
 
+			stomp.Stop ();
 		}
 	}
 
