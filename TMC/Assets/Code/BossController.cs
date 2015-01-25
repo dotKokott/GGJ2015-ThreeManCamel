@@ -201,6 +201,9 @@ public class BossController : JournalObject {
 
                 break;
             case AttackType.RotatingBeams:
+                animationName = "SpinAttack";
+                animTime = 0;
+
                 break;
             case AttackType.SingleRotatingBeam:
                 break;
