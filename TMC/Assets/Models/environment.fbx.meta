@@ -195,10 +195,44 @@ ModelImporter:
     4300062: corner5
     4300064: corner6
     4300066: corner7
+    6400000: baseCircle
+    6400002: baseCircle1
+    6400004: baseCircle2
+    6400006: baseCircle3
+    6400008: baseCorner
+    6400010: baseCorner 1
+    6400012: baseCorner 2
+    6400014: baseCorner 3
+    6400016: basePath
+    6400018: basePath1
+    6400020: basePath2
+    6400022: basePath3
+    6400024: basePath4
+    6400026: basePath5
+    6400028: baseWall_1
+    6400030: baseWall_1 1
+    6400032: baseWall_1 2
+    6400034: baseWall_1 3
+    6400036: baseWall_2
+    6400038: baseWall_2 1
+    6400040: baseWall_2 2
+    6400042: baseWall_2 3
+    6400044: corner1 1
+    6400046: corner5
+    6400048: corner6
+    6400050: corner7
+    6400052: gateBase
+    6400054: gateBase1
+    6400056: gateBase2
+    6400058: gateBase3
+    6400060: polySurface1
+    6400062: polySurface2
+    6400064: polySurface3
+    6400066: polySurface4
     9500000: //RootNode
   materials:
     importMaterials: 1
-    materialName: 0
+    materialName: 2
     materialSearch: 1
   animations:
     legacyGenerateAnimations: 4
@@ -218,7 +252,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0

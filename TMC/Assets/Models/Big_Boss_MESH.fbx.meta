@@ -88,7 +88,7 @@ ModelImporter:
     13700000: Big_Boss_MESH
   materials:
     importMaterials: 1
-    materialName: 0
+    materialName: 2
     materialSearch: 1
   animations:
     legacyGenerateAnimations: 4
@@ -107,7 +107,7 @@ ModelImporter:
       name: Idle
       takeName: Take 001
       firstFrame: 10
-      lastFrame: 59
+      lastFrame: 58
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
@@ -207,7 +207,7 @@ ModelImporter:
       name: Walk
       takeName: Take 001
       firstFrame: 70
-      lastFrame: 89
+      lastFrame: 90
       wrapMode: 2
       orientationOffsetY: 0
       level: 0

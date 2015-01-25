@@ -7,13 +7,47 @@ ModelImporter:
     100002: Defender_MESH
     100004: Defender_Root_CTRL
     100006: Defender_Root_JNT
+    100008: Defender_Elbow_CTRL
+    100010: Defender_Elbow_CTRLGRP
+    100012: Defender_Elbow_JNT
+    100014: Defender_Head_JNT
+    100016: Defender_Shoulder_CTRL
+    100018: Defender_Shoulder_CTRLGRP
+    100020: Defender_Shoulder_JNT
+    100022: Defender_Skill_CTRL
+    100024: Defender_Skill_CTRLGRP
+    100026: Defender_Skill_JNT
+    100028: Defender_Skill_MESH
+    100030: Defender_Wrist_CTRL
+    100032: Defender_Wrist_CTRLGRP
+    100034: Defender_Wrist_JNT
     400000: //RootNode
     400002: Defender_MESH
     400004: Defender_Root_CTRL
     400006: Defender_Root_JNT
+    400008: Defender_Elbow_CTRL
+    400010: Defender_Elbow_CTRLGRP
+    400012: Defender_Elbow_JNT
+    400014: Defender_Head_JNT
+    400016: Defender_Shoulder_CTRL
+    400018: Defender_Shoulder_CTRLGRP
+    400020: Defender_Shoulder_JNT
+    400022: Defender_Skill_CTRL
+    400024: Defender_Skill_CTRLGRP
+    400026: Defender_Skill_JNT
+    400028: Defender_Skill_MESH
+    400030: Defender_Wrist_CTRL
+    400032: Defender_Wrist_CTRLGRP
+    400034: Defender_Wrist_JNT
     4300000: Defender_MESH
+    4300002: Defender_Skill_MESH
+    7400000: Idle
+    7400002: Attack
+    7400004: Walk
     9500000: //RootNode
+    11100000: //RootNode
     13700000: Defender_MESH
+    13700002: Defender_Skill_MESH
   materials:
     importMaterials: 1
     materialName: 0
@@ -30,7 +64,193 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 99
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Defender_MESH
+        weight: 1
+      - path: Defender_Root_CTRL
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT/Defender_Shoulder_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT/Defender_Shoulder_JNT/Defender_Elbow_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT/Defender_Shoulder_JNT/Defender_Elbow_JNT/Defender_Wrist_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP/Defender_Elbow_CTRL
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP/Defender_Elbow_CTRL/Defender_Wrist_CTRLGRP
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP/Defender_Elbow_CTRL/Defender_Wrist_CTRLGRP/Defender_Wrist_CTRL
+        weight: 1
+      - path: Defender_Skill_CTRLGRP
+        weight: 1
+      - path: Defender_Skill_CTRLGRP/Defender_Skill_CTRL
+        weight: 1
+      - path: Defender_Skill_CTRLGRP/Defender_Skill_CTRL/Defender_Skill_JNT
+        weight: 1
+      - path: Defender_Skill_MESH
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Attack
+      takeName: Take 001
+      firstFrame: 110
+      lastFrame: 125
+      wrapMode: 1
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Defender_MESH
+        weight: 1
+      - path: Defender_Root_CTRL
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT/Defender_Shoulder_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT/Defender_Shoulder_JNT/Defender_Elbow_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT/Defender_Shoulder_JNT/Defender_Elbow_JNT/Defender_Wrist_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP/Defender_Elbow_CTRL
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP/Defender_Elbow_CTRL/Defender_Wrist_CTRLGRP
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP/Defender_Elbow_CTRL/Defender_Wrist_CTRLGRP/Defender_Wrist_CTRL
+        weight: 1
+      - path: Defender_Skill_CTRLGRP
+        weight: 1
+      - path: Defender_Skill_CTRLGRP/Defender_Skill_CTRL
+        weight: 1
+      - path: Defender_Skill_CTRLGRP/Defender_Skill_CTRL/Defender_Skill_JNT
+        weight: 1
+      - path: Defender_Skill_MESH
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 130
+      lastFrame: 141
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Defender_MESH
+        weight: 1
+      - path: Defender_Root_CTRL
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT/Defender_Shoulder_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT/Defender_Shoulder_JNT/Defender_Elbow_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT/Defender_Shoulder_JNT/Defender_Elbow_JNT/Defender_Wrist_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP/Defender_Elbow_CTRL
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP/Defender_Elbow_CTRL/Defender_Wrist_CTRLGRP
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP/Defender_Elbow_CTRL/Defender_Wrist_CTRLGRP/Defender_Wrist_CTRL
+        weight: 1
+      - path: Defender_Skill_CTRLGRP
+        weight: 1
+      - path: Defender_Skill_CTRLGRP/Defender_Skill_CTRL
+        weight: 1
+      - path: Defender_Skill_CTRLGRP/Defender_Skill_CTRL/Defender_Skill_JNT
+        weight: 1
+      - path: Defender_Skill_MESH
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -68,7 +288,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
