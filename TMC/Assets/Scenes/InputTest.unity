@@ -88,8 +88,6 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
-  m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_GeneratedSkyboxReflection: {fileID: 0}
@@ -159,6 +157,11 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!111 &3722222
+Animation:
+  m_PrefabParentObject: {fileID: 11100000, guid: 52ba9fd7fe5c44cd8b57ac24428a3fee,
+    type: 3}
+  m_PrefabInternal: {fileID: 972240206}
 --- !u!1001 &17227661
 Prefab:
   m_ObjectHideFlags: 0
@@ -388,7 +391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &19492720
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -418,6 +421,7 @@ MonoBehaviour:
   Attacked: 0
   Type: 1
   beam: {fileID: 0}
+  smash: {fileID: 0}
   health: 1
   attackLimit: 1
   acceleration: .699999988
@@ -850,14 +854,14 @@ MonoBehaviour:
   Attacked: 0
   Attacks:
   - TimeFromStart: 1
-    Type: 1
+    Type: 8
   - TimeFromStart: 3.5
     Type: 8
   - TimeFromStart: 6
     Type: 8
   ConeTime: 1
   BeamTime: 1
-  Health: 5
+  Health: 2
   animation: {fileID: 82744704}
 --- !u!1 &244143898
 GameObject:
@@ -1947,7 +1951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &697064108
 Transform:
   m_ObjectHideFlags: 0
@@ -1992,6 +1996,7 @@ MonoBehaviour:
   Attacked: 0
   Type: 0
   beam: {fileID: 0}
+  smash: {fileID: 0}
   health: 1
   attackLimit: 1
   acceleration: .699999988
@@ -2032,6 +2037,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 697064107}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!111 &701837727
+Animation:
+  m_PrefabParentObject: {fileID: 11100000, guid: 52ba9fd7fe5c44cd8b57ac24428a3fee,
+    type: 3}
+  m_PrefabInternal: {fileID: 1331279440}
 --- !u!1001 &715834558
 Prefab:
   m_ObjectHideFlags: 0
@@ -2302,7 +2312,7 @@ MonoBehaviour:
   ConeTime: 2.5
   BeamTime: 1
   Health: 5
-  animation: {fileID: 0}
+  animation: {fileID: 1098242930}
 --- !u!54 &762102741
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3146,6 +3156,7 @@ MonoBehaviour:
   Attacked: 0
   Type: 2
   beam: {fileID: 0}
+  smash: {fileID: 0}
   health: 1
   attackLimit: 1
   acceleration: .699999988
@@ -3706,6 +3717,11 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!111 &1098242930
+Animation:
+  m_PrefabParentObject: {fileID: 11100000, guid: 52ba9fd7fe5c44cd8b57ac24428a3fee,
+    type: 3}
+  m_PrefabInternal: {fileID: 1035501526}
 --- !u!1 &1102196168
 GameObject:
   m_ObjectHideFlags: 0
@@ -4090,7 +4106,7 @@ MonoBehaviour:
   ConeTime: 2.5
   BeamTime: 1
   Health: 5
-  animation: {fileID: 0}
+  animation: {fileID: 701837727}
 --- !u!54 &1238202892
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4176,7 +4192,6 @@ Light:
     m_Resolution: 3
     m_Strength: 1
     m_Bias: .639999986
-    m_NormalBias: 0
     m_Softness: 4
     m_SoftnessFade: 1
   m_Cookie: {fileID: 0}
@@ -5037,6 +5052,11 @@ Transform:
   - {fileID: 652034738}
   m_Father: {fileID: 697064108}
   m_RootOrder: 1
+--- !u!111 &1588480311
+Animation:
+  m_PrefabParentObject: {fileID: 11100000, guid: 52ba9fd7fe5c44cd8b57ac24428a3fee,
+    type: 3}
+  m_PrefabInternal: {fileID: 17227661}
 --- !u!4 &1598858942
 Transform:
   m_PrefabParentObject: {fileID: 422658, guid: cf50a701e2b16004683cd46da5d655ff, type: 2}
@@ -5161,7 +5181,7 @@ MonoBehaviour:
   ConeTime: 2.5
   BeamTime: 1
   Health: 5
-  animation: {fileID: 0}
+  animation: {fileID: 3722222}
 --- !u!54 &1651915409
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5297,7 +5317,7 @@ MonoBehaviour:
   ConeTime: 2.5
   BeamTime: 1
   Health: 5
-  animation: {fileID: 0}
+  animation: {fileID: 1588480311}
 --- !u!54 &1749933951
 Rigidbody:
   m_ObjectHideFlags: 0
