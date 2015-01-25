@@ -28,7 +28,6 @@ QualitySettings:
     vSyncCount: 0
     lodBias: .300000012
     maximumLODLevel: 0
-    maxRealtimeReflectionBounces: 1
     particleRaycastBudget: 4
     excludedTargetPlatforms: []
   - serializedVersion: 2
@@ -53,7 +52,6 @@ QualitySettings:
     vSyncCount: 0
     lodBias: .400000006
     maximumLODLevel: 0
-    maxRealtimeReflectionBounces: 1
     particleRaycastBudget: 16
     excludedTargetPlatforms: []
   - serializedVersion: 2
@@ -78,7 +76,6 @@ QualitySettings:
     vSyncCount: 0
     lodBias: .699999988
     maximumLODLevel: 0
-    maxRealtimeReflectionBounces: 1
     particleRaycastBudget: 64
     excludedTargetPlatforms: []
   - serializedVersion: 2
@@ -103,7 +100,6 @@ QualitySettings:
     vSyncCount: 1
     lodBias: 1
     maximumLODLevel: 0
-    maxRealtimeReflectionBounces: 1
     particleRaycastBudget: 256
     excludedTargetPlatforms: []
   - serializedVersion: 2
@@ -128,7 +124,6 @@ QualitySettings:
     vSyncCount: 1
     lodBias: 1.5
     maximumLODLevel: 0
-    maxRealtimeReflectionBounces: 1
     particleRaycastBudget: 1024
     excludedTargetPlatforms: []
   - serializedVersion: 2
@@ -153,7 +148,6 @@ QualitySettings:
     vSyncCount: 1
     lodBias: 2
     maximumLODLevel: 0
-    maxRealtimeReflectionBounces: 1
     particleRaycastBudget: 4096
     excludedTargetPlatforms: []
   m_PerPlatformDefaultQuality: {}
