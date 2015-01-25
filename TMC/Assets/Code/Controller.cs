@@ -88,8 +88,8 @@ public class Controller : JournalObject {
 
                             beam.transform.position += -transform.up * beam.transform.localScale.y / 2;
                             Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Beam );
-                            beam.transform.localScale = new Vector3( 5, 25, 50 );
-                            iTween.ScaleTo( beam, new Vector3( 12.5f, 25, 50 ), 0.2f );
+                            beam.transform.localScale = new Vector3( 5, 72, 145 );
+                            iTween.ScaleTo(beam, new Vector3(36, 72, 145), 0.2f);
                             beam.DestroyAfter( BeamStayTime );                        
                             beam.transform.position = new Vector3( beam.transform.position.x, beam.transform.position.y, -0.15f );
 
@@ -193,8 +193,10 @@ public class Controller : JournalObject {
                         beam.transform.position += -transform.up * beam.transform.localScale.y / 2;
                         Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Beam );
                         beam.transform.position = new Vector3( beam.transform.position.x, beam.transform.position.y, -0.15f );
-                        beam.transform.localScale = new Vector3( 5 , 25, 50 );
-                        iTween.ScaleTo( beam, new Vector3( 12.5f, 25, 50 ), 0.2f );
+                        
+                        beam.transform.localScale = new Vector3( 5, 72, 145 );
+                        iTween.ScaleTo(beam, new Vector3(36, 72, 145), 0.2f);
+
                         beam.DestroyAfter( BeamStayTime );
 
                         beam.SetActive(false);

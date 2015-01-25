@@ -41,6 +41,7 @@ public class Timeline : MonoBehaviour {
 
         foreach ( var item in players ) {
             item.GetComponent<Journal>().OnRewindFinished += J_OnRewindFinished;
+            item.SetActive(false);
         }
     }
 
@@ -114,16 +115,26 @@ public class Timeline : MonoBehaviour {
     }
 
     void Boss_OnRewindFinished(object sender, System.EventArgs e) {
-        StartCoroutine(RecordObject());
+        boss.SetActive(false);
+        players[0].SetActive(true);
+
+        StartCoroutine(RecordObject());        
     }
 
     private void J_OnRewindFinished( object sender, System.EventArgs e ) {
         Debug.Log("rewind finished");
         if ( index < players.Length - 1 ) {
+            players[index].SetActive(false);
+
             index++;
+
+            players[index].SetActive(true);
             StartCoroutine( RecordObject() );
         } else {
             foreach ( var item in players ) {
+                item.SetActive(true);
+                boss.SetActive(true);
+
                 var music = GameObject.Find( "Music" ).GetComponent<AudioSource>();
                 music.clip = Globals._.MUSIC_AllPlay;
                 music.Play();                
