@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StayTime: 7
-  GrowSpeed: 99
+  GrowSpeed: 60
 --- !u!114 &11440868
 MonoBehaviour:
   m_ObjectHideFlags: 1
