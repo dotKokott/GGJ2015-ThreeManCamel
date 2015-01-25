@@ -16,6 +16,8 @@ public class Timeline : MonoBehaviour {
     private GameObject tlBar;
     private bool isRewinding;
 
+    private int playersInLevel = 0;
+
     // Use this for initialization
     void Start() {
         Globals._.TIME_MARKER_SPAWN = MarkerSpawnTime;
@@ -24,26 +26,30 @@ public class Timeline : MonoBehaviour {
         tlStart = GameObject.Find( "TL_Start" );
         tlEnd = GameObject.Find( "TL_End" );
         tlBar = GameObject.Find( "TL_Bar" );
-        
+
         tlBar.transform.position = tlStart.transform.position;
 
         //SUPER DIRTY
         var _players = GameObject.FindGameObjectsWithTag( "Player" );
-        players = GameObject.FindGameObjectsWithTag("Player");
+        players = GameObject.FindGameObjectsWithTag( "Player" );
 
-        boss = GameObject.Find("Boss");
+        boss = GameObject.Find( "Boss" );
         boss.GetComponent<Journal>().OnRewindFinished += Boss_OnRewindFinished;
+        boss.GetComponent<Journal>().OnPlayFinished += Boss_OnPlayFinished;
 
-        foreach (var item in _players) {
+        foreach ( var item in _players ) {
             var order = item.GetComponent<Controller>().Order;
             players[order] = item;
         }
 
         foreach ( var item in players ) {
             item.GetComponent<Journal>().OnRewindFinished += J_OnRewindFinished;
-            item.SetActive(false);
+            item.SetActive( false );
         }
+
+        playersInLevel = players.Length;
     }
+
 
     // Update is called once per frame
     void Update() {
@@ -54,12 +60,12 @@ public class Timeline : MonoBehaviour {
 
     private void MoveTimelineForward() {
         tlBar.transform.position = tlStart.transform.position;
-        iTween.MoveTo(tlBar, iTween.Hash("position", tlEnd.transform.position, "time", TurnTime, "easetype", iTween.EaseType.linear));
+        iTween.MoveTo( tlBar, iTween.Hash( "position", tlEnd.transform.position, "time", TurnTime, "easetype", iTween.EaseType.linear ) );
     }
 
     private void MoveTimelineBack() {
-        iTween.Stop(tlBar);
-        iTween.MoveTo(tlBar, iTween.Hash("position", tlStart.transform.position, "time", TurnTime / 2, "easetype", iTween.EaseType.easeInOutExpo));
+        iTween.Stop( tlBar );
+        iTween.MoveTo( tlBar, iTween.Hash( "position", tlStart.transform.position, "time", TurnTime / 2, "easetype", iTween.EaseType.easeInOutExpo ) );
     }
 
     IEnumerator RecordBoss() {
@@ -67,19 +73,19 @@ public class Timeline : MonoBehaviour {
         var j = boss.GetComponent<Journal>();
 
         isRewinding = false;
-        StartCoroutine(PutMarker());
+        StartCoroutine( PutMarker() );
 
-        var music = GameObject.Find("Music").GetComponent<AudioSource>();
+        var music = GameObject.Find( "Music" ).GetComponent<AudioSource>();
         music.clip = Globals._.MUSIC_Boss;
         music.Play();
 
         j.Record();
-        yield return new WaitForSeconds(TurnTime);
+        yield return new WaitForSeconds( TurnTime );
 
         isRewinding = true;
         music.clip = Globals._.MUSIC_Reverse;
         music.Play();
-        j.Play(true);
+        j.Play( true );
         MoveTimelineBack();
     }
 
@@ -98,7 +104,7 @@ public class Timeline : MonoBehaviour {
 
         music.clip = Globals._.MUSIC_Reverse;
         music.Play();
-        j.Play(true);
+        j.Play( true );
         MoveTimelineBack();
     }
 
@@ -114,30 +120,55 @@ public class Timeline : MonoBehaviour {
         }
     }
 
-    void Boss_OnRewindFinished(object sender, System.EventArgs e) {
-        boss.SetActive(false);
-        players[0].SetActive(true);
+    private void EnableUIObject( string name ) {
+        foreach ( var item in Globals._.UI ) {
+            if ( item.name == name ) {
+                item.SetActive( true );
+                return;
+            }
+        }
+    }
 
-        StartCoroutine(RecordObject());        
+    private void Boss_OnPlayFinished( object sender, System.EventArgs e ) {
+        EnableUIObject( "Panel" );
+        if ( boss == null ) {
+            EnableUIObject( "Victory" );
+            EnableUIObject( "Victory1" );
+        } else {
+            if ( Random.Range( 0, 100 ) < 50 ) {
+                EnableUIObject( "NoBoss" );
+                EnableUIObject( "NoBoss1" );
+            } else {
+                EnableUIObject( "Death" );
+                EnableUIObject( "Death1" );
+            }
+        }
+    }
+
+    void Boss_OnRewindFinished( object sender, System.EventArgs e ) {
+        boss.SetActive( false );
+        players[0].SetActive( true );
+
+        StartCoroutine( RecordObject() );
     }
 
     private void J_OnRewindFinished( object sender, System.EventArgs e ) {
-        Debug.Log("rewind finished");
+        Debug.Log( "rewind finished" );
         if ( index < players.Length - 1 ) {
-            players[index].SetActive(false);
+            players[index].SetActive( false );
 
             index++;
 
-            players[index].SetActive(true);
+            players[index].SetActive( true );
             StartCoroutine( RecordObject() );
         } else {
             foreach ( var item in players ) {
-                item.SetActive(true);
-                boss.SetActive(true);
+                item.SetActive( true );
+                boss.SetActive( true );
 
                 var music = GameObject.Find( "Music" ).GetComponent<AudioSource>();
                 music.clip = Globals._.MUSIC_AllPlay;
-                music.Play();                
+                music.Play();
 
                 var j = item.GetComponent<Journal>();
                 j.Play();

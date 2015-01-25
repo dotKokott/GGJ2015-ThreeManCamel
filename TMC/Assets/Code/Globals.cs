@@ -32,6 +32,8 @@ public class Globals : MonoBehaviour {
     public GameObject BOSS_ConeRight;
     public GameObject BOSS_ConeDown;
 
+    public GameObject[] UI;
+
     public float TIME_TURN;
     public float TIME_MARKER_SPAWN;
 
