@@ -83,6 +83,8 @@ public class Timeline : MonoBehaviour {
                     }
                 }
             }
+        } else if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_BACK ) ) {
+            Application.LoadLevel( Application.loadedLevel );
         }
     }
 
@@ -103,7 +105,7 @@ public class Timeline : MonoBehaviour {
         var j = boss.GetComponent<Journal>();
 
         isRewinding = false;
-        StartCoroutine( PutMarker() );
+        //StartCoroutine( PutMarker() );
 
         var music = GameObject.Find( "Music" ).GetComponent<AudioSource>();
         music.clip = Globals._.MUSIC_Boss;
@@ -140,16 +142,18 @@ public class Timeline : MonoBehaviour {
         MoveTimelineBack();
     }
 
-    IEnumerator PutMarker() {
-        yield return new WaitForSeconds( MarkerSpawnTime );
+    public void PutMarker() {
+        //yield return new WaitForSeconds( MarkerSpawnTime );
 
-        if ( !isRewinding ) {
+        //if ( !isRewinding ) {
             var g = Instantiate( tlBarPrefab, tlBar.transform.position, tlBar.transform.rotation ) as GameObject;
             g.tag = "TimelineMarker";
             g.transform.localScale = new Vector3( 0.2f, 1, 1 );
 
-            StartCoroutine( PutMarker() );
-        }
+            //StartCoroutine( PutMarker() );
+        //}
+
+        //return null;
     }
 
     private void EnableUIObject( string name ) {
@@ -192,7 +196,6 @@ public class Timeline : MonoBehaviour {
             }
         }
     }
-
 
     private void Boss_OnRewindFinished( object sender, System.EventArgs e ) {
         isRecording = false;

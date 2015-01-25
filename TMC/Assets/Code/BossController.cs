@@ -41,11 +41,13 @@ public class BossController : JournalObject {
     // Use this for initialization
     void Start() {
         Journal.OnStartRecording += Journal_OnStartRecording;
-        Journal.OnFrame += Journal_OnFrame;
-        //Journal.OnStartPlaying += Journal_OnStartPlaying;
+        //Journal.OnFrame += Journal_OnFrame;
+        Journal.OnStartPlaying += Journal_OnStartPlaying;
     }
 
     void Journal_OnStartPlaying(object sender, EventArgs e) {
+        if ( Journal.Mode != Journal.JournalMode.Playing ) return;
+
         foreach (var item in Attacks) {
             StartCoroutine(PrepAttack(item));
         }        
@@ -74,15 +76,7 @@ public class BossController : JournalObject {
 
     // Update is called once per frame
     void Update() {
-        if ( Input.GetKeyDown( KeyCode.Space ) ) {
-            Journal.Record();
-        } else if ( Input.GetKeyDown( KeyCode.A ) ) {
-            Journal.Play();
-        }
-
-        if ( Journal.Mode == Journal.JournalMode.Recording ) {
-            // Movement stuff by controller can go in here if we want to
-        } else if ( Journal.Mode == Journal.JournalMode.Playing ) {
+        if ( Journal.Mode == Journal.JournalMode.Playing ) {
             protectionTimer -= Time.deltaTime;
         }
     }
@@ -90,6 +84,10 @@ public class BossController : JournalObject {
     float protectionTimer = 0;
 
     private void DoAttack( BossAttack attack ) {
+        if ( Journal.Mode == Journal.JournalMode.Recording ) {
+            GameObject.Find( "TimelineGraphics" ).GetComponent<Timeline>().PutMarker();
+        }
+
         switch ( attack.Type ) {
             case AttackType.ConeUp:
                 Globals._.BOSS_ConeUp.transform.localScale = new Vector3( 7, 70, 70 );
