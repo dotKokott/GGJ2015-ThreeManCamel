@@ -59,6 +59,7 @@ public class BossController : JournalObject {
 
     private void Journal_OnFrame( object sender, Journal.JournalEventArgs e ) {
         if ( e.Mode == Journal.JournalMode.Playing ) {
+            if ( Health == 0 ) return;
             if ( e.Frame.Attacked ) {
                 float time = Attacks[index].TimeFromStart;
                 for ( int i = 0; i < Attacks.Count; i++ ) {
@@ -226,6 +227,7 @@ public class BossController : JournalObject {
     }
 
     private List<GameObject> collidersAlreadyHit = new List<GameObject>();
+    private bool isDead;
 
     void OnTriggerStay( Collider collider ) {
         if (collider.name.Contains("Protector")) {
