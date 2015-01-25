@@ -59,9 +59,20 @@ public class Controller : JournalObject {
     void Journal_OnFrame( object sender, Journal.JournalEventArgs e ) {
         if ( e.Mode == Journal.JournalMode.Playing ) {
             var npos = e.Frame.Position - prevpos;
+
+            if (!animation.IsPlaying("Attack")) {
+                if (Vector3.Distance(npos, Vector3.zero) < 0.01f) {
+                    animation.Play("Idle");
+                } else {
+                    animation.Play("Walk", AnimationPlayMode.Stop);
+                }
+            }            
+            
             npos.Normalize();
 
             direction = npos;
+
+
 
             attackLimit = originalAttackLimit;
             if ( attackLimit > 0 ) {
@@ -250,7 +261,7 @@ public class Controller : JournalObject {
     }
 
     void OnTriggerStay( Collider collider ) {
-        if ( collider.name.Contains( "Smash" ) ) {
+        if ( collider.name.Contains( "Protector" ) ) {
             protectionTimer = 0.2f;
         } else {
             var comp = collider.GetComponent<AttackInfo>();

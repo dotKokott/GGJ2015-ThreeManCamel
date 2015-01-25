@@ -176,7 +176,7 @@ public class BossController : JournalObject {
     private List<GameObject> collidersAlreadyHit = new List<GameObject>();
 
     void OnTriggerStay( Collider collider ) {
-        if ( collider.name.Contains( "Smash" ) ) {
+        if (collider.name.Contains("Protector")) {
             protectionTimer = 0.2f;
         } else {
             var comp = collider.GetComponent<AttackInfo>();
