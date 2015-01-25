@@ -41,8 +41,11 @@ ModelImporter:
     400034: Defender_Wrist_JNT
     4300000: Defender_MESH
     4300002: Defender_Skill_MESH
-    7400000: Take 001
+    7400000: Idle
+    7400002: Attack
+    7400004: Walk
     9500000: //RootNode
+    11100000: //RootNode
     13700000: Defender_MESH
     13700002: Defender_Skill_MESH
   materials:
@@ -61,7 +64,193 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 99
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Defender_MESH
+        weight: 1
+      - path: Defender_Root_CTRL
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT/Defender_Shoulder_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT/Defender_Shoulder_JNT/Defender_Elbow_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT/Defender_Shoulder_JNT/Defender_Elbow_JNT/Defender_Wrist_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP/Defender_Elbow_CTRL
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP/Defender_Elbow_CTRL/Defender_Wrist_CTRLGRP
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP/Defender_Elbow_CTRL/Defender_Wrist_CTRLGRP/Defender_Wrist_CTRL
+        weight: 1
+      - path: Defender_Skill_CTRLGRP
+        weight: 1
+      - path: Defender_Skill_CTRLGRP/Defender_Skill_CTRL
+        weight: 1
+      - path: Defender_Skill_CTRLGRP/Defender_Skill_CTRL/Defender_Skill_JNT
+        weight: 1
+      - path: Defender_Skill_MESH
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Attack
+      takeName: Take 001
+      firstFrame: 110
+      lastFrame: 125
+      wrapMode: 1
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Defender_MESH
+        weight: 1
+      - path: Defender_Root_CTRL
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT/Defender_Shoulder_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT/Defender_Shoulder_JNT/Defender_Elbow_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT/Defender_Shoulder_JNT/Defender_Elbow_JNT/Defender_Wrist_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP/Defender_Elbow_CTRL
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP/Defender_Elbow_CTRL/Defender_Wrist_CTRLGRP
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP/Defender_Elbow_CTRL/Defender_Wrist_CTRLGRP/Defender_Wrist_CTRL
+        weight: 1
+      - path: Defender_Skill_CTRLGRP
+        weight: 1
+      - path: Defender_Skill_CTRLGRP/Defender_Skill_CTRL
+        weight: 1
+      - path: Defender_Skill_CTRLGRP/Defender_Skill_CTRL/Defender_Skill_JNT
+        weight: 1
+      - path: Defender_Skill_MESH
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 130
+      lastFrame: 141
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Defender_MESH
+        weight: 1
+      - path: Defender_Root_CTRL
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT/Defender_Shoulder_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT/Defender_Shoulder_JNT/Defender_Elbow_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Root_JNT/Defender_Head_JNT/Defender_Shoulder_JNT/Defender_Elbow_JNT/Defender_Wrist_JNT
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP/Defender_Elbow_CTRL
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP/Defender_Elbow_CTRL/Defender_Wrist_CTRLGRP
+        weight: 1
+      - path: Defender_Root_CTRL/Defender_Shoulder_CTRLGRP/Defender_Shoulder_CTRL/Defender_Elbow_CTRLGRP/Defender_Elbow_CTRL/Defender_Wrist_CTRLGRP/Defender_Wrist_CTRL
+        weight: 1
+      - path: Defender_Skill_CTRLGRP
+        weight: 1
+      - path: Defender_Skill_CTRLGRP/Defender_Skill_CTRL
+        weight: 1
+      - path: Defender_Skill_CTRLGRP/Defender_Skill_CTRL/Defender_Skill_JNT
+        weight: 1
+      - path: Defender_Skill_MESH
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -99,7 +288,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
