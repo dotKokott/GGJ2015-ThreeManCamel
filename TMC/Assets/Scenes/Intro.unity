@@ -8740,6 +8740,7 @@ MonoBehaviour:
   - {fileID: 811423955}
   - {fileID: 238040302}
   - {fileID: 105695900}
+  stomp: {fileID: 373050287}
 --- !u!82 &372871281
 AudioSource:
   m_ObjectHideFlags: 0
