@@ -155,16 +155,21 @@ public class Timeline : MonoBehaviour {
 
     private void DisableUI() {
         foreach ( var item in Globals._.UI ) {
-                item.SetActive( false );
+            item.SetActive( false );
         }
     }
 
     private void Boss_OnPlayFinished( object sender, System.EventArgs e ) {
+        StartCoroutine( BossASD() );
+    }
+
+    private IEnumerator BossASD() {
+        yield return new WaitForSeconds( 1.3f );
         gameOver = true;
 
         EnableUIObject( "Panel" );
         EnableUIObject( "Image 1" );
-        if ( boss == null ) {
+        if ( boss.GetComponentInChildren<Animation>().name == "Failure" ) {
             won = true;
             EnableUIObject( "Victory" );
             EnableUIObject( "Victory 1" );
@@ -179,6 +184,7 @@ public class Timeline : MonoBehaviour {
             }
         }
     }
+
 
     private void Boss_OnRewindFinished( object sender, System.EventArgs e ) {
         var music = GameObject.Find( "Music" ).GetComponent<AudioSource>();
