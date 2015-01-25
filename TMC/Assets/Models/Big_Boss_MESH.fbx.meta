@@ -84,6 +84,7 @@ ModelImporter:
     7400006: Hammered
     7400008: Cone Attack
     7400010: AOE
+    7400012: SpinAttack
     9500000: //RootNode
     11100000: //RootNode
     13700000: Big_Boss_MESH
@@ -609,6 +610,106 @@ ModelImporter:
       takeName: Take 001
       firstFrame: 230
       lastFrame: 260
+      wrapMode: 1
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Big_Boss_MESH
+        weight: 1
+      - path: Root_CTRL
+        weight: 1
+      - path: Root_CTRL/Hip_CTRLGRP
+        weight: 1
+      - path: Root_CTRL/Hip_CTRLGRP/Hip_CTRL
+        weight: 1
+      - path: Root_CTRL/Hip_CTRLGRP/Hip_CTRL/Upperbody_CTRLGRP
+        weight: 1
+      - path: Root_CTRL/Hip_CTRLGRP/Hip_CTRL/Upperbody_CTRLGRP/Upperbody_CTRL
+        weight: 1
+      - path: Root_CTRL/Hip_CTRLGRP/Hip_CTRL/Upperbody_CTRLGRP/Upperbody_CTRL/Head_CTRLGRP
+        weight: 1
+      - path: Root_CTRL/Hip_CTRLGRP/Hip_CTRL/Upperbody_CTRLGRP/Upperbody_CTRL/Head_CTRLGRP/Head_CTRL
+        weight: 1
+      - path: Root_CTRL/Hip_CTRLGRP/Hip_CTRL/Upperbody_CTRLGRP/Upperbody_CTRL/L_Shoulder_CTRLGRP
+        weight: 1
+      - path: Root_CTRL/Hip_CTRLGRP/Hip_CTRL/Upperbody_CTRLGRP/Upperbody_CTRL/L_Shoulder_CTRLGRP/L_Shoulder_CTRL
+        weight: 1
+      - path: Root_CTRL/Hip_CTRLGRP/Hip_CTRL/Upperbody_CTRLGRP/Upperbody_CTRL/L_Shoulder_CTRLGRP/L_Shoulder_CTRL/L_Elbow_CTRLGRP
+        weight: 1
+      - path: Root_CTRL/Hip_CTRLGRP/Hip_CTRL/Upperbody_CTRLGRP/Upperbody_CTRL/L_Shoulder_CTRLGRP/L_Shoulder_CTRL/L_Elbow_CTRLGRP/L_Elbow_CTRL
+        weight: 1
+      - path: Root_CTRL/Hip_CTRLGRP/Hip_CTRL/Upperbody_CTRLGRP/Upperbody_CTRL/L_Shoulder_CTRLGRP/L_Shoulder_CTRL/L_Elbow_CTRLGRP/L_Elbow_CTRL/L_Wrist_CTRLGRP
+        weight: 1
+      - path: Root_CTRL/Hip_CTRLGRP/Hip_CTRL/Upperbody_CTRLGRP/Upperbody_CTRL/L_Shoulder_CTRLGRP/L_Shoulder_CTRL/L_Elbow_CTRLGRP/L_Elbow_CTRL/L_Wrist_CTRLGRP/L_Wrist_CTRL
+        weight: 1
+      - path: Root_CTRL/Hip_CTRLGRP/Hip_CTRL/Upperbody_CTRLGRP/Upperbody_CTRL/R_Shoulder_CTRLGRP
+        weight: 1
+      - path: Root_CTRL/Hip_CTRLGRP/Hip_CTRL/Upperbody_CTRLGRP/Upperbody_CTRL/R_Shoulder_CTRLGRP/R_Shoulder_CTRL
+        weight: 1
+      - path: Root_CTRL/Hip_CTRLGRP/Hip_CTRL/Upperbody_CTRLGRP/Upperbody_CTRL/R_Shoulder_CTRLGRP/R_Shoulder_CTRL/R_Elbow_CTRLGRP
+        weight: 1
+      - path: Root_CTRL/Hip_CTRLGRP/Hip_CTRL/Upperbody_CTRLGRP/Upperbody_CTRL/R_Shoulder_CTRLGRP/R_Shoulder_CTRL/R_Elbow_CTRLGRP/R_Elbow_CTRL
+        weight: 1
+      - path: Root_CTRL/Hip_CTRLGRP/Hip_CTRL/Upperbody_CTRLGRP/Upperbody_CTRL/R_Shoulder_CTRLGRP/R_Shoulder_CTRL/R_Elbow_CTRLGRP/R_Elbow_CTRL/R_Wrist_CTRLGRP
+        weight: 1
+      - path: Root_CTRL/Hip_CTRLGRP/Hip_CTRL/Upperbody_CTRLGRP/Upperbody_CTRL/R_Shoulder_CTRLGRP/R_Shoulder_CTRL/R_Elbow_CTRLGRP/R_Elbow_CTRL/R_Wrist_CTRLGRP/R_Wrist_CTRL
+        weight: 1
+      - path: Root_JNT
+        weight: 1
+      - path: Root_JNT/L_Hip_JNT
+        weight: 1
+      - path: Root_JNT/L_Hip_JNT/L_Knee_JNT
+        weight: 1
+      - path: Root_JNT/L_Hip_JNT/L_Knee_JNT/L_Ankle_JNT
+        weight: 1
+      - path: Root_JNT/R_Hip_JNT
+        weight: 1
+      - path: Root_JNT/R_Hip_JNT/R_Knee_JNT
+        weight: 1
+      - path: Root_JNT/R_Hip_JNT/R_Knee_JNT/R_Ankle_JNT
+        weight: 1
+      - path: Root_JNT/Spine_1_JNT
+        weight: 1
+      - path: Root_JNT/Spine_1_JNT/Spine_2_JNT
+        weight: 1
+      - path: Root_JNT/Spine_1_JNT/Spine_2_JNT/Head_JNT
+        weight: 1
+      - path: Root_JNT/Spine_1_JNT/Spine_2_JNT/L_Shoulder_JNT
+        weight: 1
+      - path: Root_JNT/Spine_1_JNT/Spine_2_JNT/L_Shoulder_JNT/L_Elbow_JNT
+        weight: 1
+      - path: Root_JNT/Spine_1_JNT/Spine_2_JNT/L_Shoulder_JNT/L_Elbow_JNT/L_Wrist_JNT
+        weight: 1
+      - path: Root_JNT/Spine_1_JNT/Spine_2_JNT/R_Shoulder_JNT
+        weight: 1
+      - path: Root_JNT/Spine_1_JNT/Spine_2_JNT/R_Shoulder_JNT/R_Elbow_JNT
+        weight: 1
+      - path: Root_JNT/Spine_1_JNT/Spine_2_JNT/R_Shoulder_JNT/R_Elbow_JNT/R_Wrist_JNT
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: SpinAttack
+      takeName: Take 001
+      firstFrame: 265
+      lastFrame: 350
       wrapMode: 1
       orientationOffsetY: 0
       level: 0
