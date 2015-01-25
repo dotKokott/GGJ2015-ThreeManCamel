@@ -163,6 +163,7 @@ public class Timeline : MonoBehaviour {
         gameOver = true;
 
         EnableUIObject( "Panel" );
+        EnableUIObject( "Image 1" );
         if ( boss == null ) {
             won = true;
             EnableUIObject( "Victory" );

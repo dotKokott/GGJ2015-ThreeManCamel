@@ -181,7 +181,6 @@ public class Controller : JournalObject {
 			{
 				if (Vector3.Distance(vel, Vector3.zero) < 0.01f)
 				{
-					print ("THIS");
 					animation.Play ("Idle");
 				}
 
