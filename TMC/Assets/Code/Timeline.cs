@@ -181,6 +181,9 @@ public class Timeline : MonoBehaviour {
     }
 
     private void Boss_OnRewindFinished( object sender, System.EventArgs e ) {
+        var music = GameObject.Find( "Music" ).GetComponent<AudioSource>();
+        music.Stop();
+
         boss.SetActive( false );
         players[0].SetActive( true );
         playIndex++;
@@ -201,6 +204,9 @@ public class Timeline : MonoBehaviour {
     }
 
     private void J_OnRewindFinished( object sender, System.EventArgs e ) {
+        var music = GameObject.Find( "Music" ).GetComponent<AudioSource>();
+        music.Stop();
+
         if ( index < players.Length - 1 ) {
             players[index].SetActive( false );
 
@@ -228,7 +234,7 @@ public class Timeline : MonoBehaviour {
                 item.SetActive( true );
                 boss.SetActive( true );
 
-                var music = GameObject.Find( "Music" ).GetComponent<AudioSource>();
+                //var music = GameObject.Find( "Music" ).GetComponent<AudioSource>();
                 music.clip = Globals._.MUSIC_AllPlay;
                 music.Play();
 
