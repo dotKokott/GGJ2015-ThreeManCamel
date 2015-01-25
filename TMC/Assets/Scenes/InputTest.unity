@@ -88,6 +88,8 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_GeneratedSkyboxReflection: {fileID: 0}
@@ -386,7 +388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &19492720
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -558,6 +560,18 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: e8e13b8d36a6fae41a7cc66bc841b594, type: 3}
+--- !u!114 &86114792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 86114790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f8e095707bbffc4a9eeea8cab88b37d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Owner: {fileID: 239269347}
 --- !u!1001 &164850453
 Prefab:
   m_ObjectHideFlags: 0
@@ -836,7 +850,7 @@ MonoBehaviour:
   Attacked: 0
   Attacks:
   - TimeFromStart: 1
-    Type: 8
+    Type: 1
   - TimeFromStart: 3.5
     Type: 8
   - TimeFromStart: 6
@@ -1933,7 +1947,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &697064108
 Transform:
   m_ObjectHideFlags: 0
@@ -4162,6 +4176,7 @@ Light:
     m_Resolution: 3
     m_Strength: 1
     m_Bias: .639999986
+    m_NormalBias: 0
     m_Softness: 4
     m_SoftnessFade: 1
   m_Cookie: {fileID: 0}
@@ -4472,6 +4487,18 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: 2ba45c3251440b24a92fc2077a5aa391, type: 3}
+--- !u!114 &1356995204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1356995202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f8e095707bbffc4a9eeea8cab88b37d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Owner: {fileID: 239269347}
 --- !u!1 &1390630753
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 2ba45c3251440b24a92fc2077a5aa391, type: 3}
@@ -4488,6 +4515,18 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: 2ba45c3251440b24a92fc2077a5aa391, type: 3}
+--- !u!114 &1390630755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1390630753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f8e095707bbffc4a9eeea8cab88b37d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Owner: {fileID: 239269347}
 --- !u!1001 &1463244952
 Prefab:
   m_ObjectHideFlags: 0
@@ -5349,6 +5388,18 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: e8e13b8d36a6fae41a7cc66bc841b594, type: 3}
+--- !u!114 &1829398543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1829398541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f8e095707bbffc4a9eeea8cab88b37d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Owner: {fileID: 239269347}
 --- !u!4 &1856261802
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 52ba9fd7fe5c44cd8b57ac24428a3fee, type: 3}
