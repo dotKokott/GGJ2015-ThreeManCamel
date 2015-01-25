@@ -32,8 +32,11 @@ ModelImporter:
     400024: Mage_Wrist_CTRLGRP
     400026: Mage_Wrist_JNT
     4300000: Mage_MESH
-    7400000: Take 001
+    7400000: Idle
+    7400002: Attack
+    7400004: Walk
     9500000: //RootNode
+    11100000: //RootNode
     13700000: Mage_MESH
   materials:
     importMaterials: 1
@@ -51,7 +54,169 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 99
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Mage_MESH
+        weight: 1
+      - path: Mage_Root_CTRL
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Root_JNT
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Root_JNT/Mage_Head_JNT
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Root_JNT/Mage_Head_JNT/Mage_Shoulder_JNT
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Root_JNT/Mage_Head_JNT/Mage_Shoulder_JNT/Mage_Elbow_JNT
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Root_JNT/Mage_Head_JNT/Mage_Shoulder_JNT/Mage_Elbow_JNT/Mage_Wrist_JNT
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Shoulder_CTRLGRP
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Shoulder_CTRLGRP/Mage_Shoulder_CTRL
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Shoulder_CTRLGRP/Mage_Shoulder_CTRL/Mage_Elbow_CTRLGRP
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Shoulder_CTRLGRP/Mage_Shoulder_CTRL/Mage_Elbow_CTRLGRP/Mage_Elbow_CTRL
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Shoulder_CTRLGRP/Mage_Shoulder_CTRL/Mage_Elbow_CTRLGRP/Mage_Elbow_CTRL/Mage_Wrist_CTRLGRP
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Shoulder_CTRLGRP/Mage_Shoulder_CTRL/Mage_Elbow_CTRLGRP/Mage_Elbow_CTRL/Mage_Wrist_CTRLGRP/Mage_Wrist_CTRL
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Attack
+      takeName: Take 001
+      firstFrame: 110
+      lastFrame: 125
+      wrapMode: 1
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Mage_MESH
+        weight: 1
+      - path: Mage_Root_CTRL
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Root_JNT
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Root_JNT/Mage_Head_JNT
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Root_JNT/Mage_Head_JNT/Mage_Shoulder_JNT
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Root_JNT/Mage_Head_JNT/Mage_Shoulder_JNT/Mage_Elbow_JNT
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Root_JNT/Mage_Head_JNT/Mage_Shoulder_JNT/Mage_Elbow_JNT/Mage_Wrist_JNT
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Shoulder_CTRLGRP
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Shoulder_CTRLGRP/Mage_Shoulder_CTRL
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Shoulder_CTRLGRP/Mage_Shoulder_CTRL/Mage_Elbow_CTRLGRP
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Shoulder_CTRLGRP/Mage_Shoulder_CTRL/Mage_Elbow_CTRLGRP/Mage_Elbow_CTRL
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Shoulder_CTRLGRP/Mage_Shoulder_CTRL/Mage_Elbow_CTRLGRP/Mage_Elbow_CTRL/Mage_Wrist_CTRLGRP
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Shoulder_CTRLGRP/Mage_Shoulder_CTRL/Mage_Elbow_CTRLGRP/Mage_Elbow_CTRL/Mage_Wrist_CTRLGRP/Mage_Wrist_CTRL
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 130
+      lastFrame: 141
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Mage_MESH
+        weight: 1
+      - path: Mage_Root_CTRL
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Root_JNT
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Root_JNT/Mage_Head_JNT
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Root_JNT/Mage_Head_JNT/Mage_Shoulder_JNT
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Root_JNT/Mage_Head_JNT/Mage_Shoulder_JNT/Mage_Elbow_JNT
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Root_JNT/Mage_Head_JNT/Mage_Shoulder_JNT/Mage_Elbow_JNT/Mage_Wrist_JNT
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Shoulder_CTRLGRP
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Shoulder_CTRLGRP/Mage_Shoulder_CTRL
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Shoulder_CTRLGRP/Mage_Shoulder_CTRL/Mage_Elbow_CTRLGRP
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Shoulder_CTRLGRP/Mage_Shoulder_CTRL/Mage_Elbow_CTRLGRP/Mage_Elbow_CTRL
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Shoulder_CTRLGRP/Mage_Shoulder_CTRL/Mage_Elbow_CTRLGRP/Mage_Elbow_CTRL/Mage_Wrist_CTRLGRP
+        weight: 1
+      - path: Mage_Root_CTRL/Mage_Shoulder_CTRLGRP/Mage_Shoulder_CTRL/Mage_Elbow_CTRLGRP/Mage_Elbow_CTRL/Mage_Wrist_CTRLGRP/Mage_Wrist_CTRL
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -89,7 +254,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

@@ -29,6 +29,9 @@ public class Controller : JournalObject {
     private float beamChargeTimer = 0f;
     public float BeamStayTime = 1f;
 
+	public GameObject animationContainer;
+	Animation animation;
+
     public int Order = 0;
 
     private TextMesh orderText;
@@ -44,8 +47,9 @@ public class Controller : JournalObject {
 
         originalAttackLimit = attackLimit;
 
-        orderText = gameObject.transform.FindChild("Order").gameObject.GetComponent<TextMesh>();
-        orderText.text = (Order + 1).ToString() + ".";
+        orderText = gameObject.transform.FindChild( "Order" ).gameObject.GetComponent<TextMesh>();
+        orderText.text = ( Order + 1 ).ToString() + ".";
+		animation = animationContainer.GetComponent<Animation>();
     }
 
     private Vector3 prevpos;
@@ -59,11 +63,11 @@ public class Controller : JournalObject {
             direction = npos;
 
             attackLimit = originalAttackLimit;
-            if (attackLimit > 0) {
+            if ( attackLimit > 0 ) {
                 if ( e.Frame.Attacked ) {
-                    Debug.Log("Firing a");
+                    Debug.Log( "Firing a" );
 
-                    switch (Type) {
+                    switch ( Type ) {
                         case CharacterType.Tank:
                             var smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
                             smash.GetComponent<AttackInfo>().Owner = this.gameObject;
@@ -71,13 +75,13 @@ public class Controller : JournalObject {
 
                             break;
                         case CharacterType.Knight:
-                            var strike = Instantiate(Globals._.PREFAB_STRIKE, transform.position, Globals._.PREFAB_STRIKE.transform.rotation) as GameObject;
+                            var strike = Instantiate( Globals._.PREFAB_STRIKE, transform.position, Globals._.PREFAB_STRIKE.transform.rotation ) as GameObject;
                             strike.GetComponent<AttackInfo>().Owner = this.gameObject;
 
                             var strikeComp = strike.GetComponent<Strike>();
                             strikeComp.Direction = direction;
 
-                            Camera.main.GetComponent<AudioSource>().PlayOneShot(Globals._.SOUND_Smash);
+                            Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Smash );
 
                             break;
                         case CharacterType.Mage:
@@ -88,9 +92,11 @@ public class Controller : JournalObject {
 
                             beam.transform.position += -transform.up * beam.transform.localScale.y / 2;
                             Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Beam );
+
                             beam.transform.localScale = new Vector3( 5, 72, 145 );
                             iTween.ScaleTo(beam, new Vector3(36, 72, 145), 0.2f);
                             beam.DestroyAfter( BeamStayTime );                        
+
                             beam.transform.position = new Vector3( beam.transform.position.x, beam.transform.position.y, -0.15f );
 
                             Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Beam );
@@ -98,7 +104,7 @@ public class Controller : JournalObject {
                             break;
                         default:
                             break;
-                    }                                       
+                    }
                 }
             }
 
@@ -108,18 +114,21 @@ public class Controller : JournalObject {
     }
 
     void Update() {
+		//animation.Play ("Idle");
+		print(animation.IsPlaying("Attack"));
+
         if ( Journal.Mode == Journal.JournalMode.Recording ) {
-            orderText.gameObject.SetActive(false);
+            orderText.gameObject.SetActive( false );
             if ( !IsAlive ) return;
 
             strikeTimer += Time.deltaTime;
 
-            if (beam != null) {
-                if (!beam.activeInHierarchy) {
-                    beamChargeTimer += Time.deltaTime;                    
+            if ( beam != null ) {
+                if ( !beam.activeInHierarchy ) {
+                    beamChargeTimer += Time.deltaTime;
 
-                    if (beamChargeTimer >= BeamChargeTime) {
-                        beam.SetActive(true);
+                    if ( beamChargeTimer >= BeamChargeTime ) {
+                        beam.SetActive( true );
 
                         beamChargeTimer = 0;
                     }
@@ -128,19 +137,32 @@ public class Controller : JournalObject {
                 return;
             }
 
-            var v = -InputManager.GetAxisValue(0, AxesMapping.LEFT_Y_AXIS);
-            var h = InputManager.GetAxisValue(0, AxesMapping.LEFT_X_AXIS);
+            var v = -InputManager.GetAxisValue( 0, AxesMapping.LEFT_Y_AXIS );
+            var h = InputManager.GetAxisValue( 0, AxesMapping.LEFT_X_AXIS );
             //var h = Input.GetAxis( "Horizontal" );
             //var v = Input.GetAxis( "Vertical" );
 
             velocity.x += acceleration * Time.deltaTime * h - velocity.x * friction * Time.deltaTime;
-            velocity.y += acceleration * Time.deltaTime * v - velocity.y * friction * Time.deltaTime;            
+            velocity.y += acceleration * Time.deltaTime * v - velocity.y * friction * Time.deltaTime;
 
             Vector3 vel = velocity;
 
-           //GetComponent<Rigidbody>().MovePosition(transform.position + velocity);
+            //GetComponent<Rigidbody>().MovePosition(transform.position + velocity);
+			//Should change with a constant treshold
 
-           transform.position += vel;
+			if (!animation.IsPlaying("Attack"))
+			{
+				if (Vector3.Distance(vel, Vector3.zero) < 0.01f)
+				{
+					print ("THIS");
+					animation.Play ("Idle");
+				}
+
+				else
+					animation.Play("Walk", AnimationPlayMode.Stop);
+			}
+
+            transform.position += vel;
 
             var dir = vel.normalized;
 
@@ -149,11 +171,13 @@ public class Controller : JournalObject {
                 transform.rotation = Quaternion.Euler( new Vector3( 0, 0, Mathf.Atan2( direction.y, direction.x ) * Mathf.Rad2Deg + 90 ) );
             }
 
-            if (attackLimit <= 0) {
+            if ( attackLimit <= 0 ) {
                 return;
-            }              
+            }
 
-            if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_A )) {               
+            if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_A )) {  
+				animation.Play("Attack");
+
                 switch (Type) {
                     case CharacterType.Tank:
                         Attacked = true;
@@ -167,16 +191,16 @@ public class Controller : JournalObject {
 
                         break;
                     case CharacterType.Knight:
-                        if (strikeTimer >= StrikeCooldown) {
+                        if ( strikeTimer >= StrikeCooldown ) {
                             Attacked = true;
 
-                            var strike = Instantiate(Globals._.PREFAB_STRIKE, transform.position, Globals._.PREFAB_STRIKE.transform.rotation) as GameObject;
+                            var strike = Instantiate( Globals._.PREFAB_STRIKE, transform.position, Globals._.PREFAB_STRIKE.transform.rotation ) as GameObject;
                             strike.GetComponent<AttackInfo>().Owner = this.gameObject;
 
                             var strikeComp = strike.GetComponent<Strike>();
                             strikeComp.Direction = direction;
 
-                            Camera.main.GetComponent<AudioSource>().PlayOneShot(Globals._.SOUND_Smash);
+                            Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Smash );
 
                             strikeTimer = 0;
                         }
@@ -199,7 +223,7 @@ public class Controller : JournalObject {
 
                         beam.DestroyAfter( BeamStayTime );
 
-                        beam.SetActive(false);
+                        beam.SetActive( false );
 
                         attackLimit--;
 
@@ -207,22 +231,39 @@ public class Controller : JournalObject {
                     default:
                         break;
                 }
-                
+
             }
+        } else if ( Journal.Mode == Journal.JournalMode.Playing ) {
+            protectionTimer -= Time.deltaTime;
         }
     }
 
+    float protectionTimer = 0;
+
     void OnTriggerEnter( Collider other ) {
-        var comp = other.GetComponent<AttackInfo>();
-        if (comp == null || comp.Owner == this.gameObject) return;
+        
+    }
 
-        if (Journal.Mode == Journal.JournalMode.Recording || Journal.Mode == Journal.JournalMode.Idling) return;
+    void OnTriggerStay( Collider collider ) {
+        if ( collider.name.Contains( "Smash" ) ) {
+            protectionTimer = 0.2f;
+        } else {
+            var comp = collider.GetComponent<AttackInfo>();
+            if ( comp == null || comp.Owner == this.gameObject )
+                return;
 
-        if ( other.gameObject.tag == "Attack" ) {            
-            if (--health <= 0) {
-                Instantiate( Globals._.PREFAB_EXPLOSION, transform.position, Quaternion.identity );
-                Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Explosion );
-                Destroy( gameObject );
+            if ( Journal.Mode == Journal.JournalMode.Recording || Journal.Mode == Journal.JournalMode.Idling ) return;
+
+            if ( collider.gameObject.tag == "Attack" ) {
+                if ( protectionTimer <= 0 ) {
+                    if ( --health <= 0 ) {
+                        Instantiate( Globals._.PREFAB_EXPLOSION, transform.position, Quaternion.identity );
+                        Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Explosion );
+                        Destroy( gameObject );
+                    }
+                } else {
+                    Debug.Log( "Protected" );
+                }
             }
         }
     }

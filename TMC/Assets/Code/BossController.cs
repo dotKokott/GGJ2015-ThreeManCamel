@@ -36,6 +36,8 @@ public class BossController : JournalObject {
 
     public int Health = 5;
 
+	public Animation animation;
+
     // Use this for initialization
     void Start() {
         Journal.OnStartRecording += Journal_OnStartRecording;
@@ -72,8 +74,12 @@ public class BossController : JournalObject {
 
         if ( Journal.Mode == Journal.JournalMode.Recording ) {
             // Movement stuff by controller can go in here if we want to
+        } else if ( Journal.Mode == Journal.JournalMode.Playing ) {
+            protectionTimer -= Time.deltaTime;
         }
     }
+
+    float protectionTimer = 0;
 
     private void DoAttack( BossAttack attack ) {
         switch ( attack.Type ) {
@@ -88,6 +94,7 @@ public class BossController : JournalObject {
                 Globals._.BOSS_ConeDown.SetActive( true );
                 iTween.ScaleTo( Globals._.BOSS_ConeDown, new Vector3( 70, 70, 70 ), ConeTime * .75f );
                 Globals._.BOSS_ConeDown.DeactivateAfter( ConeTime );
+				animation.Play ("Cone Attack", AnimationPlayMode.Stop);
                 break;
             case AttackType.ConeLeft:
                 Globals._.BOSS_ConeLeft.transform.localScale = new Vector3( 75, 75, 7 );
@@ -108,6 +115,7 @@ public class BossController : JournalObject {
             case AttackType.BeamDown:
                 Globals._.BOSS_BeamDown.SetActive( true );
                 Globals._.BOSS_BeamDown.DeactivateAfter( BeamTime );
+			animation.Play ("Line Attack", AnimationPlayMode.Stop);
                 break;
             case AttackType.BeamLeft:
                 Globals._.BOSS_BeamLeft.SetActive( true );
@@ -120,6 +128,7 @@ public class BossController : JournalObject {
             case AttackType.AreaOfEffect:
                 var smash = Instantiate( Globals._.PREFAB_SMASH, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
                 smash.GetComponent<AttackInfo>().Owner = this.gameObject;
+				animation.Play ("AOE", AnimationPlayMode.Stop);
                 break;
             case AttackType.RotatingBeams:
                 Globals._.BOSS_BeamUp.SetActive( true );
@@ -164,21 +173,29 @@ public class BossController : JournalObject {
         DoAttack( attack );
     }
 
-    void OnTriggerEnter( Collider other ) {
-        Debug.Log( "Boss hit" );
+    private List<GameObject> collidersAlreadyHit = new List<GameObject>();
 
-        var comp = other.GetComponent<AttackInfo>();
-        if ( comp == null || comp.Owner == this.gameObject ) return;
+    void OnTriggerStay( Collider collider ) {
+        if ( collider.name.Contains( "Smash" ) ) {
+            protectionTimer = 0.2f;
+        } else {
+            var comp = collider.GetComponent<AttackInfo>();
+            if ( comp == null || comp.Owner == this.gameObject ) return;
 
-        if ( Journal.Mode == Journal.JournalMode.Recording || Journal.Mode == Journal.JournalMode.Idling ) return;
+            if ( Journal.Mode == Journal.JournalMode.Recording || Journal.Mode == Journal.JournalMode.Idling ) return;
 
-        if ( other.gameObject.tag == "Attack" ) {
-            if ( --Health <= 0 ) {
-                Instantiate( Globals._.PREFAB_EXPLOSION, transform.position, Quaternion.identity );
-                Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Explosion );
-                Destroy( gameObject );
-            } else {
-                StartCoroutine( Blink( 3 ) );
+            if ( collidersAlreadyHit.Contains( collider.gameObject ) ) return;
+
+            if ( collider.gameObject.tag == "Attack" ) {
+                collidersAlreadyHit.Add( collider.gameObject );
+
+                if ( --Health <= 0 ) {
+                    Instantiate( Globals._.PREFAB_EXPLOSION, transform.position, Quaternion.identity );
+                    Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Explosion );
+                    Destroy( gameObject );
+                } else {
+                    StartCoroutine( Blink( 3 ) );
+                }
             }
         }
     }
