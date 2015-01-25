@@ -58,7 +58,6 @@ public class Controller : JournalObject {
 
     void Journal_OnFrame( object sender, Journal.JournalEventArgs e ) {
         if ( e.Mode == Journal.JournalMode.Playing ) {
-            if ( ignoreEverything ) return;
 
             var npos = e.Frame.Position - prevpos;
 
@@ -294,9 +293,10 @@ public class Controller : JournalObject {
             if ( collider.gameObject.tag == "Attack" ) {
                 if ( protectionTimer <= 0 ) {
                     if ( --health <= 0 ) {
-                        gameObject.AddComponent<Blinker>();
-                        ignoreEverything = true;
-                        //Destroy( gameObject );
+                        if ( GetComponent<Blinker>() == null ) {
+                            gameObject.AddComponent<Blinker>();
+                            enabled = false;
+                        }
                     }
                 } else {
                     Debug.Log( "Protected" );
