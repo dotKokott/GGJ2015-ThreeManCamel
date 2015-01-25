@@ -693,19 +693,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Attacked: 0
   Attacks:
-  - TimeFromStart: 1
+  - TimeFromStart: 2
     Type: 0
-  - TimeFromStart: 1
+  - TimeFromStart: 2
     Type: 1
-  - TimeFromStart: 3.5
+  - TimeFromStart: 4
     Type: 2
-  - TimeFromStart: 3.5
+  - TimeFromStart: 4
     Type: 3
   - TimeFromStart: 6
     Type: 0
   - TimeFromStart: 6
     Type: 1
-  ConeTime: 2.5
+  ConeTime: 2
   BeamTime: 1
   Health: 5
   animation: {fileID: 1672995649}
@@ -779,7 +779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &239269349
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2274,7 +2274,7 @@ GameObject:
   - 54: {fileID: 762102741}
   - 114: {fileID: 762102740}
   m_Layer: 0
-  m_Name: Boss5 - Beam not 360 / can't determine speed
+  m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4067,12 +4067,12 @@ GameObject:
   - 54: {fileID: 1238202892}
   - 114: {fileID: 1238202891}
   m_Layer: 0
-  m_Name: Boss7 - Missing ability to determine beams speed
+  m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1238202890
 Transform:
   m_ObjectHideFlags: 0
