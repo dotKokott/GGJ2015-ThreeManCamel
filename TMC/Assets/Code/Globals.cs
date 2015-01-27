@@ -45,6 +45,8 @@ public class Globals : MonoBehaviour {
     public AudioClip SFX_SWOOSH2;
     public AudioClip SFX_JUMP;
 
+    public AudioClip SFX_DIE;
+
     [HideInInspector]
     public NoiseAndScratches nas;
     [HideInInspector]
