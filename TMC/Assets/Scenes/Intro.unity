@@ -2959,6 +2959,7 @@ GameObject:
   - 224: {fileID: 105695901}
   - 222: {fileID: 105695900}
   - 114: {fileID: 105695899}
+  - 114: {fileID: 105695902}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -3010,6 +3011,25 @@ RectTransform:
   m_AnchoredPosition: {x: 35, y: -200}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
+--- !u!114 &105695902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 105695898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceac2154510dff949841f97696dd04e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerY: {fileID: 21300000, guid: f9e69b94eb9f34470aa4969a19e13c77, type: 3}
+  controllerA: {fileID: 21300000, guid: 03763678a39dd404bad5993a163ff9b3, type: 3}
+  controllerRestart: {fileID: 21300000, guid: b7852f26167f54643b290edeb75a0ff6, type: 3}
+  keyboardY: {fileID: 21300000, guid: a054797bfcda2d6459af5a016929fe41, type: 3}
+  keyboardA: {fileID: 21300000, guid: d06830e797a47f645ab5414d4c3ab024, type: 3}
+  keyboardRestart: {fileID: 21300000, guid: e006abd8495a89d498bebe1527d03bb8, type: 3}
+  image: {fileID: 0}
+  Type: 0
 --- !u!1001 &124927314
 Prefab:
   m_ObjectHideFlags: 0
@@ -8850,6 +8870,8 @@ Light:
     m_Strength: 1
     m_Bias: .0500000007
     m_NormalBias: .400000006
+    m_Softness: 4
+    m_SoftnessFade: 1
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_ActuallyLightmapped: 0
