@@ -50,7 +50,7 @@ public class Controller : JournalObject {
 
         orderText = gameObject.transform.FindChild( "Order" ).gameObject.GetComponent<TextMesh>();
         orderText.text = ( Order + 1 ).ToString() + ".";
-        orderText.gameObject.SetActive(false);
+        orderText.gameObject.SetActive( false );
 
         animation = base.ani = animationContainer.GetComponent<Animation>();
     }
@@ -175,10 +175,15 @@ public class Controller : JournalObject {
                 return;
             }
 
-            var v = -InputManager.GetAxisValue( 0, AxesMapping.LEFT_Y_AXIS );
-            var h = InputManager.GetAxisValue( 0, AxesMapping.LEFT_X_AXIS );
-            //var h = Input.GetAxis( "Horizontal" );
-            //var v = Input.GetAxis( "Vertical" );
+            float v = 0;
+            float h = 0;
+            if ( Input.GetJoystickNames().Length != 0 ) {
+                v = -InputManager.GetAxisValue( 0, AxesMapping.LEFT_Y_AXIS );
+                h = InputManager.GetAxisValue( 0, AxesMapping.LEFT_X_AXIS );
+            } else {
+                h = Input.GetAxis( "Horizontal" );
+                v = Input.GetAxis( "Vertical" );
+            }
 
             velocity.x += acceleration * Time.deltaTime * h - velocity.x * friction * Time.deltaTime;
             velocity.y += acceleration * Time.deltaTime * v - velocity.y * friction * Time.deltaTime;
