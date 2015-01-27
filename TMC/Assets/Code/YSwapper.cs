@@ -41,6 +41,8 @@ public class YSwapper : MonoBehaviour {
                     break;
                 case PromptType.Back:
                     image.sprite = controllerRestart;
+
+                    transform.localScale = new Vector3(0.6750634f, 0.6750634f, 0.6750634f);
                     break;
                 default:
                     break;
@@ -56,6 +58,8 @@ public class YSwapper : MonoBehaviour {
                     break;
                 case PromptType.Back:
                     image.sprite = keyboardRestart;
+
+                    transform.localScale = new Vector3(0.6750634f * 1.5f, 0.6750634f * 1.5f, 0.6750634f * 1.5f);
                     break;
                 default:
                     break;
