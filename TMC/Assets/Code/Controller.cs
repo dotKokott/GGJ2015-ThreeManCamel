@@ -214,7 +214,7 @@ public class Controller : JournalObject {
                 return;
             }
 
-            if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_A ) || Input.GetKeyDown( KeyCode.Space ) ) {
+            if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_A ) || Input.GetKeyDown( KeyCode.X ) ) {
                 animation.Play( "Attack" );
 
                 switch ( Type ) {
