@@ -55,7 +55,7 @@ public class IntroShake : MonoBehaviour {
 
         }
 
-        if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_Y ) || Input.GetKeyDown( KeyCode.Return ) ) {
+        if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_Y ) || Input.GetKeyDown( KeyCode.C ) ) {
             StopAllCoroutines();
 
             animation.Play( "AOE" );

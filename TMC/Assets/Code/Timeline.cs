@@ -65,7 +65,7 @@ public class Timeline : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if ( Input.GetKeyDown( KeyCode.Return ) || InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_Y ) ) {
+        if ( Input.GetKeyDown( KeyCode.C ) || InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_Y ) ) {
             if ( gameOver ) {
                 if ( won ) {
                     Application.LoadLevel( Application.loadedLevel + 1 );
