@@ -88,6 +88,8 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_GeneratedSkyboxReflection: {fileID: 0}
@@ -209,7 +211,7 @@ MonoBehaviour:
   smash: {fileID: 0}
   health: 1
   attackLimit: 1
-  acceleration: .699999988
+  acceleration: 40
   friction: 16
   StrikeCooldown: 1
   BeamChargeTime: 1
@@ -1283,7 +1285,7 @@ MonoBehaviour:
   smash: {fileID: 0}
   health: 1
   attackLimit: 1
-  acceleration: .5
+  acceleration: 30
   friction: 16
   StrikeCooldown: 1
   BeamChargeTime: 1
@@ -1957,7 +1959,7 @@ MonoBehaviour:
   smash: {fileID: 0}
   health: 1
   attackLimit: 1
-  acceleration: .600000024
+  acceleration: 36
   friction: 16
   StrikeCooldown: 1
   BeamChargeTime: 1
@@ -2142,6 +2144,7 @@ MonoBehaviour:
   SFX_SWOOSH: {fileID: 8300000, guid: ad6f5d621e44b904699bfeec53227adb, type: 3}
   SFX_SWOOSH2: {fileID: 8300000, guid: b47aa70fc3b08c442807805931dea508, type: 3}
   SFX_JUMP: {fileID: 8300000, guid: a8cc2e93da3ddf94ea302c04f17c4acd, type: 3}
+  SFX_DIE: {fileID: 0}
   nas: {fileID: 0}
   ccc: {fileID: 0}
 --- !u!4 &1043425323
@@ -2479,6 +2482,7 @@ Light:
     m_Resolution: 3
     m_Strength: 1
     m_Bias: .639999986
+    m_NormalBias: 0
     m_Softness: 4
     m_SoftnessFade: 1
   m_Cookie: {fileID: 0}

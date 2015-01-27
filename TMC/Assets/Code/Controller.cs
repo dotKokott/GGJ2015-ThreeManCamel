@@ -201,7 +201,7 @@ public class Controller : JournalObject {
                     animation.Play( "Walk", AnimationPlayMode.Stop );
             }
 
-            transform.position += vel;
+            transform.position += vel * Time.deltaTime;
 
             var dir = vel.normalized;
 
