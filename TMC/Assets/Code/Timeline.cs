@@ -83,7 +83,7 @@ public class Timeline : MonoBehaviour {
                     }
                 }
             }
-        } else if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_BACK ) || Input.GetKeyDown( KeyCode.Backspace ) ) {
+        } else if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_BACK ) || Input.GetKeyDown( KeyCode.Backspace ) || Input.GetKeyDown( KeyCode.R ) ) {
             Application.LoadLevel( Application.loadedLevel );
         }
     }
