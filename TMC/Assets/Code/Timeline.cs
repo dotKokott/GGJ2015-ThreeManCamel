@@ -65,7 +65,7 @@ public class Timeline : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if ( Input.GetKeyDown( KeyCode.O ) || InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_Y ) ) {
+        if ( Input.GetKeyDown( KeyCode.Return ) || InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_Y ) ) {
             if ( gameOver ) {
                 if ( won ) {
                     Application.LoadLevel( Application.loadedLevel + 1 );
@@ -83,7 +83,7 @@ public class Timeline : MonoBehaviour {
                     }
                 }
             }
-        } else if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_BACK ) ) {
+        } else if ( InputManager.GetButtonDown( 0, ButtonMapping.BUTTON_BACK ) || Input.GetKeyDown( KeyCode.Backspace ) ) {
             Application.LoadLevel( Application.loadedLevel );
         }
     }
