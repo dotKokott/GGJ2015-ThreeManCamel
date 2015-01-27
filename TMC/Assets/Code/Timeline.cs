@@ -201,31 +201,51 @@ public class Timeline : MonoBehaviour {
                 }
             }
         } else {
-            if ( GameObject.FindGameObjectsWithTag( "Player" ).Length == playersInLevel ) {
-                if ( boss.GetComponent<BossController>().Health == 0 ) {
-                    won = true;
-                    EnableUIObject( "Victory" );
-                    EnableUIObject( "Victory 1" );
-                } else {
-                    won = false;
-                    if ( UnityEngine.Random.Range( 0, 100 ) < 50 ) {
-                        EnableUIObject( "NoBoss" );
-                        EnableUIObject( "NoBoss 1" );
-                    } else {
-                        EnableUIObject( "Death" );
-                        EnableUIObject( "Death 1" );
-                    }
-                }
-            } else {
+            if ( GameObject.FindGameObjectsWithTag( "Player" ).Length == playersInLevel
+                && boss.GetComponent<BossController>().Health > 0 ) {
                 won = false;
-                if ( UnityEngine.Random.Range( 0, 100 ) < 50 ) {
-                    EnableUIObject( "NoBoss" );
-                    EnableUIObject( "NoBoss 1" );
-                } else {
-                    EnableUIObject( "Death" );
-                    EnableUIObject( "Death 1" );
-                }
+                EnableUIObject( "NoBoss" );
+                EnableUIObject( "NoBoss 1" );
+                // Didn't kill boss, failed
+            } else if ( GameObject.FindGameObjectsWithTag( "Player" ).Length != playersInLevel) {
+                won = false;
+                EnableUIObject( "Death" );
+                EnableUIObject( "Death 1" );
+                // Team member died, failed
+            } else if (GameObject.FindGameObjectsWithTag("Player").Length == playersInLevel
+                && boss.GetComponent<BossController>().Health <= 0) {
+                won = true;
+                EnableUIObject( "Victory" );
+                EnableUIObject( "Victory 1" );
+                // Win
             }
+
+
+            //if ( GameObject.FindGameObjectsWithTag( "Player" ).Length == playersInLevel ) {
+            //    if ( boss.GetComponent<BossController>().Health == 0 ) {
+            //        won = true;
+            //        EnableUIObject( "Victory" );
+            //        EnableUIObject( "Victory 1" );
+            //    } else {
+            //        won = false;
+            //        if ( UnityEngine.Random.Range( 0, 100 ) < 50 ) {
+            //            EnableUIObject( "NoBoss" );
+            //            EnableUIObject( "NoBoss 1" );
+            //        } else {
+            //            EnableUIObject( "Death" );
+            //            EnableUIObject( "Death 1" );
+            //        }
+            //    }
+            //} else {
+            //    won = false;
+            //    if ( UnityEngine.Random.Range( 0, 100 ) < 50 ) {
+            //        EnableUIObject( "NoBoss" );
+            //        EnableUIObject( "NoBoss 1" );
+            //    } else {
+            //        EnableUIObject( "Death" );
+            //        EnableUIObject( "Death 1" );
+            //    }
+            //}
         }
 
     }

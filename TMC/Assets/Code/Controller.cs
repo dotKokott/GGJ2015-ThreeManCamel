@@ -101,6 +101,7 @@ public class Controller : JournalObject {
                             smash = Instantiate( Globals._.PREFAB_PROTECTOR, transform.position, Globals._.PREFAB_SMASH.transform.rotation ) as GameObject;
                             smash.GetComponent<AttackInfo>().Owner = this.gameObject;
                             Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Smash );
+                            protectionTimer = 0.5f;
 
                             break;
                         case CharacterType.Knight:
@@ -224,6 +225,8 @@ public class Controller : JournalObject {
                         smash.GetComponent<AttackInfo>().Owner = this.gameObject;
 
                         Camera.main.GetComponent<AudioSource>().PlayOneShot( Globals._.SOUND_Smash );
+
+                        protectionTimer = 0.5f;
 
                         attackLimit--;
 
