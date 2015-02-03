@@ -2376,6 +2376,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 11496182, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
   m_IsPrefabParent: 0
@@ -2431,6 +2435,22 @@ GameObject:
 GameObject:
   m_PrefabParentObject: {fileID: 141978, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
   m_PrefabInternal: {fileID: 1171103760}
+--- !u!1 &1171103774
+GameObject:
+  m_PrefabParentObject: {fileID: 109132, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+  m_PrefabInternal: {fileID: 1171103760}
+--- !u!114 &1171103775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1171103774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bf3bc12f8baf904993a08fdc9162a2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wantedAspectRatio: 1.33333325
 --- !u!4 &1178582031
 Transform:
   m_PrefabParentObject: {fileID: 400010, guid: c8a99771a3aec43b9b7d0f4265a3f264, type: 3}
@@ -2483,8 +2503,6 @@ Light:
     m_Strength: 1
     m_Bias: .639999986
     m_NormalBias: 0
-    m_Softness: 4
-    m_SoftnessFade: 1
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_ActuallyLightmapped: 0

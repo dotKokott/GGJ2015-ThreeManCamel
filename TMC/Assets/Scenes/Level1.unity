@@ -1345,6 +1345,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11496182, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
   m_IsPrefabParent: 0
@@ -1797,8 +1801,6 @@ Light:
     m_Strength: 1
     m_Bias: .639999986
     m_NormalBias: 0
-    m_Softness: 4
-    m_SoftnessFade: 1
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_ActuallyLightmapped: 0
@@ -2297,6 +2299,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Owner: {fileID: 239269347}
+--- !u!1 &1847288830
+GameObject:
+  m_PrefabParentObject: {fileID: 109132, guid: 4524df94b8c9d4122996b5199bfe89f6, type: 2}
+  m_PrefabInternal: {fileID: 950934782}
+--- !u!114 &1847288842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1847288830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bf3bc12f8baf904993a08fdc9162a2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wantedAspectRatio: 1.33333325
 --- !u!4 &1856261802
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 52ba9fd7fe5c44cd8b57ac24428a3fee, type: 3}

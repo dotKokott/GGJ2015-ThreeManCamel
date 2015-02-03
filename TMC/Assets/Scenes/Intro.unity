@@ -8569,6 +8569,7 @@ GameObject:
   - 114: {fileID: 372871279}
   - 114: {fileID: 372871280}
   - 82: {fileID: 372871281}
+  - 114: {fileID: 372871282}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8833,6 +8834,18 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &372871282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 372871269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bf3bc12f8baf904993a08fdc9162a2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wantedAspectRatio: 1.33333325
 --- !u!1 &373050284
 GameObject:
   m_ObjectHideFlags: 0
@@ -8870,8 +8883,6 @@ Light:
     m_Strength: 1
     m_Bias: .0500000007
     m_NormalBias: .400000006
-    m_Softness: 4
-    m_SoftnessFade: 1
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_ActuallyLightmapped: 0
@@ -36096,7 +36107,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

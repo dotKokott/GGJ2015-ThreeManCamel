@@ -9,7 +9,8 @@
 *.suo
 
 *.userprefs
-builds/
+[Bb]uilds/
+[Bb]uild/
 EditorBuildSettings.asset
 source/ProjectSettings/EditorBuildSettings.asset
 [Ss]ource-csharp*/

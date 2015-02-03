@@ -88,6 +88,8 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_GeneratedSkyboxReflection: {fileID: 0}
@@ -192,8 +194,7 @@ Light:
     m_Resolution: -1
     m_Strength: 1
     m_Bias: .0500000007
-    m_Softness: 4
-    m_SoftnessFade: 1
+    m_NormalBias: .400000006
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_ActuallyLightmapped: 0
@@ -238,6 +239,7 @@ GameObject:
   - 114: {fileID: 372871279}
   - 114: {fileID: 372871280}
   - 82: {fileID: 372871281}
+  - 114: {fileID: 372871282}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -502,6 +504,18 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &372871282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 372871269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bf3bc12f8baf904993a08fdc9162a2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wantedAspectRatio: 1.33333325
 --- !u!1 &373050284
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,8 +552,7 @@ Light:
     m_Resolution: -1
     m_Strength: 1
     m_Bias: .0500000007
-    m_Softness: 4
-    m_SoftnessFade: 1
+    m_NormalBias: .400000006
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_ActuallyLightmapped: 0
@@ -970,10 +983,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1965002548}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 286.5, y: -275.349976}
-  m_SizeDelta: {x: 200, y: 29.2999992}
+  m_AnchorMin: {x: .5, y: 0}
+  m_AnchorMax: {x: .5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 14.1000004}
+  m_SizeDelta: {x: 200, y: 29.3000031}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1551005553
 MonoBehaviour:
@@ -1204,7 +1217,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
